@@ -28,13 +28,13 @@
             font-size: 1.25em;
             color: #fff;
             /* 这是字体的描边第一个值是粗细,第二个值是颜色 */
-            -webkit-text-stroke: 3px rgba(0,0,0,0.5);
+            -webkit-text-stroke: 3px rgba(0,0,0,0);
             /* 单词大写 */
             text-transform: uppercase;
             /* 文字阴影 */
             text-shadow: 0 0 #f3c623, 0 0 #f2aaaa;
             /* 让文字先向下走自身高度的50%,然后顺时针旋转4度 */
-            transform: translate(0, 50%) rotate(4deg);
+            transform: translate(0, 30%) rotate(4deg);
             /* 动画 名称 时长 第三个值是延迟时长 calc是自动计算的方法,里面写的var()函数是会调用我们事先自定义好的属性值,我们刚才给span添加的--i:*就是一个自定义属性,var()能调用到相应的span的定义好的属性值,然后在*120ms来计算每个文字的延迟时长省时省力,第四个值是两头慢,中间快,第五个值是无线运动 */
             animation: move 2s calc(var(--i) * 120ms) ease-in-out infinite;
         }
