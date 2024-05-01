@@ -22,41 +22,41 @@
             color: white;
         }
 
-        /*.arjs-loader div span {*/
-        /*    !* 这里可以直接使用外部引入的字体样式 *!*/
-        /*    font-family: "Titan One";*/
-        /*    font-size: 1.25em;*/
-        /*    color: #fff;*/
-        /*    !* 这是字体的描边第一个值是粗细,第二个值是颜色 *!*/
-        /*    -webkit-text-stroke: 3px #000;*/
-        /*    !* 单词大写 *!*/
-        /*    text-transform: uppercase;*/
-        /*    !* 文字阴影 *!*/
-        /*    text-shadow: 0 0 #f3c623, 0 0 #f2aaaa;*/
-        /*    !* 让文字先向下走自身高度的50%,然后顺时针旋转4度 *!*/
-        /*    transform: translate(0, 50%) rotate(4deg);*/
-        /*    !* 动画 名称 时长 第三个值是延迟时长 calc是自动计算的方法,里面写的var()函数是会调用我们事先自定义好的属性值,我们刚才给span添加的--i:*就是一个自定义属性,var()能调用到相应的span的定义好的属性值,然后在*120ms来计算每个文字的延迟时长省时省力,第四个值是两头慢,中间快,第五个值是无线运动 *!*/
-        /*    animation: move 2s calc(var(--i) * 120ms) ease-in-out infinite;*/
-        /*}*/
+        .arjs-loader div span {
+            /* 这里可以直接使用外部引入的字体样式 */
+            font-family: "Titan One";
+            font-size: 1.25em;
+            color: #fff;
+            /* 这是字体的描边第一个值是粗细,第二个值是颜色 */
+            -webkit-text-stroke: 3px #000;
+            /* 单词大写 */
+            text-transform: uppercase;
+            /* 文字阴影 */
+            text-shadow: 0 0 #f3c623, 0 0 #f2aaaa;
+            /* 让文字先向下走自身高度的50%,然后顺时针旋转4度 */
+            transform: translate(0, 50%) rotate(4deg);
+            /* 动画 名称 时长 第三个值是延迟时长 calc是自动计算的方法,里面写的var()函数是会调用我们事先自定义好的属性值,我们刚才给span添加的--i:*就是一个自定义属性,var()能调用到相应的span的定义好的属性值,然后在*120ms来计算每个文字的延迟时长省时省力,第四个值是两头慢,中间快,第五个值是无线运动 */
+            animation: move 2s calc(var(--i) * 120ms) ease-in-out infinite;
+        }
 
-        /*!* 定义动画 *!*/
-        /*@keyframes move {*/
-        /*    0%,*/
-        /*    100% {*/
-        /*        text-shadow: 0 0 #f3c623, 0 0 #f2aaaa;*/
-        /*    }*/
-        /*    33.33% {*/
-        /*        text-shadow: 0 60px #f37121, 0 120px #f2aaaa;*/
-        /*    }*/
-        /*    50% {*/
-        /*        text-shadow: 0 0 #8fc0a9, 0 0 #84a9ac;*/
-        /*        !* 这个跟刚才写的刚好相反动画到一半向上走自身的一半,逆时针旋转4度 *!*/
-        /*        transform: translate(0, -50%) rotate(-4deg);*/
-        /*    }*/
-        /*    66.66% {*/
-        /*        text-shadow: 0 -60px #d54062, 0 -120px #8fc0a9;*/
-        /*    }*/
-        /*}*/
+        /* 定义动画 */
+        @keyframes move {
+            0%,
+            100% {
+                text-shadow: 0 0 #f3c623, 0 0 #f2aaaa;
+            }
+            33.33% {
+                text-shadow: 0 60px #f37121, 0 120px #f2aaaa;
+            }
+            50% {
+                text-shadow: 0 0 #8fc0a9, 0 0 #84a9ac;
+                /* 这个跟刚才写的刚好相反动画到一半向上走自身的一半,逆时针旋转4度 */
+                transform: translate(0, -50%) rotate(-4deg);
+            }
+            66.66% {
+                text-shadow: 0 -60px #d54062, 0 -120px #8fc0a9;
+            }
+        }
     </style>
 
     <!-- rawgithack development URL -->
@@ -85,29 +85,29 @@
 <!-- minimal loader shown until image descriptors are loaded -->
 <div class="arjs-loader">
     <div>
-                Loading, please wai...
-<!--        <span style="&#45;&#45;i: 1">l</span>-->
-<!--        <span style="&#45;&#45;i: 2">o</span>-->
-<!--        <span style="&#45;&#45;i: 3">a</span>-->
-<!--        <span style="&#45;&#45;i: 4">d</span>-->
-<!--        <span style="&#45;&#45;i: 5">i</span>-->
-<!--        <span style="&#45;&#45;i: 6">n</span>-->
-<!--        <span style="&#45;&#45;i: 7">g</span>-->
-<!--        <span style="&#45;&#45;i: 8">,</span>-->
-<!--        <span style="&#45;&#45;i: 9">p</span>-->
-<!--        <span style="&#45;&#45;i: 10">l</span>-->
-<!--        <span style="&#45;&#45;i: 11">e</span>-->
-<!--        <span style="&#45;&#45;i: 12">a</span>-->
-<!--        <span style="&#45;&#45;i: 13">s</span>-->
-<!--        <span style="&#45;&#45;i: 14">e</span>-->
-<!--        <span style="&#45;&#45;i: 15"> </span>-->
-<!--        <span style="&#45;&#45;i: 16">w</span>-->
-<!--        <span style="&#45;&#45;i: 17">a</span>-->
-<!--        <span style="&#45;&#45;i: 18">i</span>-->
-<!--        <span style="&#45;&#45;i: 19">t</span>-->
-<!--        <span style="&#45;&#45;i: 20">.</span>-->
-<!--        <span style="&#45;&#45;i: 21">.</span>-->
-<!--        <span style="&#45;&#45;i: 22">.</span>-->
+        Loading, please wait...
+        <span style="--i: 1">l</span>
+        <span style="--i: 2">o</span>
+        <span style="--i: 3">a</span>
+        <span style="--i: 4">d</span>
+        <span style="--i: 5">i</span>
+        <span style="--i: 6">n</span>
+        <span style="--i: 7">g</span>
+        <span style="--i: 8">,</span>
+        <span style="--i: 9">p</span>
+        <span style="--i: 10">l</span>
+        <span style="--i: 11">e</span>
+        <span style="--i: 12">a</span>
+        <span style="--i: 13">s</span>
+        <span style="--i: 14">e</span>
+        <span style="--i: 15"> </span>
+        <span style="--i: 16">w</span>
+        <span style="--i: 17">a</span>
+        <span style="--i: 18">i</span>
+        <span style="--i: 19">t</span>
+        <span style="--i: 20">.</span>
+        <span style="--i: 21">.</span>
+        <span style="--i: 22">.</span>
     </div>
 </div>
 <a-scene
