@@ -80,7 +80,10 @@
 /*########底部#######*/
 .container {
     /* 这里的弹性布局 让元素能够水平排列 并且能够让a这个行内元素设置宽度和高度 */
-    display: flex;
+    position: fixed;
+    bottom: 30px;
+    left: 0;
+    z-index: 1000;
 }
 
 .container .btn {
