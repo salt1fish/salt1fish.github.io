@@ -35,55 +35,61 @@
 </nav>
 
 <!-- 加载动画效果 -->
-<div class="arjs-loader">
-    <div>
-        <!--        Loading, please wait...-->
-        <span style="--i: 1">l</span>
-        <span style="--i: 2">o</span>
-        <span style="--i: 3">a</span>
-        <span style="--i: 4">d</span>
-        <span style="--i: 5">i</span>
-        <span style="--i: 6">n</span>
-        <span style="--i: 7">g</span>
-        <span style="--i: 8">.</span>
-        <span style="--i: 9">.</span>
-        <span style="--i: 10">.</span>
-    </div>
-</div>
+<!--<div class="arjs-loader">-->
+<!--    <div>-->
+<!--        &lt;!&ndash;        Loading, please wait...&ndash;&gt;-->
+<!--        <span style="&#45;&#45;i: 1">l</span>-->
+<!--        <span style="&#45;&#45;i: 2">o</span>-->
+<!--        <span style="&#45;&#45;i: 3">a</span>-->
+<!--        <span style="&#45;&#45;i: 4">d</span>-->
+<!--        <span style="&#45;&#45;i: 5">i</span>-->
+<!--        <span style="&#45;&#45;i: 6">n</span>-->
+<!--        <span style="&#45;&#45;i: 7">g</span>-->
+<!--        <span style="&#45;&#45;i: 8">.</span>-->
+<!--        <span style="&#45;&#45;i: 9">.</span>-->
+<!--        <span style="&#45;&#45;i: 10">.</span>-->
+<!--    </div>-->
+<!--</div>-->
 
 <!-- 图像追踪 -->
-<a-scene
-        arjs='trackingMethod: best; sourceType: webcam; debugUIEnabled: false;'
-        embedded
-        renderer="logarithmicDepthBuffer: true;"
-        vr-mode-ui="enabled: false;"
-        gesture-detector
-        id="scene"
->
-
-    <!-- use rawgithack to retrieve the correct url for nft marker (see 'pinball' below) -->
-    <a-nft
-            type="nft"
-            url="./trex/trex-image/trex"
-            smooth="true"
-            smoothCount="10"
-            smoothTolerance="0.01"
-            smoothThreshold="5"
-            raycaster="objects: .clickable"
-            emitevents="true"
-            cursor="fuse: false; rayOrigin: mouse;"
-    >
-        <a-entity
-                gltf-model='https://cdn.glitch.com/06bd98b4-97ee-4c07-a546-fe39ca205034%2Fbowser.glb'
-                scale="5 5 5"
-                position="50 150 0"
-                class="clickable"
-                gesture-handler="minScale: 0.25; maxScale: 10"
-        >
-            <!--            rotation="-10 0 0 " -->
-        </a-entity>
-    </a-nft>
-    <a-entity camera></a-entity>
+<!--<a-scene-->
+<!--        arjs='trackingMethod: best; sourceType: webcam; debugUIEnabled: false;'-->
+<!--        embedded-->
+<!--        renderer="logarithmicDepthBuffer: true;"-->
+<!--        vr-mode-ui="enabled: false;"-->
+<!--        gesture-detector-->
+<!--        id="scene"-->
+<!--&gt;-->
+<!--    &lt;!&ndash; use rawgithack to retrieve the correct url for nft marker (see 'pinball' below) &ndash;&gt;-->
+<!--    <a-nft-->
+<!--            type="nft"-->
+<!--            url="./trex/trex-image/trex"-->
+<!--            smooth="true"-->
+<!--            smoothCount="10"-->
+<!--            smoothTolerance="0.01"-->
+<!--            smoothThreshold="5"-->
+<!--            raycaster="objects: .clickable"-->
+<!--            emitevents="true"-->
+<!--            cursor="fuse: false; rayOrigin: mouse;"-->
+<!--    >-->
+<!--        <a-entity-->
+<!--                gltf-model='https://cdn.glitch.com/06bd98b4-97ee-4c07-a546-fe39ca205034%2Fbowser.glb'-->
+<!--                scale="5 5 5"-->
+<!--                position="50 150 0"-->
+<!--                class="clickable"-->
+<!--                gesture-handler="minScale: 0.25; maxScale: 10"-->
+<!--        >-->
+<!--        </a-entity>-->
+<!--    </a-nft>-->
+<!--    <a-entity camera></a-entity>-->
+<!--</a-scene>-->
+<a-scene>
+            <a-entity
+                    gltf-model='https://cdn.glitch.com/06bd98b4-97ee-4c07-a546-fe39ca205034%2Fbowser.glb'
+                    scale="5 5 5"
+                    position="50 150 0"
+            >
+            </a-entity>
 </a-scene>
 </body>
 </html>
