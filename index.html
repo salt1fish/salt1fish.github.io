@@ -60,6 +60,14 @@
         gesture-detector
         id="scene"
 >
+    <a-entity
+            gltf-model='https://cdn.glitch.com/06bd98b4-97ee-4c07-a546-fe39ca205034%2Fbowser.glb'
+            scale="5 5 5"
+            position="50 150 0"
+            class="clickable"
+            gesture-handler="minScale: 0.25; maxScale: 10"
+    >
+    </a-entity>
     <!-- use rawgithack to retrieve the correct url for nft marker (see 'pinball' below) -->
     <a-nft
             type="nft"
