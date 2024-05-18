@@ -162,7 +162,7 @@
                     console.log("offw:", offw);
                     let marginL = Math.ceil((offw - innerw) / 2);
                     console.log("margin:", marginL);
-                    my_swiper.style.marginLeft = marginL.toString();
+                    my_swiper.style.setProperty("margin-left", marginL + "px", "important")
                 }
                 my_swiper.style.display = "block";
             }
