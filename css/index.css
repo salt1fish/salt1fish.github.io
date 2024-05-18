@@ -134,16 +134,16 @@
     background-color: #3b5988;
 }
 
-.container .btn:hover::before {
-    top: -10%;
-    left: -10%;
-}
+/*.container .btn:hover::before {*/
+/*    top: -10%;*/
+/*    left: -10%;*/
+/*}*/
 
-.container .btn:hover .fa {
-    color: #fff;
-    /* 鼠标移入 恢复到原来的大小 */
-    transform: scale(1);
-}
+/*.container .btn:hover .fa {*/
+/*    color: #fff;*/
+/*    !* 鼠标移入 恢复到原来的大小 *!*/
+/*    transform: scale(1);*/
+/*}*/
 
 /*###########轮播器样式#############*/
 /* 外层容器 */
