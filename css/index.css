@@ -161,7 +161,7 @@ nav {
 .my_swiper {
     position: absolute;
     bottom: 115px;
-    margin: 0 auto;
+    /*margin: 0 auto;*/
     float: left;
     display: none;
 }
