@@ -156,9 +156,10 @@
             } else {
                 btn.style.background = "linear-gradient(90deg, #fa7199, #f5ce62, #e43603, #fa7199)";
                 btn.style.backgroundSize = "400%";
-                if (my_swiper.style.marginLeft === "" && innerw < 1025) {
+                if (innerw < 1025) {
                     let marginL = Math.ceil((offw - innerw) / 2);
                     my_swiper.style.marginLeft = marginL.toString();
+                    console.log("margin:", marginL);
                 }
                 my_swiper.style.display = "block";
             }
