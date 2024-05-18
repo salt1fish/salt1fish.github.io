@@ -148,9 +148,7 @@
         let btn = document.getElementById("btn");
         let my_swiper = document.getElementById("my_swiper")
         let innerw = window.innerWidth;
-        let offw = document.body.offsetWidth;
         console.log("innerw:", innerw);
-        console.log("offw:", offw);
         btn.onclick = function () {
             if (btn.style.backgroundSize === "400%") {
                 btn.style.backgroundcolor = "#fff";
@@ -160,12 +158,11 @@
                 btn.style.background = "linear-gradient(90deg, #fa7199, #f5ce62, #e43603, #fa7199)";
                 btn.style.backgroundSize = "400%";
                 if (innerw < 1025) {
-                    console.log("innerw:", innerw);
+                    let offw = document.body.offsetWidth;
                     console.log("offw:", offw);
                     let marginL = Math.ceil((offw - innerw) / 2);
                     console.log("margin:", marginL);
                     my_swiper.style.marginLeft = marginL.toString();
-                    console.log("margin:", marginL);
                 }
                 my_swiper.style.display = "block";
             }
