@@ -7,6 +7,7 @@
     <!-- rawgithack development URL -->
     <script src='https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar-nft.js'></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
+    <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css"/>
     <link rel="stylesheet" href="./css/index.css">
     <!-- 手势检测js -->
     <script src="./script/gesture-detector.js"></script>
@@ -89,55 +90,73 @@
     <a-entity camera></a-entity>
 </a-scene>
 
-<!--<div class="swiper">-->
-<!--    &lt;!&ndash; Additional required wrapper &ndash;&gt;-->
-<!--    <div class="swiper-wrapper">-->
-<!--        &lt;!&ndash; Slides &ndash;&gt;-->
-<!--        <div class="swiper-slide swiper-slide-1">1</div>-->
-<!--        <div class="swiper-slide swiper-slide-2">2</div>-->
-<!--        <div class="swiper-slide swiper-slide-3">3</div>-->
-<!--        <div class="swiper-slide swiper-slide-4">4</div>-->
-<!--        <div class="swiper-slide swiper-slide-5">5</div>-->
-<!--    </div>-->
+<div class="my_swiper" id="my_swiper">
+    <div class="swiper">
+        <!-- Additional required wrapper -->
+        <div class="swiper-wrapper">
+            <!-- Slides -->
+            <div class="swiper-slide swiper-slide-1">1</div>
+            <div class="swiper-slide swiper-slide-2">2</div>
+            <div class="swiper-slide swiper-slide-3">3</div>
+            <div class="swiper-slide swiper-slide-4">4</div>
+            <div class="swiper-slide swiper-slide-5">5</div>
+        </div>
 
-<!--    <div class="swiper-pagination"></div>-->
-<!--    <div class="swiper-button-prev"></div>-->
-<!--    <div class="swiper-button-next"></div>-->
-<!--</div>-->
+        <div class="swiper-pagination"></div>
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-button-next"></div>
+    </div>
 
-<!--&lt;!&ndash; 轮播器js &ndash;&gt;-->
-<!--<script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>-->
-<!--<script>-->
-<!--    const swiper = new Swiper('.swiper', {-->
-<!--        effect: 'coverflow',-->
-<!--        loop: true,-->
-<!--        grabCursor: true,-->
-<!--        centeredSlides: true,-->
-<!--        slidesPerView: 'auto',-->
-<!--        coverflowEffect: {-->
-<!--            rotate: 0,-->
-<!--            stretch: 0,-->
-<!--            depth: 150,-->
-<!--            modifier: 1,-->
-<!--            slideShadows: false,-->
-<!--        },-->
-<!--        pagination: {-->
-<!--            el: '.swiper-pagination',-->
-<!--        },-->
-<!--        navigation: {-->
-<!--            nextEl: '.swiper-button-next',-->
-<!--            prevEl: '.swiper-button-prev',-->
-<!--        },-->
-<!--    });-->
+    <!-- 轮播器js -->
+    <script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
+    <script>
+        const swiper = new Swiper('.swiper', {
+            effect: 'coverflow',
+            loop: true,
+            grabCursor: true,
+            centeredSlides: true,
+            slidesPerView: 'auto',
+            coverflowEffect: {
+                rotate: 0,
+                stretch: 0,
+                depth: 150,
+                modifier: 1,
+                slideShadows: false,
+            },
+            pagination: {
+                el: '.swiper-pagination',
+            },
+            navigation: {
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev',
+            },
+        });
 
-<!--    // 监听改变事件-->
-<!--    swiper.on('slideChange', (e) => {-->
-<!--        console.log(e.realIndex);-->
-<!--    });-->
-<!--</script>-->
+        // 监听改变事件
+        swiper.on('slideChange', (e) => {
+            console.log(e.realIndex);
+        });
+    </script>
+</div>
 
 <div class="container">
-    <a href="javascript:void(0)" class="btn btn_facebook"><i class="fa fa-instagram"></i></a>
+    <a href="javascript:void(0)" class="btn" id="btn"><i class="fa fa-instagram"></i></a>
+
+    <script>
+        let btn = document.getElementById("btn");
+        let my_swiper = document.getElementById("my_swiper")
+        btn.onclick = function () {
+            if (btn.style.backgroundSize === "400%") {
+                btn.style.backgroundcolor = "#fff";
+                btn.style.backgroundSize = "0";
+                my_swiper.style.display = "none";
+            } else {
+                btn.style.background = "linear-gradient(90deg, #fa7199, #f5ce62, #e43603, #fa7199)";
+                btn.style.backgroundSize = "400%";
+                my_swiper.style.display = "block";
+            }
+        }
+    </script>
 </div>
 
 </body>

@@ -99,6 +99,16 @@
     background-color: #fff;
     /* 盒子阴影 */
     box-shadow: 0 5px 15px -5px rgba(0, 0, 0, 0.1);
+    animation: glow 8s linear infinite;
+}
+
+@keyframes glow {
+    0% {
+        background-position: 0%;
+    }
+    100% {
+        background-position: 400%;
+    }
 }
 
 .container .fa {
@@ -134,22 +144,18 @@
     background-color: #3b5988;
 }
 
-/*.container .btn:hover::before {*/
-/*    top: -10%;*/
-/*    left: -10%;*/
-/*}*/
-
-/*.container .btn:hover .fa {*/
-/*    color: #fff;*/
-/*    !* 鼠标移入 恢复到原来的大小 *!*/
-/*    transform: scale(1);*/
-/*}*/
-
 /*###########轮播器样式#############*/
 /* 外层容器 */
+.my_swiper {
+    position: absolute;
+    bottom: 130px;
+    margin: 0 auto;
+    display: none;
+}
+
 .swiper {
-    width: 100%;
-    height: 170px;
+    height: 100%;
+    margin: 0 auto;
 }
 
 /* 轮播项 */
@@ -165,6 +171,32 @@
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+@media (max-width: 1024px) {
+    .my_swiper {
+        height: 40%;
+        width: 100%;
+    }
+    .swiper {
+        width: 90%;
+    }
+
+    .swiper .swiper-slide {
+        width: 40%;
+    }
+
+}
+
+@media (min-width: 1025px) {
+    .my_swiper {
+        height: 400px;
+        width: 100%;
+    }
+
+    .swiper {
+        width: 60%;
+    }
 }
 
 /* 色彩来源：https://color.uisdc.com/ */
