@@ -160,7 +160,7 @@ nav {
 /* 外层容器 */
 .my_swiper {
     position: absolute;
-    bottom: 130px;
+    bottom: 115px;
     margin: 0 auto;
     float: left;
     display: none;
@@ -173,7 +173,7 @@ nav {
 
 /* 轮播项 */
 .swiper .swiper-slide {
-    width: 30%;
+    width: 40%;
     height: 100%;
 
     font-size: 32px;
@@ -188,15 +188,16 @@ nav {
 
 @media (max-width: 1024px) {
     .my_swiper {
-        height: 40%;
+        height: 20%;
         width: 100%;
+        margin-left: 370px;
     }
     .swiper {
         width: 90%;
     }
 
     .swiper .swiper-slide {
-        width: 40%;
+        width: 30%;
     }
 
 }
