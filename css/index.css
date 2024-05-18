@@ -80,10 +80,10 @@
 /*########底部#######*/
 .container {
     /* 这里的弹性布局 让元素能够水平排列 并且能够让a这个行内元素设置宽度和高度 */
+    display: flex;
     position: fixed;
     bottom: 30px;
     left: 0;
-    z-index: 1000;
 }
 
 .container .btn {
@@ -91,17 +91,17 @@
     overflow: hidden;
     /* 相对定位 */
     position: relative;
-    width: 90px;
+    width: 70px;
     height: 90px;
     text-align: center;
-    margin: 0 10px;
-    border-radius: 25px;
+    margin: 0 0;
+    border-radius: 0 15px 15px 0;
     background-color: #fff;
     /* 盒子阴影 */
     box-shadow: 0 5px 15px -5px rgba(0, 0, 0, 0.1);
 }
 
-.container .fa-solid {
+.container .fa {
     /* 字体图标可以直接使用字体大小来设置大小 */
     font-size: 38px;
     /* 缩放0.8倍 */
@@ -126,11 +126,12 @@
     transition: all 0.4s cubic-bezier(0.31, -0.1, 0.43, 1.59);
 }
 
-.container .btn .fa-bars {
-	color: #3b5988;
+.container .btn .fa-instagram {
+    color: #3b5988;
 }
-.container .fa-bars::before {
-	background-color: #3b5988;
+
+.container .btn_instagram::before {
+    background-color: #3b5988;
 }
 
 .container .btn:hover::before {
@@ -142,4 +143,47 @@
     color: #fff;
     /* 鼠标移入 恢复到原来的大小 */
     transform: scale(1);
+}
+
+/*###########轮播器样式#############*/
+/* 外层容器 */
+.swiper {
+    width: 100%;
+    height: 170px;
+}
+
+/* 轮播项 */
+.swiper .swiper-slide {
+    width: 30%;
+    height: 100%;
+
+    font-size: 32px;
+    font-weight: 500;
+    color: #ffffff;
+
+    /* 文字垂直居中 */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* 色彩来源：https://color.uisdc.com/ */
+.swiper .swiper-slide-1 {
+    background-color: #425066;
+}
+
+.swiper .swiper-slide-2 {
+    background-color: #8d4bbb;
+}
+
+.swiper .swiper-slide-3 {
+    background-color: #9d2933;
+}
+
+.swiper .swiper-slide-4 {
+    background-color: #003371;
+}
+
+.swiper .swiper-slide-5 {
+    background-color: #4c8dae;
 }
