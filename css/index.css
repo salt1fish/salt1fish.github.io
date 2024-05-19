@@ -229,27 +229,27 @@ nav {
 
 /* 色彩来源：https://color.uisdc.com/ */
 .swiper .swiper-slide-1 {
-    background-image: url("../images/box/front1.jpg");
+    background-image: url("../images/box/front1_min.png");
 }
 
 .swiper .swiper-slide-2 {
-    background-image: url("../images/box/front2.jpg");
+    background-image: url("../images/box/front2_min.png");
 }
 
 .swiper .swiper-slide-3 {
-    background-image: url("../images/box/front3.jpg");
+    background-image: url("../images/box/front3_min.png");
 }
 
 .swiper .swiper-slide-4 {
-    background-image: url("../images/box/front4.jpg");
+    background-image: url("../images/box/front4_min.png");
 }
 
 .swiper .swiper-slide-5 {
-    background-image: url("../images/box/front5.jpg");
+    background-image: url("../images/box/front5_min.png");
 }
 
 .swiper .swiper-slide-6 {
-    background-image: url("../images/box/front6.jpg");
+    background-image: url("../images/box/front6_min.png");
 }
 
 /*##########详情页面########*/
@@ -263,7 +263,7 @@ nav {
     /* 让页面始终占浏览器总高 */
     height: 100vh;
     background-color: #ffffff;
-    background-image: url('../images/box/bg1.png');
+    background-image: url('../images/box/bg1_min.png');
     background-size: auto;
     /* 视距 增加盒子的立体感 */
     perspective: 1000px;

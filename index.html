@@ -159,11 +159,11 @@
             console.log(imgs);
             for (let i = 0; i < imgs.length; i++) {
                 if (i % 6 === 0) {
-                    imgs[i].setAttribute("src", "images/box/front" + obj_id + ".jpg");
+                    imgs[i].setAttribute("src", "images/box/front" + obj_id + "_min.png");
                 } else if (i % 6 === 1) {
-                    imgs[i].setAttribute("src", "images/box/back" + obj_id + ".png");
+                    imgs[i].setAttribute("src", "images/box/back" + obj_id + "_min.png");
                 } else if (i % 6 === 2) {
-                    imgs[i].setAttribute("src", "images/box/over" + obj_id + ".jpg");
+                    imgs[i].setAttribute("src", "images/box/over" + obj_id + "_min.png");
                 } else if (i % 6 === 3) {
                     if (obj_id === 1) {
                         imgs[i].style.setProperty("background-color", "#F3BF46", "important");
@@ -179,12 +179,12 @@
                         imgs[i].style.setProperty("background-color", "#EBE5D3", "important");
                     }
                 } else if (i % 6 === 4) {
-                    imgs[i].setAttribute("src", "images/box/right" + obj_id + ".png");
+                    imgs[i].setAttribute("src", "images/box/right" + obj_id + "_min.png");
                 } else if (i % 6 === 5) {
-                    imgs[i].setAttribute("src", "images/box/left" + obj_id + ".jpg");
+                    imgs[i].setAttribute("src", "images/box/left" + obj_id + "_min.png");
                 }
             }
-            slide_sec1.style.setProperty("background-image", "url('./images/box/bg" + obj_id + ".png')", "important")
+            slide_sec1.style.setProperty("background-image", "url('./images/box/bg" + obj_id + "_min.png')", "important")
             slide_sec1.style.setProperty('visibility', 'visible', 'important');
         }
     </script>
@@ -194,7 +194,7 @@
 <div id="slide-sec">
     <!-- 后退按钮 -->
     <div class="back-btn">
-        <a href="javascript:void(0)" id="back-btn" onclick="backClick()"><img src="images/back-btn.png"></a>
+        <a href="javascript:void(0)" id="back-btn" onclick="backClick()"><img src="images/back-btn.png" alt=""></a>
     </div>
     <!--    &lt;!&ndash; 前进按钮 &ndash;&gt;-->
     <!--    <div class="front-btn">-->
@@ -220,18 +220,18 @@
     </script>
     <!-- 第一页 -->
     <section id="slide_sec1" onclick="box_click()">
-        <div id="bc1"><img src="images/box/front1.jpg" alt="前" class="tem"/></div>
-        <div id="bc2"><img src="images/box/back1.png" alt="后" class="tem"/></div>
-        <div id="bc3"><img src="images/box/over1.jpg" alt="上" class="tem"/></div>
+        <div id="bc1"><img src="images/box/front1_min.png" alt="前" class="tem"/></div>
+        <div id="bc2"><img src="images/box/back1_min.png" alt="后" class="tem"/></div>
+        <div id="bc3"><img src="images/box/over1_min.png" alt="上" class="tem"/></div>
         <div id="bc4" class="tem"></div>
-        <div id="bc5"><img src="images/box/right1.png" alt="右" class="tem"/></div>
-        <div id="bc6"><img src="images/box/left1.jpg" alt="左" class="tem"/></div>
-        <div><img src="images/box/front1.jpg" alt="" class="tem"/></div>
-        <div><img src="images/box/back1.png" alt="" class="tem"/></div>
-        <div><img src="images/box/over1.jpg" alt="" class="tem"/></div>
+        <div id="bc5"><img src="images/box/right1_min.png" alt="右" class="tem"/></div>
+        <div id="bc6"><img src="images/box/left1_min.png" alt="左" class="tem"/></div>
+        <div><img src="images/box/front1_min.png" alt="" class="tem"/></div>
+        <div><img src="images/box/back1_min.png" alt="" class="tem"/></div>
+        <div><img src="images/box/over1_min.png" alt="" class="tem"/></div>
         <div class="tem"></div>
-        <div><img src="images/box/right1.png" alt="" class="tem"/></div>
-        <div><img src="images/box/left1.jpg" alt="" class="tem"/></div>
+        <div><img src="images/box/right1_min.png" alt="" class="tem"/></div>
+        <div><img src="images/box/left1_min.png" alt="" class="tem"/></div>
     </section>
     <!-- 点击事件 -->
     <script>
