@@ -153,11 +153,12 @@
 
         function myClick() {
             let obj = window.event.currentTarget;
-            let obj_id = parseInt(obj.id[1])
+            let obj_id_str = obj.id;
+            let obj_id = parseInt(obj_id_str.substring(1));
             let slide_sec1 = document.getElementById("slide-sec");
             let imgs = document.querySelectorAll(".tem");
             let bc4 = document.getElementById("bc4");
-            let bc7 = document.getElementById("bc7");
+            let bc10 = document.getElementById("bc10");
             console.log(imgs);
             for (let i = 0; i < imgs.length; i++) {
                 if (i % 6 === 0) {
@@ -169,22 +170,22 @@
                 } else if (i % 6 === 3) {
                     if (obj_id === 1) {
                         bc4.style.setProperty('background-color', '#F3BF46', 'important');
-                        bc7.style.setProperty('background-color', '#F3BF46', 'important');
+                        bc10.style.setProperty('background-color', '#F3BF46', 'important');
                     } else if (obj_id === 2) {
                         bc4.style.setProperty('background-color', '#EDC187', 'important');
-                        bc7.style.setProperty('background-color', '#EDC187', 'important');
+                        bc10.style.setProperty('background-color', '#EDC187', 'important');
                     } else if (obj_id === 3) {
                         bc4.style.setProperty('background-color', '#F9DF9F', 'important');
-                        bc7.style.setProperty('background-color', '#F9DF9F', 'important');
+                        bc10.style.setProperty('background-color', '#F9DF9F', 'important');
                     } else if (obj_id === 4) {
                         bc4.style.setProperty('background-color', '#D28F4F', 'important');
-                        bc7.style.setProperty('background-color', '#D28F4F', 'important');
+                        bc10.style.setProperty('background-color', '#D28F4F', 'important');
                     } else if (obj_id === 5) {
                         bc4.style.setProperty('background-color', '#CA4420', 'important');
-                        bc7.style.setProperty('background-color', '#CA4420', 'important');
+                        bc10.style.setProperty('background-color', '#CA4420', 'important');
                     } else if (obj_id === 6) {
                         bc4.style.setProperty('background-color', '#EBE5D3', 'important');
-                        bc7.style.setProperty('background-color', '#EBE5D3', 'important');
+                        bc10.style.setProperty('background-color', '#EBE5D3', 'important');
                     }
                 } else if (i % 6 === 4) {
                     imgs[i].setAttribute("src", "images/box/right" + obj_id + "_min.png");
@@ -234,12 +235,12 @@
         <div id="bc4" class="tem"></div>
         <div id="bc5"><img src="images/box/right1_min.png" alt="右" class="tem"/></div>
         <div id="bc6"><img src="images/box/left1_min.png" alt="左" class="tem"/></div>
-        <div><img src="images/box/front1_min.png" alt="" class="tem"/></div>
-        <div><img src="images/box/back1_min.png" alt="" class="tem"/></div>
-        <div><img src="images/box/over1_min.png" alt="" class="tem"/></div>
-        <div id="bc7" class="tem"></div>
-        <div><img src="images/box/right1_min.png" alt="" class="tem"/></div>
-        <div><img src="images/box/left1_min.png" alt="" class="tem"/></div>
+        <div id="bc7"><img src="images/box/front1_min.png" alt="" class="tem"/></div>
+        <div id="bc8"><img src="images/box/back1_min.png" alt="" class="tem"/></div>
+        <div id="bc9"><img src="images/box/over1_min.png" alt="" class="tem"/></div>
+        <div id="bc10" class="tem"></div>
+        <div id="bc11"><img src="images/box/right1_min.png" alt="" class="tem"/></div>
+        <div id="bc12"><img src="images/box/left1_min.png" alt="" class="tem"/></div>
     </section>
     <!-- 点击事件 -->
     <script>
@@ -267,8 +268,6 @@
             }
         }
     </script>
-
-<!--    <div class="btn-area"></div>-->
 
 </div>
 
