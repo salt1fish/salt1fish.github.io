@@ -5,9 +5,11 @@
     <meta charset="UTF-8"/>
     <meta name="viewport"
           content="width=device-width, initial-scale=1, maximum-scale=1,minimum-scale=1, user-scalable=no">
+    <title>webAR</title>
     <script src="https://cdn.jsdelivr.net/gh/aframevr/aframe@1.3.0/dist/aframe-master.min.js"></script>
     <!-- rawgithack development URL -->
     <script src='https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar-nft.js'></script>
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.7.1/jquery.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
     <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css"/>
     <link rel="stylesheet" href="./css/index.css">
@@ -33,7 +35,20 @@
             })()
         });
     </script>
-    <title>webAR</title>
+
+    <script>
+        $(function () {
+            //一段正则，匹配所有_min.的图片src属性
+            let test = /_min\./
+            //遍历所有的图片节点
+            $("img").each(function (index, obj) {
+                if (test.test($(this).attr("src"))) {
+                    var reSrc = $(this).attr("src").replace(test, ".");
+                    $(this).attr("src", reSrc)
+                }
+            })
+        })
+    </script>
 </head>
 
 <body>
