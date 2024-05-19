@@ -92,16 +92,18 @@
     <a-entity camera></a-entity>
 </a-scene>
 
-<div class="my_swiper" id="my_swiper">
+<!-- 轮播器 -->
+<div class="my_swiper clearfix" id="my_swiper">
     <div class="swiper">
         <!-- Additional required wrapper -->
         <div class="swiper-wrapper">
             <!-- Slides -->
-            <div class="swiper-slide swiper-slide-1">1</div>
-            <div class="swiper-slide swiper-slide-2">2</div>
-            <div class="swiper-slide swiper-slide-3">3</div>
-            <div class="swiper-slide swiper-slide-4">4</div>
-            <div class="swiper-slide swiper-slide-5">5</div>
+            <a href="javascript:void(0)" class="swiper-slide swiper-slide-1" id="s1" onclick="myClick()"></a>
+            <a href="javascript:void(0)" class="swiper-slide swiper-slide-2" id="s2" onclick="myClick()"></a>
+            <a href="javascript:void(0)" class="swiper-slide swiper-slide-3" id="s3" onclick="myClick()"></a>
+            <a href="javascript:void(0)" class="swiper-slide swiper-slide-4" id="s4" onclick="myClick()"></a>
+            <a href="javascript:void(0)" class="swiper-slide swiper-slide-5" id="s5" onclick="myClick()"></a>
+            <a href="javascript:void(0)" class="swiper-slide swiper-slide-6" id="s6" onclick="myClick()"></a>
         </div>
 
         <div class="swiper-pagination"></div>
@@ -134,10 +136,100 @@
             },
         });
 
-        // 监听改变事件
-        swiper.on('slideChange', (e) => {
-            console.log(e.realIndex);
-        });
+        function myClick() {
+            let obj = window.event.currentTarget;
+            let obj_id = parseInt(obj.id[1])
+            let slide_sec1 = document.getElementById("slide-sec");
+            let slide_sec2 = document.getElementById("slide-sec");
+            let imgs = document.querySelectorAll("img.tem");
+            console.log(imgs);
+            for (let i = 0; i < imgs.length; i++) {
+                if (i % 5 === 0) {
+                    imgs[i].setAttribute("src", "images/box/front" + obj_id + ".jpg");
+                } else if (i % 5 === 1) {
+                    imgs[i].setAttribute("src", "images/box/back" + obj_id + ".png");
+                } else if (i % 5 === 2) {
+                    imgs[i].setAttribute("src", "images/box/over" + obj_id + ".jpg");
+                } else if (i % 5 === 3) {
+                    imgs[i].setAttribute("src", "images/box/right" + obj_id + ".png");
+                } else if (i % 5 === 4) {
+                    imgs[i].setAttribute("src", "images/box/left" + obj_id + ".jpg");
+                }
+            }
+            slide_sec2.style.setProperty("background-image", "url('./images/bg" + obj_id + ".png')", "important")
+            slide_sec1.style.setProperty('visibility', 'visible', 'important');
+        }
+    </script>
+</div>
+
+<!-- 轮播卡片 -->
+<div id="slide-sec">
+    <!-- 后退按钮 -->
+    <div class="back-btn">
+        <a href="javascript:void(0)" id="back-btn" onclick="backClick()"><img src="images/back-btn.png"></a>
+    </div>
+    <!--    &lt;!&ndash; 前进按钮 &ndash;&gt;-->
+    <!--    <div class="front-btn">-->
+    <!--        <a href="javascript:void(0)" id="front-btn"><img src="images/front-btn.png"></a>-->
+    <!--    </div>-->
+
+    <!--    &lt;!&ndash; 返回按钮 &ndash;&gt;-->
+    <!--    <div class="back1-btn">-->
+    <!--        <a href="javascript:void(0)" id="back1-btn" onclick="backClick()"><img src="images/back-btn.png"></a>-->
+    <!--    </div>-->
+
+    <script>
+        function backClick() {
+            let obj = document.getElementById("slide-sec");
+            obj.style.setProperty('visibility', 'hidden', 'important');
+        }
+
+        // function frontClick() {
+        //     let sec1 = document.getElementById("slide_sec1");
+        //     let sec2 = document.getElementById("slide_sec2");
+        //     obj.style.setProperty('display', 'none', 'important');
+        // }
+    </script>
+    <!-- 第一页 -->
+    <section id="slide_sec1" onclick="box_click()">
+        <div id="bc1"><img src="images/box/front1.jpg" alt="前" class="tem"/></div>
+        <div id="bc2"><img src="images/box/back1.png" alt="后" class="tem"/></div>
+        <div id="bc3"><img src="images/box/over1.jpg" alt="上" class="tem"/></div>
+        <div id="bc4"></div>
+        <div id="bc5"><img src="images/box/right1.png" alt="右" class="tem"/></div>
+        <div id="bc6"><img src="images/box/left1.jpg" alt="左" class="tem"/></div>
+        <div><img src="images/box/front1.jpg" alt="" class="tem"/></div>
+        <div><img src="images/box/back1.png" alt="" class="tem"/></div>
+        <div><img src="images/box/over1.jpg" alt="" class="tem"/></div>
+        <div></div>
+        <div><img src="images/box/right1.png" alt="" class="tem"/></div>
+        <div><img src="images/box/left1.jpg" alt="" class="tem"/></div>
+    </section>
+    <!-- 点击事件 -->
+    <script>
+        function box_click() {
+            let bc1 = document.getElementById("bc1");
+            let bc2 = document.getElementById("bc2");
+            let bc3 = document.getElementById("bc3");
+            let bc4 = document.getElementById("bc4");
+            let bc5 = document.getElementById("bc5");
+            let bc6 = document.getElementById("bc6");
+            if (bc1.style.transform === "translateZ(71px)" || bc1.style.transform === "") {
+                bc1.style.transform = "translateZ(171px)";
+                bc2.style.transform = "rotateX(-180deg) translateZ(171px)";
+                bc3.style.transform = "rotateX(90deg) translateZ(171px)";
+                bc4.style.transform = "rotateX(-90deg) translateZ(257px)";
+                bc5.style.transform = "rotateY(90deg) translateZ(279px)";
+                bc6.style.transform = "rotateY(-90deg) translateZ(171px)";
+            } else {
+                bc1.style.transform = "translateZ(71px)";
+                bc2.style.transform = "rotateX(-180deg) translateZ(71px)";
+                bc3.style.transform = "rotateX(90deg) translateZ(71px)";
+                bc4.style.transform = "rotateX(-90deg) translateZ(157px)";
+                bc5.style.transform = "rotateY(90deg) translateZ(179px)";
+                bc6.style.transform = "rotateY(-90deg) translateZ(71px)";
+            }
+        }
     </script>
 </div>
 
@@ -147,8 +239,6 @@
     <script>
         let btn = document.getElementById("btn");
         let my_swiper = document.getElementById("my_swiper")
-        let innerw = window.innerWidth;
-        console.log("innerw:", innerw);
         btn.onclick = function () {
             if (btn.style.backgroundSize === "400%") {
                 btn.style.backgroundcolor = "#fff";
@@ -157,13 +247,6 @@
             } else {
                 btn.style.background = "linear-gradient(90deg, #fa7199, #f5ce62, #e43603, #fa7199)";
                 btn.style.backgroundSize = "400%";
-                if (innerw < 1025) {
-                    let offw = document.body.offsetWidth;
-                    console.log("offw:", offw);
-                    let marginL = Math.ceil((offw - innerw) / 2);
-                    console.log("margin:", marginL);
-                    my_swiper.style.setProperty("margin-left", marginL + "px", "important")
-                }
                 my_swiper.style.display = "block";
             }
         }
