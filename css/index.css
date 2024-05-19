@@ -382,11 +382,11 @@ nav {
 /*后退按钮*/
 .back-btn {
     display: flex;
-    position: inherit;
+    position: fixed;
     text-align: center;
     width: 60px;
     height: 60px;
-    top: -43vh;
+    top: 20px;
     left: -40px;
     border-radius: 50px;
     background-color: #cccac7;
