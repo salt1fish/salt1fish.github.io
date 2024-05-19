@@ -239,6 +239,7 @@
     <script>
         let btn = document.getElementById("btn");
         let my_swiper = document.getElementById("my_swiper")
+        let innerw = window.innerWidth;
         btn.onclick = function () {
             if (btn.style.backgroundSize === "400%") {
                 btn.style.backgroundcolor = "#fff";
@@ -247,6 +248,11 @@
             } else {
                 btn.style.background = "linear-gradient(90deg, #fa7199, #f5ce62, #e43603, #fa7199)";
                 btn.style.backgroundSize = "400%";
+                if (innerw < 1025) {
+                    let offw = document.body.offsetWidth;
+                    let marginL = Math.ceil((offw - innerw) / 2);
+                    my_swiper.style.setProperty("margin-left", marginL + "px", "important");
+                }
                 my_swiper.style.display = "block";
             }
         }
