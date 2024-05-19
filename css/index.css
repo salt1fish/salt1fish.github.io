@@ -257,6 +257,7 @@ nav {
     /* 弹性布局 让页面元素垂直+水平居中 */
     display: flex;
     position: relative;
+    top: -100vh;
     justify-content: center;
     align-items: center;
     /* 让页面始终占浏览器总高 */
@@ -383,10 +384,10 @@ nav {
     display: flex;
     position: fixed;
     text-align: center;
-    width: 100px;
-    height: 100px;
-    top: 30px;
-    left: 30px;
+    width: 60px;
+    height: 60px;
+    top: -43vh;
+    left: -5vh;
     border-radius: 50px;
     background-color: #cccac7;
 }
