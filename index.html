@@ -155,7 +155,7 @@
             let obj = window.event.currentTarget;
             let obj_id = parseInt(obj.id[1])
             let slide_sec1 = document.getElementById("slide-sec");
-            let imgs = document.querySelectorAll("img.tem");
+            let imgs = document.querySelectorAll(".tem");
             console.log(imgs);
             for (let i = 0; i < imgs.length; i++) {
                 if (i % 6 === 0) {
@@ -166,17 +166,17 @@
                     imgs[i].setAttribute("src", "images/box/over" + obj_id + "_min.png");
                 } else if (i % 6 === 3) {
                     if (obj_id === 1) {
-                        imgs[i].setAttribute("style", "background-color: #F3BF46 !important");
+                        slide_sec1.style.setProperty('background-color', '#F3BF46', 'important');
                     } else if (obj_id === 2) {
-                        imgs[i].setAttribute("style", "background-color: #EDC187 !important");
+                        slide_sec1.style.setProperty('background-color', '#EDC187', 'important');
                     } else if (obj_id === 3) {
-                        imgs[i].setAttribute("style", "background-color: #F9DF9F !important");
+                        slide_sec1.style.setProperty('background-color', '#F9DF9F', 'important');
                     } else if (obj_id === 4) {
-                        imgs[i].setAttribute("style", "background-color: #D28F4F !important");
+                        slide_sec1.style.setProperty('background-color', '#D28F4F', 'important');
                     } else if (obj_id === 5) {
-                        imgs[i].setAttribute("style", "background-color: #CA4420 !important");
+                        slide_sec1.style.setProperty('background-color', '#CA4420', 'important');
                     } else if (obj_id === 6) {
-                        imgs[i].setAttribute("style", "background-color: #EBE5D3 !important");
+                        slide_sec1.style.setProperty('background-color', '#EBE5D3', 'important');
                     }
                 } else if (i % 6 === 4) {
                     imgs[i].setAttribute("src", "images/box/right" + obj_id + "_min.png");
