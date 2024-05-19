@@ -156,6 +156,8 @@
             let obj_id = parseInt(obj.id[1])
             let slide_sec1 = document.getElementById("slide-sec");
             let imgs = document.querySelectorAll(".tem");
+            let bc4 = document.getElementById("bc4");
+            let bc7 = document.getElementById("bc7");
             console.log(imgs);
             for (let i = 0; i < imgs.length; i++) {
                 if (i % 6 === 0) {
@@ -166,17 +168,23 @@
                     imgs[i].setAttribute("src", "images/box/over" + obj_id + "_min.png");
                 } else if (i % 6 === 3) {
                     if (obj_id === 1) {
-                        slide_sec1.style.setProperty('background-color', '#F3BF46', 'important');
+                        bc4.style.setProperty('background-color', '#F3BF46', 'important');
+                        bc7.style.setProperty('background-color', '#F3BF46', 'important');
                     } else if (obj_id === 2) {
-                        slide_sec1.style.setProperty('background-color', '#EDC187', 'important');
+                        bc4.style.setProperty('background-color', '#F3BF46', 'important');
+                        bc7.style.setProperty('background-color', '#F3BF46', 'important');
                     } else if (obj_id === 3) {
-                        slide_sec1.style.setProperty('background-color', '#F9DF9F', 'important');
+                        bc4.style.setProperty('background-color', '#F3BF46', 'important');
+                        bc7.style.setProperty('background-color', '#F3BF46', 'important');
                     } else if (obj_id === 4) {
-                        slide_sec1.style.setProperty('background-color', '#D28F4F', 'important');
+                        bc4.style.setProperty('background-color', '#F3BF46', 'important');
+                        bc7.style.setProperty('background-color', '#F3BF46', 'important');
                     } else if (obj_id === 5) {
-                        slide_sec1.style.setProperty('background-color', '#CA4420', 'important');
+                        bc4.style.setProperty('background-color', '#F3BF46', 'important');
+                        bc7.style.setProperty('background-color', '#F3BF46', 'important');
                     } else if (obj_id === 6) {
-                        slide_sec1.style.setProperty('background-color', '#EBE5D3', 'important');
+                        bc4.style.setProperty('background-color', '#F3BF46', 'important');
+                        bc7.style.setProperty('background-color', '#F3BF46', 'important');
                     }
                 } else if (i % 6 === 4) {
                     imgs[i].setAttribute("src", "images/box/right" + obj_id + "_min.png");
@@ -229,7 +237,7 @@
         <div><img src="images/box/front1_min.png" alt="" class="tem"/></div>
         <div><img src="images/box/back1_min.png" alt="" class="tem"/></div>
         <div><img src="images/box/over1_min.png" alt="" class="tem"/></div>
-        <div class="tem"></div>
+        <div id="bc7" class="tem"></div>
         <div><img src="images/box/right1_min.png" alt="" class="tem"/></div>
         <div><img src="images/box/left1_min.png" alt="" class="tem"/></div>
     </section>
