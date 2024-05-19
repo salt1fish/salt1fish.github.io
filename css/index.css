@@ -262,7 +262,7 @@ nav {
     /* 让页面始终占浏览器总高 */
     height: 100vh;
     background-color: #ffffff;
-    background-image: url('./images/bg1.png');
+    background-image: url('../images/box/bg1.png');
     background-size: auto;
     /* 视距 增加盒子的立体感 */
     perspective: 1000px;
