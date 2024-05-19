@@ -158,15 +158,29 @@
             let imgs = document.querySelectorAll("img.tem");
             console.log(imgs);
             for (let i = 0; i < imgs.length; i++) {
-                if (i % 5 === 0) {
+                if (i % 6 === 0) {
                     imgs[i].setAttribute("src", "images/box/front" + obj_id + ".jpg");
-                } else if (i % 5 === 1) {
+                } else if (i % 6 === 1) {
                     imgs[i].setAttribute("src", "images/box/back" + obj_id + ".png");
-                } else if (i % 5 === 2) {
+                } else if (i % 6 === 2) {
                     imgs[i].setAttribute("src", "images/box/over" + obj_id + ".jpg");
-                } else if (i % 5 === 3) {
+                } else if (i % 6 === 3) {
+                    if (obj_id === 1) {
+                        imgs[i].style.setProperty("background-color", "#F3BF46", "important");
+                    } else if (obj_id === 2) {
+                        imgs[i].style.setProperty("background-color", "#EDC187", "important");
+                    } else if (obj_id === 3) {
+                        imgs[i].style.setProperty("background-color", "#F9DF9F", "important");
+                    } else if (obj_id === 4) {
+                        imgs[i].style.setProperty("background-color", "#D28F4F", "important");
+                    } else if (obj_id === 5) {
+                        imgs[i].style.setProperty("background-color", "#CA4420", "important");
+                    } else if (obj_id === 6) {
+                        imgs[i].style.setProperty("background-color", "#EBE5D3", "important");
+                    }
+                } else if (i % 6 === 4) {
                     imgs[i].setAttribute("src", "images/box/right" + obj_id + ".png");
-                } else if (i % 5 === 4) {
+                } else if (i % 6 === 5) {
                     imgs[i].setAttribute("src", "images/box/left" + obj_id + ".jpg");
                 }
             }
@@ -209,13 +223,13 @@
         <div id="bc1"><img src="images/box/front1.jpg" alt="前" class="tem"/></div>
         <div id="bc2"><img src="images/box/back1.png" alt="后" class="tem"/></div>
         <div id="bc3"><img src="images/box/over1.jpg" alt="上" class="tem"/></div>
-        <div id="bc4"></div>
+        <div id="bc4" class="tem"></div>
         <div id="bc5"><img src="images/box/right1.png" alt="右" class="tem"/></div>
         <div id="bc6"><img src="images/box/left1.jpg" alt="左" class="tem"/></div>
         <div><img src="images/box/front1.jpg" alt="" class="tem"/></div>
         <div><img src="images/box/back1.png" alt="" class="tem"/></div>
         <div><img src="images/box/over1.jpg" alt="" class="tem"/></div>
-        <div></div>
+        <div class="tem"></div>
         <div><img src="images/box/right1.png" alt="" class="tem"/></div>
         <div><img src="images/box/left1.jpg" alt="" class="tem"/></div>
     </section>
@@ -245,6 +259,9 @@
             }
         }
     </script>
+
+<!--    <div class="btn-area"></div>-->
+
 </div>
 
 <div class="container">

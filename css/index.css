@@ -382,7 +382,7 @@ nav {
 /*后退按钮*/
 .back-btn {
     display: flex;
-    position: fixed;
+    position: inherit;
     text-align: center;
     width: 60px;
     height: 60px;
@@ -398,8 +398,8 @@ nav {
 }
 
 .back-btn img {
-    width: 60px;
-    height: 60px;
+    width: 50px;
+    height: 40px;
 }
 
 /*前进按钮*/
