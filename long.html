@@ -49,14 +49,45 @@
 </script>
 
 <!-- 前进按钮 -->
-<div class="front-btn">
-    <a href="javascript:void(0)" id="front-btn"><img src="images/front-btn.png"></a>
-</div>
+<a href="javascript:void(0)" class="front-btn" id="front-btn" onclick="fClick()"><img src="images/front-btn.png"></a>
+<script>
+    function fClick() {
+        $(".long").each(function (index, img) {
+            if (img.style.display === "block") {
+                index = index + 1;
+                console.log("前进", index, img);
+                if (index === 2) {
+                    $("#back1-btn").css('visibility', 'visible', 'important');
+                } else if (index === 5) {
+                    $("#front-btn").css('visibility', 'hidden', 'important');
+                }
+                $("l" + index).style.setProperty('display', 'block', 'important');
+                $("l" + (index + 1)).style.setProperty('display', 'block', 'important');
+                return false;
+            }
+        });
+    }
+</script>
 
 <!-- 返回按钮 -->
-<div class="back1-btn">
-    <a href="javascript:void(0)" id="back1-btn" onclick="backClick()"><img src="images/back-btn.png"></a>
-</div>
+<a href="javascript:void(0)" class="back1-btn" id="back1-btn" onclick="back1Click()"><img src="images/back-btn.png"></a>
+<script>
+    function back1Click() {
+        $(".long").each(function (index, img) {
+            if (img.style.display === "block") {
+                console.log("后退", index, img);
+                if (index === 6) {
+                    $("#front-btn").css('visibility', 'visible', 'important');
+                } else if (index === 3) {
+                    $("#back1-btn").css('visibility', 'hidden', 'important');
+                }
+                $("l" + index).style.setProperty('display', 'hidden', 'important');
+                $("l" + (index - 1)).style.setProperty('display', 'block', 'important');
+                return false;
+            }
+        });
+    }
+</script>
 
 <img src="images/long/long1.png" id="l1" class="long" alt="">
 <img src="images/long/long2.png" id="l2" class="long" alt="">

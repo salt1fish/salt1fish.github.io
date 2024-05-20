@@ -61,6 +61,7 @@ img {
     left: 30px;
     border-radius: 50px;
     background-color: #cccac7;
+    z-index: 10;
 }
 
 .back-btn img {
@@ -78,11 +79,7 @@ img {
     height: 100px;
     bottom: 30px;
     right: 30px;
-}
-
-.front-btn a {
-    display: block;
-    margin: auto;
+    z-index: 10;
 }
 
 .front-btn img {
@@ -100,11 +97,7 @@ img {
     bottom: 30px;
     left: 30px;
     visibility: hidden;
-}
-
-.back1-btn a {
-    display: block;
-    margin: auto;
+    z-index: 10;
 }
 
 .back1-btn img {
