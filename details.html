@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>details</title>
+    <!-- css -->
+    <link rel="stylesheet" href="./css/details.css">
+    <!-- script -->
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.7.1/jquery.js"></script>
+    <script>
+        $(function () {
+            // #####定义获取url参数的方法#####
+            $.getUrlParam = function (name) {
+                var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
+                var r = window.location.search.substr(1).match(reg);
+                if (r != null) return unescape(r[2]);
+                return null;
+            }
+
+            // #####替换min图片#####
+            //一段正则，匹配所有_min.的图片src属性
+            let test = /_min\./;
+            //遍历所有的图片节点
+            $("img").each(function (index, obj) {
+                if (test.test($(this).attr("src"))) {
+                    let reSrc = $(this).attr("src").replace(test, ".");
+                    $(this).attr("src", reSrc);
+                }
+            })
+
+            // #####获取url参数#####
+            let currImg = $.getUrlParam("curr_img");
+            let currBg = $.getUrlParam("curr_bg");
+
+            // #####替换图片#####
+            $("body").css("background-image", "url('"+ currBg +"')");
+            $("#details-img").attr("src", currImg);
+        })
+    </script>
+</head>
+<body>
+<!-- 返回按钮 -->
+<div class="back-btn">
+    <a href="javascript:void(0)" id="details-back-btn" onclick="detailsBackClick()"><img src="images/back-btn.png"
+                                                                                         alt=""></a>
+</div>
+<!-- 详情图片 -->
+<img src="images/box/front1_min.png" alt="" id="details-img">
+
+<script>
+    function detailsBackClick() {
+        window.history.go(-1);
+    }
+</script>
+</body>
+</html>

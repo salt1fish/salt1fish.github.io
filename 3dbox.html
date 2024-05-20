@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>show</title>
+    <!-- css -->
+    <link rel="stylesheet" href="./css/3dbox.css">
+    <!-- script -->
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.7.1/jquery.js"></script>
+    <script>
+        $(function () {
+            // #####定义获取url参数的方法#####
+            $.getUrlParam = function (name) {
+                let reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
+                let r = window.location.search.substr(1).match(reg);
+                if (r != null) return unescape(r[2]);
+                return null;
+            }
+
+            // #####替换min图片#####
+            //一段正则，匹配所有_min.的图片src属性
+            let test = /_min\./
+            //遍历所有的图片节点
+            $("img").each(function (index, obj) {
+                if (test.test($(this).attr("src"))) {
+                    var reSrc = $(this).attr("src").replace(test, ".");
+                    $(this).attr("src", reSrc)
+                }
+            })
+            
+            // #####获取url参数#####
+            let currId = $.getUrlParam("id");
+            console.log("当前id", id);
+
+            // #####替换图片#####
+            let arrImg = document.querySelectorAll(".tem");
+            let bc4 = document.getElementById("bc4");
+            let bc10 = document.getElementById("bc10");
+            for (let i = 0; i < arrImg.length; i++) {
+                if (i % 6 === 0) {
+                    arrImg[i].setAttribute("src", "images/box/front" + currId + "_min.png");
+                } else if (i % 6 === 1) {
+                    arrImg[i].setAttribute("src", "images/box/back" + currId + "_min.png");
+                } else if (i % 6 === 2) {
+                    arrImg[i].setAttribute("src", "images/box/over" + currId + "_min.png");
+                } else if (i % 6 === 3) {
+                    if (currId === 1) {
+                        bc4.style.setProperty('background-color', '#F3BF46', 'important');
+                        bc10.style.setProperty('background-color', '#F3BF46', 'important');
+                    } else if (currId === 2) {
+                        bc4.style.setProperty('background-color', '#EDC187', 'important');
+                        bc10.style.setProperty('background-color', '#EDC187', 'important');
+                    } else if (currId === 3) {
+                        bc4.style.setProperty('background-color', '#F9DF9F', 'important');
+                        bc10.style.setProperty('background-color', '#F9DF9F', 'important');
+                    } else if (currId === 4) {
+                        bc4.style.setProperty('background-color', '#D28F4F', 'important');
+                        bc10.style.setProperty('background-color', '#D28F4F', 'important');
+                    } else if (currId === 5) {
+                        bc4.style.setProperty('background-color', '#CA4420', 'important');
+                        bc10.style.setProperty('background-color', '#CA4420', 'important');
+                    } else if (currId === 6) {
+                        bc4.style.setProperty('background-color', '#EBE5D3', 'important');
+                        bc10.style.setProperty('background-color', '#EBE5D3', 'important');
+                    }
+                } else if (i % 6 === 4) {
+                    arrImg[i].setAttribute("src", "images/box/right" + currId + "_min.png");
+                } else if (i % 6 === 5) {
+                    arrImg[i].setAttribute("src", "images/box/left" + currId + "_min.png");
+                }
+            }
+        })
+    </script>
+
+</head>
+<body>
+<!-- 后退按钮 -->
+<div class="back-btn">
+    <a href="javascript:void(0)" id="back-btn" onclick="backClick()"><img src="images/back-btn.png" alt=""></a>
+</div>
+
+<script>
+    function backClick() {
+        window.history.go(-1);
+    }
+</script>
+
+<section id="slide_sec1">
+    <div id="bc1"><img src="images/box/front1_min.png" alt="前" class="tem" ondblclick="box_dbclick()"
+                       onclick="box_click()"/></div>
+    <div id="bc2"><img src="images/box/back1_min.png" alt="后" class="tem" ondblclick="box_dbclick()"
+                       onclick="box_click()"/></div>
+    <div id="bc3"><img src="images/box/over1_min.png" alt="上" class="tem" ondblclick="box_dbclick()"
+                       onclick="box_click()"/></div>
+    <div id="bc4" class="tem"></div>
+    <div id="bc5"><img src="images/box/right1_min.png" alt="右" class="tem" ondblclick="box_dbclick()"
+                       onclick="box_click()"/></div>
+    <div id="bc6"><img src="images/box/left1_min.png" alt="左" class="tem" ondblclick="box_dbclick()"
+                       onclick="box_click()"/></div>
+    <div id="bc7"><img src="images/box/front1_min.png" alt="" class="tem" ondblclick="box_dbclick()"
+                       onclick="box_click()"/></div>
+    <div id="bc8"><img src="images/box/back1_min.png" alt="" class="tem" ondblclick="box_dbclick()"
+                       onclick="box_click()"/></div>
+    <div id="bc9"><img src="images/box/over1_min.png" alt="" class="tem" ondblclick="box_dbclick()"
+                       onclick="box_click()"/></div>
+    <div id="bc10" class="tem"></div>
+    <div id="bc11"><img src="images/box/right1_min.png" alt="" class="tem" ondblclick="box_dbclick()"
+                        onclick="box_click()"/></div>
+    <div id="bc12"><img src="images/box/left1_min.png" alt="" class="tem" ondblclick="box_dbclick()"
+                        onclick="box_click()"/></div>
+</section>
+<!-- 点击事件 -->
+<script>
+    let timer = null
+
+    function box_click() {
+        clearTimeout(timer)
+        let curr_obj = window.event.currentTarget;
+        timer = setTimeout(function () {
+            let curr_img = curr_obj.src;
+            let curr_bg = document.body.style.backgroundImage;
+            let bc1 = document.getElementById("bc1");
+            if (bc1.style.transform === "translateZ(171px)") {
+                window.location.href = "details.html" + "?curr_img=" + curr_img + "&curr_bg=" + curr_bg;
+            }
+        }, 500);
+    }
+
+    function box_dbclick() {
+        clearTimeout(timer);
+        let bc1 = document.getElementById("bc1");
+        let bc2 = document.getElementById("bc2");
+        let bc3 = document.getElementById("bc3");
+        let bc4 = document.getElementById("bc4");
+        let bc5 = document.getElementById("bc5");
+        let bc6 = document.getElementById("bc6");
+        if (bc1.style.transform === "translateZ(71px)" || bc1.style.transform === "") {
+            bc1.style.transform = "translateZ(171px)";
+            bc2.style.transform = "rotateX(-180deg) translateZ(171px)";
+            bc3.style.transform = "rotateX(90deg) translateZ(171px)";
+            bc4.style.transform = "rotateX(-90deg) translateZ(257px)";
+            bc5.style.transform = "rotateY(90deg) translateZ(279px)";
+            bc6.style.transform = "rotateY(-90deg) translateZ(171px)";
+        } else {
+            bc1.style.transform = "translateZ(71px)";
+            bc2.style.transform = "rotateX(-180deg) translateZ(71px)";
+            bc3.style.transform = "rotateX(90deg) translateZ(71px)";
+            bc4.style.transform = "rotateX(-90deg) translateZ(157px)";
+            bc5.style.transform = "rotateY(90deg) translateZ(179px)";
+            bc6.style.transform = "rotateY(-90deg) translateZ(71px)";
+        }
+    }
+</script>
+</body>
+</html>
