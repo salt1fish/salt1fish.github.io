@@ -207,8 +207,8 @@
             btn.style.backgroundSize = "0";
             my_swiper.style.display = "none";
             <!-- 按钮选中期间其余按钮不可选中 -->
-            $("#logo-btn").css("pointer-events", "none", "important");
-            $("#rbtn").css("pointer-events", "none", "important");
+            $("#logo-btn").css("pointer-events", "auto", "important");
+            $("#rbtn").css("pointer-events", "auto", "important");
         } else {
             btn.style.background = "linear-gradient(90deg, #fa7199, #f5ce62, #e43603, #fa7199)";
             btn.style.backgroundSize = "400%";
@@ -216,8 +216,8 @@
                 let offw = document.body.offsetWidth;
                 let marginL = Math.ceil((offw - innerw) / 2);
                 my_swiper.style.setProperty("margin-left", marginL + "px", "important");
-                $("#logo-btn").css("pointer-events", "auto", "important");
-                $("#rbtn").css("pointer-events", "auto", "important");
+                $("#logo-btn").css("pointer-events", "none", "important");
+                $("#rbtn").css("pointer-events", "none", "important");
             }
             my_swiper.style.display = "block";
         }
