@@ -49,12 +49,7 @@
                 }
             })
 
-            for (let i=1;;) {
-                if (document.getElementsByClassName("arjs-loader").length === 0) {
-                    myInit();
-                    break;
-                }
-            }
+            $(".arjs-loader").one("DOMNodeRemoved", myInit);
         })
 
         function myInit() {
