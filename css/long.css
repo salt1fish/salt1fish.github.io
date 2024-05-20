@@ -48,3 +48,65 @@ img {
     position: absolute;
     display: none;
 }
+
+/*后退按钮*/
+.back-btn {
+    display: flex;
+    position: fixed;
+    text-align: center;
+    width: 60px;
+    height: 60px;
+    top: 30px;
+    left: 30px;
+    border-radius: 50px;
+    background-color: #cccac7;
+}
+
+.back-btn img {
+    width: 50px;
+    height: 40px;
+    margin: auto;
+}
+
+/*前进按钮*/
+.front-btn {
+    display: flex;
+    position: fixed;
+    text-align: center;
+    width: 100px;
+    height: 100px;
+    bottom: 30px;
+    right: 30px;
+}
+
+.front-btn a {
+    display: block;
+    margin: auto;
+}
+
+.front-btn img {
+    width: 60px;
+    height: 60px;
+}
+
+/*返回按钮*/
+.back1-btn {
+    display: flex;
+    position: fixed;
+    text-align: center;
+    width: 100px;
+    height: 100px;
+    bottom: 30px;
+    left: 30px;
+    visibility: hidden;
+}
+
+.back1-btn a {
+    display: block;
+    margin: auto;
+}
+
+.back1-btn img {
+    width: 60px;
+    height: 60px;
+}

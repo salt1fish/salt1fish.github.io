@@ -33,6 +33,26 @@
     </script>
 </head>
 <body>
+<a href="javascript:void(0)" class="back-btn" id="back-btn" onclick="backClick()"><img src="images/back-btn.png" alt=""></a>
+<script>
+    function backClick() {
+        let slide = $("#slide-sec", window.parent.document);
+        let myIframe = $("#my-iframe", window.parent.document);
+        slide.css('visibility', 'hidden', 'important');
+        myIframe.removeAttr("src");
+    }
+</script>
+
+<!-- 前进按钮 -->
+<div class="front-btn">
+    <a href="javascript:void(0)" id="front-btn"><img src="images/front-btn.png"></a>
+</div>
+
+<!-- 返回按钮 -->
+<div class="back1-btn">
+    <a href="javascript:void(0)" id="back1-btn" onclick="backClick()"><img src="images/back-btn.png"></a>
+</div>
+
 <img src="images/long/long1.png" id="l1" alt="">
 <img src="images/long/long2.png" id="l2" alt="">
 <img src="images/long/long3.jpg" id="l3" alt="">
