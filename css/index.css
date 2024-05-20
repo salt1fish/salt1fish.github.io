@@ -116,6 +116,7 @@ nav {
     /* 盒子阴影 */
     box-shadow: 0 5px 15px -5px rgba(0, 0, 0, 0.1);
     animation: glow 8s linear infinite;
+    z-index: 2;
 }
 
 .container img {
@@ -140,6 +141,7 @@ nav {
     /* 盒子阴影 */
     box-shadow: 0 5px 15px -5px rgba(0, 0, 0, 0.1);
     animation: glow 8s linear infinite;
+    z-index: 2;
 }
 
 .rcontainer img {
