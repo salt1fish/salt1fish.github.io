@@ -10,6 +10,7 @@ body {
     /* 让页面始终占浏览器总宽 */
     width: 100vw;
     height: 100%;
+    background-color: #ffffff;
     background-image: url('../images/box/bg6_min.png');
     background-size: auto;
     /* 视距 增加盒子的立体感 */
