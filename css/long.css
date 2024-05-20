@@ -1,0 +1,50 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    /* 弹性布局 让页面元素垂直+水平居中 */
+    justify-content: center;
+    align-items: center;
+    /* 让页面始终占浏览器总宽 */
+    width: 100vw;
+    height: 100%;
+    background-image: url('../images/box/bg6_min.png');
+    background-size: auto;
+    /* 视距 增加盒子的立体感 */
+}
+
+img {
+    width: 100%;
+    max-width: 100%;
+}
+
+#l1 {
+    position: absolute;
+    display: none;
+}
+
+#l2 {
+    position: absolute;
+}
+
+#l3 {
+    position: absolute;
+    display: none;
+}
+
+#l4 {
+    position: absolute;
+    display: none;
+}
+
+#l5 {
+    position: absolute;
+    display: none;
+}
+
+#l6 {
+    position: absolute;
+    display: none;
+}

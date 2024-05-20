@@ -155,13 +155,8 @@
         function myClick() {
             let obj = window.event.currentTarget;
             let obj_id = parseInt(obj.id[1]);
-            console.log("obj", obj);
-            console.log("obj_id", obj_id);
             let slide_sec1 = document.getElementById("slide-sec");
             let myIframe = document.getElementById("my-iframe");
-            console.log("slide_sec1", slide_sec1);
-            console.log("myIframe", myIframe);
-            console.log("myIframe.src", myIframe.src);
             myIframe.src = myIframe.getAttribute('data-src') + "?id=" + obj_id;
             let w = Math.ceil((document.body.offsetWidth - window.innerWidth) / 2);
             slide_sec1.style.setProperty('left', w + "px", 'important');
@@ -191,31 +186,58 @@
 <!--    </script>-->
 <!--</div>-->
 
-<div class="container">
-    <a href="javascript:void(0)" class="btn" id="btn"><i class="fa fa-instagram"></i></a>
+<!-- 左按钮 -->
+<a href="javascript:void(0)" class="container" id="btn" onclick="lclick()">
+    <img src="images/8.png">
+</a>
 
-    <script>
-        let btn = document.getElementById("btn");
-        let my_swiper = document.getElementById("my_swiper")
-        let innerw = window.innerWidth;
-        btn.onclick = function () {
-            if (btn.style.backgroundSize === "400%") {
-                btn.style.backgroundcolor = "#fff";
-                btn.style.backgroundSize = "0";
-                my_swiper.style.display = "none";
-            } else {
-                btn.style.background = "linear-gradient(90deg, #fa7199, #f5ce62, #e43603, #fa7199)";
-                btn.style.backgroundSize = "400%";
-                if (innerw < 1025) {
-                    let offw = document.body.offsetWidth;
-                    let marginL = Math.ceil((offw - innerw) / 2);
-                    my_swiper.style.setProperty("margin-left", marginL + "px", "important");
-                }
-                my_swiper.style.display = "block";
+<script>
+    let btn = document.getElementById("btn");
+    let my_swiper = document.getElementById("my_swiper")
+    let innerw = window.innerWidth;
+
+    function rclick() {
+        if (btn.style.backgroundSize === "400%") {
+            btn.style.backgroundcolor = "#fff";
+            btn.style.backgroundSize = "0";
+            my_swiper.style.display = "none";
+        } else {
+            btn.style.background = "linear-gradient(90deg, #fa7199, #f5ce62, #e43603, #fa7199)";
+            btn.style.backgroundSize = "400%";
+            if (innerw < 1025) {
+                let offw = document.body.offsetWidth;
+                let marginL = Math.ceil((offw - innerw) / 2);
+                my_swiper.style.setProperty("margin-left", marginL + "px", "important");
             }
+            my_swiper.style.display = "block";
         }
-    </script>
-</div>
+    }
+</script>
+
+<!-- 右按钮 -->
+<a href="javascript:void(0)" class="rcontainer" id="rbtn" onclick="rclick()">
+    <img src="images/7.png">
+</a>
+
+<script>
+    let rbtn = document.getElementById("rbtn");
+
+    function rclick() {
+        if (rbtn.style.backgroundSize === "400%") {
+            rbtn.style.backgroundcolor = "#fff";
+            rbtn.style.backgroundSize = "0";
+        } else {
+            rbtn.style.background = "linear-gradient(90deg, #fa7199, #f5ce62, #e43603, #fa7199)";
+            rbtn.style.backgroundSize = "400%";
+            // let slide_sec1 = document.getElementById("slide-sec");
+            // let myIframe = document.getElementById("my-iframe");
+            // myIframe.src = myIframe.getAttribute('data-src') + "?id=" + obj_id;
+            // let w = Math.ceil((document.body.offsetWidth - window.innerWidth) / 2);
+            // slide_sec1.style.setProperty('left', w + "px", 'important');
+            // slide_sec1.style.setProperty('visibility', 'visible', 'important');
+        }
+    }
+</script>
 
 </body>
 </html>

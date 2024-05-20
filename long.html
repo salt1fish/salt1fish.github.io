@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>long</title>
+    <!-- css -->
+    <link rel="stylesheet" href="./css/long.css">
+    <!-- script -->
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.7.1/jquery.js"></script>
+    <script>
+        $(function () {
+            // #####定义获取url参数的方法#####
+            $.getUrlParam = function (name) {
+                var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
+                var r = window.location.search.substr(1).match(reg);
+                if (r != null) return unescape(r[2]);
+                return null;
+            }
+
+            // #####获取url参数#####
+            let currId = parseInt($.getUrlParam("id"));
+            console.log(currId)
+
+            $("img").each(function (index, img) {
+                if (index === currId - 1) {
+                    console.log(index, img);
+                    img.style.setProperty('display', 'block', 'important');
+                } else {
+                    img.style.setProperty('display', 'none', 'important');
+                }
+            });
+        })
+    </script>
+</head>
+<body>
+<img src="images/long/long1.png" id="l1" alt="">
+<img src="images/long/long2.png" id="l2" alt="">
+<img src="images/long/long3.jpg" id="l3" alt="">
+<img src="images/long/long4.jpg" id="l4" alt="">
+<img src="images/long/long5.jpg" id="l5" alt="">
+<img src="images/long/long6.jpg" id="l6" alt="">
+</body>
+</html>
