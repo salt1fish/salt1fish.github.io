@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <title>show</title>
     <!-- css -->
-    <link rel="stylesheet" href="./css/3dbox.css">
+    <link rel="stylesheet" href="css/3dbox.css">
     <!-- script -->
     <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.7.1/jquery.js"></script>
     <script>
@@ -25,6 +25,9 @@
             let arrImg = document.querySelectorAll(".tem");
             let bc4 = document.getElementById("bc4");
             let bc10 = document.getElementById("bc10");
+            console.log("arrImg", arrImg);
+            console.log("bc4", bc4);
+            console.log("bc10", bc10);
             for (let i = 0; i < arrImg.length; i++) {
                 if (i % 6 === 0) {
                     arrImg[i].setAttribute("src", "images/box/front" + currId + "_min.png");
