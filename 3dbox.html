@@ -127,7 +127,8 @@
         let curr_obj = window.event.currentTarget;
         timer = setTimeout(function () {
             let curr_img = curr_obj.src;
-            let curr_bg = document.body.style.backgroundImage;
+            let tem = document.body.style.backgroundImage;
+            let curr_bg = tem.split('"')[1];
             let bc1 = document.getElementById("bc1");
             if (bc1.style.transform === "translateZ(171px)") {
                 window.location.href = "details.html" + "?curr_img=" + curr_img + "&curr_bg=" + curr_bg;
