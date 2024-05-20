@@ -193,7 +193,7 @@
 
 <script>
     let btn = document.getElementById("btn");
-    let my_swiper = document.getElementById("my_swiper")
+    let my_swiper = document.getElementById("my_swiper");
     let innerw = window.innerWidth;
 
     function lclick() {
@@ -201,6 +201,7 @@
             btn.style.backgroundcolor = "#fff";
             btn.style.backgroundSize = "0";
             my_swiper.style.display = "none";
+            console.log("222");
         } else {
             btn.style.background = "linear-gradient(90deg, #fa7199, #f5ce62, #e43603, #fa7199)";
             btn.style.backgroundSize = "400%";
@@ -229,12 +230,12 @@
         } else {
             rbtn.style.background = "linear-gradient(90deg, #fa7199, #f5ce62, #e43603, #fa7199)";
             rbtn.style.backgroundSize = "400%";
-            // let slide_sec1 = document.getElementById("slide-sec");
-            // let myIframe = document.getElementById("my-iframe");
-            // myIframe.src = myIframe.getAttribute('data-src') + "?id=" + obj_id;
-            // let w = Math.ceil((document.body.offsetWidth - window.innerWidth) / 2);
-            // slide_sec1.style.setProperty('left', w + "px", 'important');
-            // slide_sec1.style.setProperty('visibility', 'visible', 'important');
+            let slide_sec1 = document.getElementById("slide-sec");
+            let myIframe = document.getElementById("my-iframe");
+            myIframe.src = "long.html?id=2";
+            let w = Math.ceil((document.body.offsetWidth - window.innerWidth) / 2);
+            slide_sec1.style.setProperty('left', w + "px", 'important');
+            slide_sec1.style.setProperty('visibility', 'visible', 'important');
         }
     }
 </script>
