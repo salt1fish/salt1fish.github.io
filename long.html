@@ -22,7 +22,13 @@
             console.log(currId)
 
             $(".long").each(function (index, img) {
-                if (index === currId - 1) {
+                if (index === currId) {
+                    img.style.setProperty('display', 'block', 'important');
+                    $("#l1").css('display', 'block', 'important');
+                    $("#l2").css('display', 'none', 'important');
+                    $("#front-btn").css('visibility', 'hidden', 'important');
+                    return false;
+                } else if (index === currId - 1) {
                     console.log(index, img);
                     img.style.setProperty('display', 'block', 'important');
                 } else {

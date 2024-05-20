@@ -30,6 +30,12 @@ nav {
     margin: 0 auto;
 }
 
+#logo-btn {
+    display: block;
+    width: 90px;
+    height: 96px;
+}
+
 /*#########加载动画部分############*/
 .arjs-loader {
     height: 100%;

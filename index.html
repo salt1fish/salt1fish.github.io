@@ -55,7 +55,17 @@
 <body>
 <!-- 导航栏 -->
 <nav>
-    <div class="logo"></div>
+    <div class="logo"><a href="javascript:void(0)" id="logo-btn" onclick="logoClick()"></a></div>
+    <script>
+        function logoClick() {
+            let slide_sec1 = document.getElementById("slide-sec");
+            let myIframe = document.getElementById("my-iframe");
+            myIframe.src = "long.html?id=0";
+            let w = Math.ceil((document.body.offsetWidth - window.innerWidth) / 2);
+            slide_sec1.style.setProperty('left', w + "px", 'important');
+            slide_sec1.style.setProperty('visibility', 'visible', 'important');
+        }
+    </script>
 </nav>
 
 <!-- 加载动画效果 -->
