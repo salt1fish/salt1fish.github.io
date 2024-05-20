@@ -28,10 +28,10 @@ body {
     display: flex;
     position: fixed;
     text-align: center;
-    width: 80px;
-    height: 80px;
-    top: 50px;
-    left: 50px;
+    width: 60px;
+    height: 60px;
+    top: 30px;
+    left: 30px;
     border-radius: 50px;
     background-color: #cccac7;
 }
