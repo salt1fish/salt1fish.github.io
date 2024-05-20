@@ -48,6 +48,13 @@
                     $(this).attr("src", reSrc)
                 }
             })
+
+            for (let i=1;;) {
+                if (document.getElementsByClassName("arjs-loader").length === 0) {
+                    myInit();
+                    break;
+                }
+            }
         })
 
         function myInit() {
@@ -113,7 +120,6 @@
             raycaster="objects: .clickable"
             emitevents="true"
             cursor="fuse: false; rayOrigin: mouse;"
-            onload="myInit()"
     >
         <a-entity
                 gltf-model='https://cdn.glitch.com/06bd98b4-97ee-4c07-a546-fe39ca205034%2Fbowser.glb'
