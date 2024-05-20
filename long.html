@@ -21,7 +21,7 @@
             let currId = parseInt($.getUrlParam("id"));
             console.log(currId)
 
-            $("img").each(function (index, img) {
+            $(".long").each(function (index, img) {
                 if (index === currId - 1) {
                     console.log(index, img);
                     img.style.setProperty('display', 'block', 'important');
@@ -53,11 +53,11 @@
     <a href="javascript:void(0)" id="back1-btn" onclick="backClick()"><img src="images/back-btn.png"></a>
 </div>
 
-<img src="images/long/long1.png" id="l1" alt="">
-<img src="images/long/long2.png" id="l2" alt="">
-<img src="images/long/long3.jpg" id="l3" alt="">
-<img src="images/long/long4.jpg" id="l4" alt="">
-<img src="images/long/long5.jpg" id="l5" alt="">
-<img src="images/long/long6.jpg" id="l6" alt="">
+<img src="images/long/long1.png" id="l1" class="long" alt="">
+<img src="images/long/long2.png" id="l2" class="long" alt="">
+<img src="images/long/long3.jpg" id="l3" class="long" alt="">
+<img src="images/long/long4.jpg" id="l4" class="long" alt="">
+<img src="images/long/long5.jpg" id="l5" class="long" alt="">
+<img src="images/long/long6.jpg" id="l6" class="long" alt="">
 </body>
 </html>
