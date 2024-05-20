@@ -121,6 +121,7 @@ nav {
 .container img {
     width: 100%;
     user-select: none;
+    margin-top: 9px;
 }
 
 .rcontainer {
@@ -144,6 +145,7 @@ nav {
 .rcontainer img {
     width: 100%;
     user-select: none;
+    margin-top: 9px;
 }
 
 @keyframes glow {
@@ -296,6 +298,9 @@ nav {
 .border-img {
     height: 100vh;
     width: 20px;
+    position: relative;
+    top: -200vh;
+    background-color: white;
 }
 
 #l-img {
