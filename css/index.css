@@ -34,6 +34,8 @@ nav {
     display: block;
     width: 90px;
     height: 96px;
+    position: fixed;
+    z-index: 3;
 }
 
 /*#########加载动画部分############*/
@@ -259,7 +261,7 @@ nav {
     height: 100vh;
     width: 100vw;
     top: -100vh;
-    z-index: 2;
+    z-index: 5;
     visibility: hidden;
 }
 
