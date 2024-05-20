@@ -234,19 +234,14 @@
     let rbtn = document.getElementById("rbtn");
 
     function rclick() {
-        if (rbtn.style.backgroundSize === "400%") {
-            rbtn.style.backgroundColor = "#fff";
-            rbtn.style.backgroundSize = "0";
-        } else {
-            rbtn.style.background = "linear-gradient(90deg, #fa7199, #f5ce62, #e43603, #fa7199)";
-            rbtn.style.backgroundSize = "400%";
-            let slide_sec1 = document.getElementById("slide-sec");
-            let myIframe = document.getElementById("my-iframe");
-            myIframe.src = "long.html?id=2";
-            let w = Math.ceil((document.body.offsetWidth - window.innerWidth) / 2);
-            slide_sec1.style.setProperty('left', w + "px", 'important');
-            slide_sec1.style.setProperty('visibility', 'visible', 'important');
-        }
+        rbtn.style.background = "linear-gradient(90deg, #fa7199, #f5ce62, #e43603, #fa7199)";
+        rbtn.style.backgroundSize = "400%";
+        let slide_sec1 = document.getElementById("slide-sec");
+        let myIframe = document.getElementById("my-iframe");
+        myIframe.src = "long.html?id=2";
+        let w = Math.ceil((document.body.offsetWidth - window.innerWidth) / 2);
+        slide_sec1.style.setProperty('left', w + "px", 'important');
+        slide_sec1.style.setProperty('visibility', 'visible', 'important');
     }
 </script>
 

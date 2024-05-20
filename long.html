@@ -51,6 +51,11 @@
         let myIframe = $("#my-iframe", window.parent.document);
         slide.css('visibility', 'hidden', 'important');
         myIframe.removeAttr("src");
+        let rBtn = $("#rbtn", window.parent.document);
+        if (rBtn.css("background-size") === "400%") {
+            rBtn.css("background-color", "#fff");
+            rBtn.css("background-size", "0");
+        }
     }
 </script>
 
