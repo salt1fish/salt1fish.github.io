@@ -153,11 +153,11 @@
 
         function myClick() {
             let obj = window.event.currentTarget;
-            let obj_id_str = obj.id;
-            let obj_id = parseInt(obj_id_str.substring(1));
-            console.log(obj_id);
-            window.location.href = "3dbox.html" + "?id=" + obj_id;
-            console.log("id=", obj_id);
+            let obj_id = parseInt(obj.id[1])
+            let slide_sec1 = document.getElementById("slide-sec");
+            let myIframe = document.getElementById("my-iframe");
+            myIframe.src = myIframe.getAttribute('data-src') + "?id=" + obj_id;
+            slide_sec1.style.setProperty('display', 'flex', 'important');
         }
     </script>
 </div>
