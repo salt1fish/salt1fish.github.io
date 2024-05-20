@@ -163,6 +163,8 @@
             console.log("myIframe", myIframe);
             console.log("myIframe.src", myIframe.src);
             myIframe.src = myIframe.getAttribute('data-src') + "?id=" + obj_id;
+            let w = Math.ceil((document.body.offsetWidth - window.innerWidth) / 2);
+            slide_sec1.style.setProperty('left', w + "px", 'important');
             slide_sec1.style.setProperty('visibility', 'visible', 'important');
         }
     </script>
