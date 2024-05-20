@@ -56,7 +56,6 @@
             let dis = Math.ceil((document.body.offsetWidth - window.innerWidth) / 2);
             $("#l-img").css("left", dis + "px");
             $("#r-img").css("right", dis + "px");
-            console.log("我执行了", document.body.offsetWidth, window.innerWidth);
         }
 
     </script>
@@ -192,20 +191,6 @@
             allowfullscreen id="my-iframe"></iframe>
 </div>
 
-<!--<div class="details" id="details">-->
-<!--    <div class="back-btn">-->
-<!--        <a href="javascript:void(0)" id="details-back-btn" onclick="detailsBackClick()"><img src="images/back-btn.png"></a>-->
-<!--    </div>-->
-<!--    <img src="images/box/front1.png" alt="" id="details-img">-->
-
-<!--    <script>-->
-<!--        function detailsBackClick() {-->
-<!--            let obj = document.getElementById("details");-->
-<!--            obj.style.setProperty('display', 'none', 'important');-->
-<!--        }-->
-<!--    </script>-->
-<!--</div>-->
-
 <!-- 左按钮 -->
 <a href="javascript:void(0)" class="container" id="btn" onclick="lclick()">
     <img src="images/8.png" alt="">
@@ -221,7 +206,9 @@
             btn.style.backgroundColor = "#fff";
             btn.style.backgroundSize = "0";
             my_swiper.style.display = "none";
-            console.log("222");
+            <!-- 按钮选中期间其余按钮不可选中 -->
+            $("#logo-btn").css("pointer-events", "none", "important");
+            $("#rbtn").css("pointer-events", "none", "important");
         } else {
             btn.style.background = "linear-gradient(90deg, #fa7199, #f5ce62, #e43603, #fa7199)";
             btn.style.backgroundSize = "400%";
@@ -229,6 +216,8 @@
                 let offw = document.body.offsetWidth;
                 let marginL = Math.ceil((offw - innerw) / 2);
                 my_swiper.style.setProperty("margin-left", marginL + "px", "important");
+                $("#logo-btn").css("pointer-events", "auto", "important");
+                $("#rbtn").css("pointer-events", "auto", "important");
             }
             my_swiper.style.display = "block";
         }
@@ -252,6 +241,8 @@
         let w = Math.ceil((document.body.offsetWidth - window.innerWidth) / 2);
         slide_sec1.style.setProperty('left', w + "px", 'important');
         slide_sec1.style.setProperty('visibility', 'visible', 'important');
+        $("#logo-btn").css("pointer-events", "none", "important");
+        $("#btn").css("pointer-events", "none", "important");
     }
 </script>
 

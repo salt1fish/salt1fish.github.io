@@ -19,7 +19,6 @@
 
             // #####获取url参数#####
             let currId = parseInt($.getUrlParam("id"));
-            console.log(currId)
 
             $(".long").each(function (index, img) {
                 if (currId === 0) {
@@ -29,7 +28,6 @@
                     $("#front-btn").css('visibility', 'hidden', 'important');
                     return false;
                 } else if (index === currId - 1) {
-                    console.log(index, img);
                     img.style.setProperty('display', 'block', 'important');
                 } else {
                     img.style.setProperty('display', 'none', 'important');
@@ -40,6 +38,10 @@
                 $(".front-btn").css("visibility", "hidden");
                 $(".back1-btn").css("visibility", "hidden");
             }
+
+            window.addEventListener("popstate", function (e) {
+                backClick();
+            })
         })
     </script>
 </head>
@@ -55,6 +57,8 @@
         if (rBtn.css("background-size") === "400%") {
             rBtn.css("background-color", "#fff");
             rBtn.css("background-size", "0");
+            $("#logo-btn").css("pointer-events", "auto", "important");
+            $("#btn").css("pointer-events", "auto", "important");
         }
     }
 </script>
@@ -66,7 +70,6 @@
         $(".long").each(function (index, img) {
             if (img.style.display === "block") {
                 index = index + 1;
-                console.log("前进", index, img);
                 if (index === 2) {
                     $("#back1-btn").css('visibility', 'visible', 'important');
                 } else if (index === 5) {
@@ -87,7 +90,6 @@
         $(".long").each(function (index, img) {
             if (img.style.display === "block") {
                 index = index + 1;
-                console.log("后退", index, img);
                 if (index === 6) {
                     $("#front-btn").css('visibility', 'visible', 'important');
                 } else if (index === 3) {
