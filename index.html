@@ -39,10 +39,6 @@
 
     <script>
         $(function () {
-            let dis = Math.ceil((document.body.offsetWidth - window.innerWidth) / 2);
-            $("#l-img").css("left", dis + "px");
-            $("#r-img").css("right", dis + "px");
-
             //一段正则，匹配所有_min.的图片src属性
             let test = /_min\./
             //遍历所有的图片节点
@@ -53,6 +49,14 @@
                 }
             })
         })
+
+        function myInit() {
+            let dis = Math.ceil((document.body.offsetWidth - window.innerWidth) / 2);
+            $("#l-img").css("left", dis + "px");
+            $("#r-img").css("right", dis + "px");
+            console.log("我执行了", document.body.offsetWidth, window.innerWidth);
+        }
+
     </script>
 </head>
 
@@ -109,6 +113,7 @@
             raycaster="objects: .clickable"
             emitevents="true"
             cursor="fuse: false; rayOrigin: mouse;"
+            onload="myInit()"
     >
         <a-entity
                 gltf-model='https://cdn.glitch.com/06bd98b4-97ee-4c07-a546-fe39ca205034%2Fbowser.glb'
@@ -202,7 +207,7 @@
 
 <!-- 左按钮 -->
 <a href="javascript:void(0)" class="container" id="btn" onclick="lclick()">
-    <img src="images/8_min.png" alt="">
+    <img src="images/8.png" alt="">
 </a>
 
 <script>
@@ -231,7 +236,7 @@
 
 <!-- 右按钮 -->
 <a href="javascript:void(0)" class="rcontainer" id="rbtn" onclick="rclick()">
-    <img src="images/7_min.png" alt="">
+    <img src="images/7.png" alt="">
 </a>
 
 <script>
