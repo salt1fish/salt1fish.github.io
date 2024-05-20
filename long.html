@@ -57,8 +57,8 @@
         if (rBtn.css("background-size") === "400%") {
             rBtn.css("background-color", "#fff");
             rBtn.css("background-size", "0");
-            $("#logo-btn").css("pointer-events", "auto", "important");
-            $("#btn").css("pointer-events", "auto", "important");
+            $("#logo-btn", window.parent.document).css("pointer-events", "auto", "important");
+            $("#btn", window.parent.document).css({"pointer-events": "auto !important", "background-color": "#fff !important"});
         }
     }
 </script>
