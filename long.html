@@ -81,6 +81,7 @@
     function back1Click() {
         $(".long").each(function (index, img) {
             if (img.style.display === "block") {
+                index = index + 1;
                 console.log("后退", index, img);
                 if (index === 6) {
                     $("#front-btn").css('visibility', 'visible', 'important');
