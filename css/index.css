@@ -7,6 +7,8 @@
 body {
     width: 100%;
     height: 100%;
+    border: 0;
+    padding: 0;
     overflow: hidden;
 }
 
@@ -255,128 +257,19 @@ nav {
 /*##########详情页面########*/
 #slide-sec {
     /* 弹性布局 让页面元素垂直+水平居中 */
-    display: flex;
+    display: none;
     position: relative;
-    top: -100vh;
     justify-content: center;
     align-items: center;
     /* 让页面始终占浏览器总高 */
     height: 100vh;
-    background-color: #ffffff;
-    background-image: url('../images/box/bg1_min.png');
-    background-size: auto;
-    /* 视距 增加盒子的立体感 */
-    perspective: 1000px;
+    width: 100vw;
     z-index: 2;
-    visibility: hidden;
 }
 
-#slide_sec1 {
-    /* 相对定位 */
-    position: relative;
-    display: block;
-    width: 230px;
-    height: 125px;
-    /* 让子元素保留其3D位置 */
-    transform-style: preserve-3d;
-    /* 动画 名称 时长 linear 是匀速运动 infinite是无限次播放 */
-    animation: rotate 20s linear infinite;
-}
-
-#slide_sec1 div {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: #d3d1d1;
-    transition: all 1s;
-}
-
-#slide_sec1 div img {
-    width: 100%;
-    height: 100%;
-}
-
-#slide_sec1 div:nth-child(1) {
-    width: 250px;
-    height: 228px;
-    transform: translateZ(71px);
-}
-
-#slide_sec1 div:nth-child(2) {
-    width: 250px;
-    height: 228px;
-    transform: rotateX(-180deg) translateZ(71px);
-}
-
-#slide_sec1 div:nth-child(3) {
-    width: 250px;
-    height: 142px;
-    transform: rotateX(90deg) translateZ(71px);
-}
-
-#slide_sec1 div:nth-child(4) {
-    width: 250px;
-    height: 142px;
-    transform: rotateX(-90deg) translateZ(157px);
-}
-
-#slide_sec1 div:nth-child(5) {
-    width: 142px;
-    height: 228px;
-    transform: rotateY(90deg) translateZ(179px);
-}
-
-#slide_sec1 div:nth-child(6) {
-    width: 142px;
-    height: 228px;
-    transform: rotateY(-90deg) translateZ(71px);
-}
-
-#slide_sec1 div:nth-child(7) {
-    width: 250px;
-    height: 228px;
-    transform: translateZ(71px);
-}
-
-#slide_sec1 div:nth-child(8) {
-    width: 250px;
-    height: 228px;
-    transform: rotateX(-180deg) translateZ(71px);
-}
-
-#slide_sec1 div:nth-child(9) {
-    width: 250px;
-    height: 142px;
-    transform: rotateX(90deg) translateZ(71px);
-}
-
-#slide_sec1 div:nth-child(10) {
-    width: 250px;
-    height: 142px;
-    transform: rotateX(-90deg) translateZ(157px);
-}
-
-#slide_sec1 div:nth-child(11) {
-    width: 142px;
-    height: 228px;
-    transform: rotateY(90deg) translateZ(179px);
-}
-
-#slide_sec1 div:nth-child(12) {
-    width: 142px;
-    height: 228px;
-    transform: rotateY(-90deg) translateZ(71px);
-}
-
-@keyframes rotate {
-    0% {
-        transform: rotateY(0) rotateX(0);
-    }
-    100% {
-        transform: rotateY(710deg) rotateX(710deg);
-    }
+#slide-sec iframe {
+    width: 100vw;
+    height: 100vh;
 }
 
 /*后退按钮*/
@@ -400,49 +293,6 @@ nav {
 .back-btn img {
     width: 50px;
     height: 40px;
-}
-
-/*前进按钮*/
-.front-btn {
-    display: flex;
-    position: fixed;
-    text-align: center;
-    width: 100px;
-    height: 100px;
-    bottom: 30px;
-    right: 30px;
-}
-
-.front-btn a {
-    display: block;
-    margin: auto;
-}
-
-.front-btn img {
-    width: 60px;
-    height: 60px;
-}
-
-/*返回按钮*/
-.back1-btn {
-    display: flex;
-    position: fixed;
-    text-align: center;
-    width: 100px;
-    height: 100px;
-    bottom: 30px;
-    left: 30px;
-    visibility: hidden;
-}
-
-.back1-btn a {
-    display: block;
-    margin: auto;
-}
-
-.back1-btn img {
-    width: 60px;
-    height: 60px;
 }
 
 #details {

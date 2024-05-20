@@ -17,20 +17,9 @@
                 return null;
             }
 
-            // #####替换min图片#####
-            //一段正则，匹配所有_min.的图片src属性
-            let test = /_min\./
-            //遍历所有的图片节点
-            $("img").each(function (index, obj) {
-                if (test.test($(this).attr("src"))) {
-                    var reSrc = $(this).attr("src").replace(test, ".");
-                    $(this).attr("src", reSrc)
-                }
-            })
-            
             // #####获取url参数#####
-            let currId = $.getUrlParam("id");
-            console.log("当前id", id);
+            let currId = parseInt($.getUrlParam("id"));
+            console.log("当前id", currId);
 
             // #####替换图片#####
             let arrImg = document.querySelectorAll(".tem");
@@ -69,19 +58,35 @@
                     arrImg[i].setAttribute("src", "images/box/left" + currId + "_min.png");
                 }
             }
+
+            document.body.style.setProperty("background-image", "url('" + "images/box/bg" + currId + "_min.png" + "')")
+
+            // #####替换min图片#####
+            //一段正则，匹配所有_min.的图片src属性
+            let test = /_min\./
+            //遍历所有的图片节点
+            $("img").each(function (index, obj) {
+                if (test.test($(this).attr("src"))) {
+                    var reSrc = $(this).attr("src").replace(test, ".");
+                    $(this).attr("src", reSrc)
+                }
+            })
         })
     </script>
 
 </head>
 <body>
 <!-- 后退按钮 -->
-<div class="back-btn">
-    <a href="javascript:void(0)" id="back-btn" onclick="backClick()"><img src="images/back-btn.png" alt=""></a>
-</div>
+<a href="javascript:void(0)" class="back-btn" id="back-btn" onclick="backClick()"><img src="images/back-btn.png" alt=""></a>
+
 
 <script>
     function backClick() {
-        window.history.go(-1);
+        let slide = $("#slide-sec", window.parent.document);
+        let myIframe = $("#my-iframe", window.parent.document);
+        console.log(slide);
+        slide.css('display', 'none', 'important');
+        myIframe.removeAttr("src");
     }
 </script>
 

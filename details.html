@@ -17,6 +17,14 @@
                 return null;
             }
 
+            // #####获取url参数#####
+            let currImg = $.getUrlParam("curr_img");
+            let currBg = $.getUrlParam("curr_bg");
+
+            // #####替换图片#####
+            $("body").css("background-image", "url('" + currBg + "')");
+            $("#details-img").attr("src", currImg);
+
             // #####替换min图片#####
             //一段正则，匹配所有_min.的图片src属性
             let test = /_min\./;
@@ -27,23 +35,14 @@
                     $(this).attr("src", reSrc);
                 }
             })
-
-            // #####获取url参数#####
-            let currImg = $.getUrlParam("curr_img");
-            let currBg = $.getUrlParam("curr_bg");
-
-            // #####替换图片#####
-            $("body").css("background-image", "url('"+ currBg +"')");
-            $("#details-img").attr("src", currImg);
         })
     </script>
 </head>
 <body>
 <!-- 返回按钮 -->
-<div class="back-btn">
-    <a href="javascript:void(0)" id="details-back-btn" onclick="detailsBackClick()"><img src="images/back-btn.png"
-                                                                                         alt=""></a>
-</div>
+<a href="javascript:void(0)" class="back-btn" id="details-back-btn" onclick="detailsBackClick()"><img
+        src="images/back-btn.png"
+        alt=""></a>
 <!-- 详情图片 -->
 <img src="images/box/front1_min.png" alt="" id="details-img">
 

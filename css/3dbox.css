@@ -10,6 +10,7 @@ body {
 	align-items: center;
 	/* 让页面始终占浏览器总高 */
 	height: 100vh;
+    background-color: #F8F7F7;
 	background-image: url('../images/box/bg1_min.png');
 	background-size: auto;
 	/* 视距 增加盒子的立体感 */
@@ -138,55 +139,8 @@ body {
     background-color: #cccac7;
 }
 
-.back-btn a {
-    display: block;
-    margin: auto;
-}
-
 .back-btn img {
     width: 50px;
     height: 40px;
-}
-
-/*前进按钮*/
-.front-btn {
-    display: flex;
-    position: fixed;
-    text-align: center;
-    width: 100px;
-    height: 100px;
-    bottom: 30px;
-    right: 30px;
-}
-
-.front-btn a {
-    display: block;
     margin: auto;
-}
-
-.front-btn img {
-    width: 60px;
-    height: 60px;
-}
-
-/*返回按钮*/
-.back1-btn {
-    display: flex;
-    position: fixed;
-    text-align: center;
-    width: 100px;
-    height: 100px;
-    bottom: 30px;
-    left: 30px;
-    visibility: hidden;
-}
-
-.back1-btn a {
-    display: block;
-    margin: auto;
-}
-
-.back1-btn img {
-    width: 60px;
-    height: 60px;
 }
