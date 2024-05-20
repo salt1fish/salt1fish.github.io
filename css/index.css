@@ -7,8 +7,8 @@
 body {
     width: 100%;
     height: 100%;
-    border: 0;
     padding: 0;
+    border-width: 15px 15px;
     overflow: hidden;
 }
 
@@ -291,6 +291,25 @@ nav {
 .back-btn img {
     width: 50px;
     height: 40px;
+}
+
+.border-img {
+    height: 100vh;
+    width: 20px;
+}
+
+#l-img {
+    float: left;
+    background-image: url("../images/lborder.png");
+    background-size: contain;
+    background-repeat: repeat;
+}
+
+#r-img {
+    float: right;
+    background-image: url("../images/rborder.png");
+    background-size: contain;
+    background-repeat: repeat;
 }
 
 /*#######清除浮动########*/
