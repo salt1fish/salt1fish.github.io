@@ -22,7 +22,7 @@
             console.log(currId)
 
             $(".long").each(function (index, img) {
-                if (index === currId) {
+                if (currId === 0) {
                     img.style.setProperty('display', 'block', 'important');
                     $("#l1").css('display', 'block', 'important');
                     $("#l2").css('display', 'none', 'important');
