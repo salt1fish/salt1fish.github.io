@@ -159,10 +159,9 @@ nav {
     text-align: center;
     margin: 0 0;
     position: fixed;
-    top: 80px;
+    top: 200px;
     left: 0;
-    border-radius: 15px 0 0 15px;
-    background-color: #ffffff;
+    border-radius: 0 15px 15px 0;
     /* 盒子阴影 */
     box-shadow: 0 5px 15px -5px rgba(0, 0, 0, 0.1);
     animation: glow 8s linear infinite;
