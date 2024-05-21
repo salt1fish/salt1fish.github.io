@@ -97,7 +97,7 @@
                 $("#l" + index).css('display', 'none', 'important');
                 let showImg = $("#l" + (index + 1));
                 showImg.css('display', 'block', 'important');
-                imgLoad(showImg, imgInit(index));
+                imgLoad(showImg[0], imgInit(index));
                 return false;
             }
         });
