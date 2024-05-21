@@ -95,7 +95,9 @@
                     $("#front-btn").css('visibility', 'hidden', 'important');
                 }
                 $("#l" + index).css('display', 'none', 'important');
-                $("#l" + (index + 1)).css('display', 'block', 'important');
+                let showImg = $("#l" + (index + 1));
+                showImg.css('display', 'block', 'important');
+                imgLoad(showImg, imgInit(index));
                 return false;
             }
         });
@@ -115,8 +117,9 @@
                     $("#back1-btn").css('visibility', 'hidden', 'important');
                 }
                 $("#l" + index).css('display', 'none', 'important');
-                $("#l" + (index - 1)).css('display', 'block', 'important');
-                imgLoad(index - 1);
+                let showImg = $("#l" + (index - 1))
+                showImg.css('display', 'block', 'important');
+                imgLoad(showImg[0], imgInit(index - 2));
                 return false;
             }
         });
