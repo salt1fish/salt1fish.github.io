@@ -55,7 +55,7 @@
                     callback(img)
                     clearInterval(timer)
                 }
-            }, 2000)
+            }, 500)
         }
     </script>
 </head>
@@ -116,6 +116,7 @@
                 }
                 $("#l" + index).css('display', 'none', 'important');
                 $("#l" + (index - 1)).css('display', 'block', 'important');
+                imgLoad(index - 1);
                 return false;
             }
         });
