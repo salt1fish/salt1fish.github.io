@@ -313,9 +313,10 @@ nav {
 
 #r-img {
     float: right;
-    background-image: url("../images/rborder.png");
+    background-image: url("../images/lborder.png");
     background-size: contain;
     background-repeat: repeat;
+    transform: rotate(180deg);
 }
 
 /*#######清除浮动########*/
