@@ -20,6 +20,7 @@ body {
 img {
     width: 100%;
     max-width: 100%;
+    top: 65px;
 }
 
 #l1 {
@@ -121,7 +122,7 @@ img {
     width: 150px;
     height: 150px;
     top: 40%;
-    left: 43%;
+    left: 27%;
     border-radius: 50%;
     /* 只需要将其它的边的颜色设为透明就好 */
     border: 3px solid transparent;
