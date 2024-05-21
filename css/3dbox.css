@@ -154,7 +154,7 @@ body {
     margin: auto;
     position: fixed;
     backdrop-filter: blur(15px);
-    z-index: 2;
+    z-index: 20;
 }
 
 .loading {
