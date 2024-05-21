@@ -52,8 +52,8 @@
             img.setAttribute("src", img.getAttribute("src-data"));
             let timer = setInterval(function () {
                 if (img.complete) {
-                    callback(img)
-                    clearInterval(timer)
+                    callback(img);
+                    clearInterval(timer);
                 }
             }, 500)
         }
@@ -86,6 +86,7 @@
 <a href="javascript:void(0)" class="front-btn" id="front-btn" onclick="fClick()"><img src="images/front-btn.png"></a>
 <script>
     function fClick() {
+        $("#img-loading").css("display", "block");
         $(".long").each(function (index, img) {
             if (img.style.display === "block") {
                 index = index + 1;
@@ -108,6 +109,7 @@
 <a href="javascript:void(0)" class="back1-btn" id="back1-btn" onclick="back1Click()"><img src="images/back-btn.png"></a>
 <script>
     function back1Click() {
+        $("#img-loading").css("display", "block");
         $(".long").each(function (index, img) {
             if (img.style.display === "block") {
                 index = index + 1;
