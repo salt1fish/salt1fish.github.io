@@ -246,6 +246,28 @@
     }
 </script>
 
+<!-- 视频按钮 -->
+<a href="javascript:void(0)" class="play-container" id="play-btn" onclick="playClick()">
+    <img src="images/play.png" alt="">
+</a>
+
+<script>
+    let playDtn = document.getElementById("play-btn");
+
+    function playClick() {
+        playDtn.style.background = "linear-gradient(90deg, #fa7199, #f5ce62, #e43603, #fa7199)";
+        playDtn.style.backgroundSize = "400%";
+        let slide_sec1 = document.getElementById("slide-sec");
+        let myIframe = document.getElementById("my-iframe");
+        myIframe.src = "long.html?id=1";
+        let w = Math.ceil((document.body.offsetWidth - window.innerWidth) / 2);
+        slide_sec1.style.setProperty('left', w + "px", 'important');
+        slide_sec1.style.setProperty('visibility', 'visible', 'important');
+        $("#logo-btn").css("pointer-events", "none", "important");
+        $("#btn").css({"pointer-events": "none", "background-color": "#3B3B3B"});
+    }
+</script>
+
 <!-- 边框 -->
 <div id="l-img" class="border-img"></div>
 <div id="r-img" class="border-img"></div>

@@ -150,6 +150,31 @@ nav {
     margin-top: 9px;
 }
 
+.play-container {
+    /* 溢出隐藏 */
+    overflow: hidden;
+    display: block;
+    width: 70px;
+    height: 90px;
+    text-align: center;
+    margin: 0 0;
+    position: fixed;
+    top: 80px;
+    left: 0;
+    border-radius: 15px 0 0 15px;
+    background-color: #ffffff;
+    /* 盒子阴影 */
+    box-shadow: 0 5px 15px -5px rgba(0, 0, 0, 0.1);
+    animation: glow 8s linear infinite;
+    z-index: 2;
+}
+
+.play-container img {
+    width: 100%;
+    user-select: none;
+    margin-top: 9px;
+}
+
 @keyframes glow {
     0% {
         background-position: 0%;
@@ -316,7 +341,7 @@ nav {
     background-image: url("../images/lborder.png");
     background-size: contain;
     background-repeat: repeat;
-    transform: rotate(180deg);
+    transform: rotateY(180deg);
 }
 
 /*#######清除浮动########*/
