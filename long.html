@@ -26,26 +26,45 @@
                     $("#l1").css('display', 'block', 'important');
                     $("#l2").css('display', 'none', 'important');
                     $("#front-btn").css('visibility', 'hidden', 'important');
+                    imgLoad(img, imgInit(index));
                     return false;
-                } else if (index === currId - 1) {
+                } else if (index === currId) {
                     img.style.setProperty('display', 'block', 'important');
+                    imgLoad(img, imgInit(index));
+                    if (currId !== 1 && currId !== 5) {
+                        $("#back1-btn").css('visibility', 'visible', 'important');
+                    } else if (currId === 5) {
+                        $("#front-btn").css('visibility', 'hidden', 'important');
+                        $("#back1-btn").css('visibility', 'visible', 'important');
+                    }
                 } else {
                     img.style.setProperty('display', 'none', 'important');
                 }
             });
 
-            if (currId === 1) {
-                $(".front-btn").css("visibility", "hidden");
-                $(".back1-btn").css("visibility", "hidden");
-            }
-
             window.addEventListener("popstate", function (e) {
                 backClick();
             })
         })
+
+        // 图片加载函数
+        function imgLoad(img, callback) {
+            img.setAttribute("src", img.getAttribute("src-data"));
+            let timer = setInterval(function () {
+                if (img.complete) {
+                    callback(img)
+                    clearInterval(timer)
+                }
+            }, 50)
+        }
     </script>
 </head>
 <body>
+<!-- 加载动画 -->
+<div id="img-loading">
+    <div class="loading"></div>
+</div>
+
 <a href="javascript:void(0)" class="back-btn" id="back-btn" onclick="backClick()"><img src="images/back-btn.png" alt=""></a>
 <script>
     function backClick() {
@@ -103,11 +122,33 @@
     }
 </script>
 
-<img src="images/long/long1.png" id="l1" class="long" alt="">
-<img src="images/long/long2.png" id="l2" class="long" alt="">
-<img src="images/long/long3.jpg" id="l3" class="long" alt="">
-<img src="images/long/long4.jpg" id="l4" class="long" alt="">
-<img src="images/long/long5.jpg" id="l5" class="long" alt="">
-<img src="images/long/long6.jpg" id="l6" class="long" alt="">
+<img src-data="images/long/long1.png" id="l1" class="long" alt="">
+<img src-data="images/long/long2.png" id="l2" class="long" alt="">
+<img src-data="images/long/long3.jpg" id="l3" class="long" alt="">
+<img src-data="images/long/long4.jpg" id="l4" class="long" alt="">
+<img src-data="images/long/long5.jpg" id="l5" class="long" alt="">
+<img src-data="images/long/long6.jpg" id="l6" class="long" alt="">
+
+<script>
+    function imgInit(index) {
+        return function () {
+            $("#img-loading").css("display", "none");
+            if (index === 0) {
+                $("body").css({"background-color": "#DC8F59", "background-image": "url('images/box/bg3_min.png')"});
+            } else if (index === 1) {
+                $("body").css({"background-color": "#E5BD35", "background-image": "url('images/box/bg4_min.png')"});
+            } else if (index === 2) {
+                $("body").css({"background-color": "#8F5000"});
+            } else if (index === 3) {
+                $("body").css({"background-color": "#FFE7A1", "background-image": "url('images/box/bg6_min.png')"});
+            } else if (index === 4) {
+                $("body").css({"background-color": "#FFEABF", "background-image": "url('images/box/bg1_min.png')"});
+            } else if (index === 5) {
+                $("body").css({"background-color": "#DE8E59", "background-image": "url('images/box/bg2_min.png')"});
+            }
+        }
+    }
+</script>
+
 </body>
 </html>
