@@ -168,7 +168,7 @@ body {
     border: 3px solid transparent;
     /* 我们需要隐藏其它三条边只显示一条边 */
     border-top-color: #9370db;
-    animation: rotate 2s linear infinite;
+    animation: rotate1 2s linear infinite;
 }
 
 .loading::before {
@@ -182,7 +182,7 @@ body {
     border-radius: 50%;
     border: 3px solid transparent;
     border-top-color: #ba55d3;
-    animation: rotate 3s linear infinite;
+    animation: rotate1 3s linear infinite;
 }
 
 .loading::after {
@@ -196,11 +196,11 @@ body {
     border: 3px solid transparent;
     border-top-color: #f0f;
     /* 动画 时长 linear是匀速运动 infinite 是无限次运动 */
-    animation: rotate 1.5s linear infinite;
+    animation: rotate1 1.5s linear infinite;
 }
 
 /* 下面定义一下动画 */
-@keyframes rotate {
+@keyframes rotate1 {
     0% {
         transform: rotate(0);
     }
