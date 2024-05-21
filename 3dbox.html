@@ -191,6 +191,11 @@
             bc6.style.transform = "rotateY(-90deg) translateZ(71px)";
         }
     }
+
+    // 监听回退按钮，确保触发函数
+    window.addEventListener("popstate", function (e) {
+        backClick();
+    });
 </script>
 </body>
 </html>
