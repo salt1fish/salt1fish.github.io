@@ -151,13 +151,18 @@
     function box_click() {
         clearTimeout(timer)
         let curr_obj = window.event.currentTarget;
+        let curr_id = curr_obj.parentNode.getAttribute("id");
         timer = setTimeout(function () {
             let curr_img = curr_obj.src;
             let tem = document.body.style.backgroundImage;
             let curr_bg = tem.split('"')[1];
             let bc1 = document.getElementById("bc1");
             if (bc1.style.transform === "translateZ(171px)") {
-                window.location.href = "details.html" + "?curr_img=" + curr_img + "&curr_bg=" + curr_bg;
+                if (curr_id === "bc3" || curr_id === "bc9") {
+                    window.location.href = "details.html" + "?curr_img=" + curr_img + "&curr_bg=" + curr_bg + "&flag=true";
+                } else {
+                    window.location.href = "details.html" + "?curr_img=" + curr_img + "&curr_bg=" + curr_bg + "&flag=false";
+                }
             }
         }, 500);
     }

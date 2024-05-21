@@ -20,10 +20,14 @@
             // #####获取url参数#####
             let currImg = $.getUrlParam("curr_img");
             let currBg = $.getUrlParam("curr_bg");
+            let flag = $.getUrlParam("flag");
 
             // #####替换图片#####
             $("body").css("background-image", "url('" + currBg + "')");
             $("#details-img").attr("src", currImg);
+            if (flag === "true") {
+                $("#details-img").css("transform", "rotate(180deg)");
+            }
 
             // #####替换min图片#####
             //一段正则，匹配所有_min.的图片src属性
