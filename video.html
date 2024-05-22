@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>video</title>
+    <link rel="stylesheet" href="./css/video.css">
+</head>
+<body>
+<nav>
+    <div class="logo"><a href="javascript:void(0)" id="logo-btn"></a></div>
+</nav>
+
+<div id="playerContainer">
+    <video id="videoPlayer" controls>
+        <!-- 在这里嵌入视频文件 -->
+        <source src="video.mp4" type="video/mp4">
+    </video>
+</div>
+<script>
+    // 获取视频播放器元素
+    var videoPlayer = document.getElementById("videoPlayer");
+
+    // 播放暂停控制
+    function togglePlay() {
+        if (videoPlayer.paused) {
+            videoPlayer.play();
+        } else {
+            videoPlayer.pause();
+        }
+    }
+
+    // 添加播放暂停按钮点击事件
+    videoPlayer.addEventListener("click", togglePlay);
+</script>
+
+<div class="content py-3">
+    <div class="userCont mb-3">
+        <div class="item">
+            <img src="./images/animal/cont1.webp" alt="">
+            <div>龙</div>
+        </div>
+        <div class="item">
+            <img src="./images/animal/cont2.webp" alt="">
+            <div>玄武</div>
+        </div>
+        <div class="item">
+            <img src="./images/animal/cont3.webp" alt="">
+            <div>凤凰</div>
+        </div>
+        <div class="item">
+            <img src="./images/animal/cont4.webp" alt="">
+            <div>麒麟</div>
+        </div>
+        <div class="item">
+            <img src="./images/animal/cont5.webp" alt="">
+            <div>鲲</div>
+        </div>
+    </div>
+
+    <h3 class="tit mb-3">更多推广</h3>
+    <div class="textBox">
+        <div class="user">
+            <img src="./images/logo.png" alt="">
+        </div>
+        <div class="text ">
+            <p>我是广告，我是广告，我是广告，我是广告，我是广告，我是广告，我是广告，我是广告，我是广告，我是广告。</p>
+        </div>
+    </div>
+    <div class="textBox">
+        <div class="user">
+            <img src="./images/logo.png" alt="">
+        </div>
+        <div class="text ">
+            <p>我是广告，我是广告，我是广告，我是广告，我是广告，我是广告，我是广告，我是广告，我是广告，我是广告。</p>
+        </div>
+    </div>
+    <div class="textBox">
+        <div class="user">
+            <img src="./images/logo.png" alt="">
+        </div>
+        <div class="text ">
+            <p>我是广告，我是广告，我是广告，我是广告，我是广告，我是广告，我是广告，我是广告，我是广告，我是广告。</p>
+        </div>
+    </div>
+    <div class="textBox">
+        <div class="user">
+            <img src="./images/logo.png" alt="">
+        </div>
+        <div class="text ">
+            <p>我是广告，我是广告，我是广告，我是广告，我是广告，我是广告，我是广告，我是广告，我是广告，我是广告。</p>
+        </div>
+    </div>
+    <div class="textBox">
+        <div class="user">
+            <img src="./images/logo.png" alt="">
+        </div>
+        <div class="text ">
+            <p>我是广告，我是广告，我是广告，我是广告，我是广告，我是广告，我是广告，我是广告，我是广告，我是广告。</p>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

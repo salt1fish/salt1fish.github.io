@@ -1,0 +1,168 @@
+* {
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+body {
+    position: relative;
+    justify-content: center;
+    align-items: center;
+    background-color: #F8F7F7;
+    background-image: url('../images/box/bg3_min.png');
+    background-size: auto;
+    z-index: 3;
+}
+
+nav {
+    width: 100%;
+    height: 96px;
+}
+
+/*logo样式*/
+.logo {
+    /* 设置 logo 的宽度和高度 */
+    width: 90px;
+    height: 96px;
+    /* 使用背景图片实现 logo */
+    background: url("../images/logo.png") no-repeat center;
+    background-size: 100% 100%;
+    /* 使 logo 水平居中 */
+    margin: 0 auto;
+}
+
+#logo-btn {
+    display: block;
+    width: 90px;
+    height: 96px;
+    position: fixed;
+    z-index: 3;
+}
+
+#playerContainer {
+    width: 80%;
+    margin: 0 auto;
+    margin-top: 30px;
+}
+
+#videoPlayer {
+    width: 100%;
+}
+
+.content {
+    width: 80%;
+    margin: 0 auto;
+}
+
+.py-3 {
+    padding-top: 30px;
+    padding-bottom: 30px;
+}
+
+.my-3 {
+    margin-top: 30px !important;
+    margin-bottom: 30px !important;
+}
+
+.mt-3 {
+    margin-top: 30px;
+}
+
+.mt-2 {
+    margin-top: 15px;
+}
+
+.mb-3 {
+    margin-bottom: 30px !important;
+}
+
+.content .userCont {
+    display: flex;
+    justify-content: space-between;
+}
+
+.content .userCont .item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 25px;
+    width: 13%;
+    border-radius: 8px;
+    box-shadow: 0 12px 20px 0 rgba(95, 101, 105, 0.15);
+    /*background: #ffffff;*/
+    background-color: rgba(255, 255, 255, 60%);
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.content .userCont .item img {
+    margin-bottom: 20px;
+    width: 100px;
+    height: 100px;
+    border-radius: 50px;
+    object-fit: cover;
+}
+
+.tit {
+    padding-left: 15px;
+    color: #feab2b;
+    border-left: 5px solid #feab2b;
+}
+
+.content .textBox {
+    position: relative;
+    margin-bottom: 25px;
+    padding: 15px;
+    background: rgba(255, 255, 255, 60%);
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 12px 20px 0 rgba(95, 101, 105, 0.15);
+}
+
+.content .textBox::before {
+    content: '';
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    width: 150px;
+    height: 100%;
+    background: url(../images/z2.png) no-repeat center;
+    background-size: cover;
+}
+
+.content .textBox::after {
+    content: '';
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    width: 150px;
+    height: 100%;
+    background: linear-gradient(to left, rgba(255, 255, 255, 0.3), #ffffff);
+}
+
+.content .textBox .user {
+    display: flex;
+    align-items: center;
+}
+
+.content .textBox .user img {
+    margin-right: 15px;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.content .textBox .text {
+    padding: 20px;
+    width: calc(100% - 150px);
+}
+
+.content .textBox .text p {
+    line-height: 25px;
+    margin-bottom: 15px;
+}
+
+.content .textBox .text p:last-child {
+    margin-bottom: 0;
+}
