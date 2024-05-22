@@ -35,6 +35,9 @@
         vr-mode-ui='enabled: false;'
         renderer="logarithmicDepthBuffer: true; precision: medium;"
         embedded arjs='trackingMethod: best; sourceType: webcam; debugUIEnabled: false;'>
+    <a-assets>
+        <img id="my-image" src="images/animal/1.png">
+    </a-assets>
 
     <!-- use rawgithack to retrieve the correct url for nft marker (see 'pinball' below) -->
     <a-nft
@@ -46,9 +49,6 @@
         <!--                position="150 300 -100"-->
         <!--        >-->
         <!--        </a-entity>-->
-        <a-assets>
-            <img id="my-image" src="images/animal/1.png">
-        </a-assets>
 
         <!-- Using the asset management system. -->
         <a-image src="#my-image"></a-image>
