@@ -48,7 +48,7 @@ img {
 #l6 {
     position: absolute;
     display: none;
-    top: -6px;
+    top: 35px;
 }
 
 /*后退按钮*/
@@ -61,12 +61,15 @@ img {
     top: 65px;
     left: 10px;
     border-radius: 50px;
-    background-color: #cccac7;
+    /*background-color: white;*/
+    background-image: url("../images/back_bg.png");
+    background-repeat:  no-repeat;
+    background-size: 100% 100%;
     z-index: 10;
 }
 
 .back-btn img {
-    width: 50px;
+    width: 35px;
     height: 40px;
     margin: auto;
 }
