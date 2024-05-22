@@ -27,11 +27,11 @@
                     $("#l1").css('display', 'block', 'important');
                     $("#l2").css('display', 'none', 'important');
                     $("#front-btn").css('visibility', 'hidden', 'important');
-                    imgLoad(img, imgInit(index));
+                    imgLoad(img, index, imgInit);
                     return false;
                 } else if (index === currId) {
                     img.style.setProperty('display', 'block', 'important');
-                    imgLoad(img, imgInit(index));
+                    imgLoad(img, index, imgInit);
                     if (currId !== 1 && currId !== 5) {
                         $("#back1-btn").css('visibility', 'visible', 'important');
                     } else if (currId === 5) {
@@ -49,7 +49,21 @@
         })
 
         // 图片加载函数
-        function imgLoad(img, callback) {
+        function imgLoad(img, index, callback) {
+            // 加载背景
+            if (index === 0) {
+                $("body").css({"background-color": "#fff", "background-image": "url('images/box/bg3_min.png')"});
+            } else if (index === 1) {
+                $("body").css({"background-color": "#E5BD35", "background-image": "url('images/box/bg4_min.png')"});
+            } else if (index === 2) {
+                $("body").css({"background-color": "#8F5000"});
+            } else if (index === 3) {
+                $("body").css({"background-color": "#FFE7A1", "background-image": "url('images/box/bg6_min.png')"});
+            } else if (index === 4) {
+                $("body").css({"background-color": "#FFEABF", "background-image": "url('images/box/bg1_min.png')"});
+            } else if (index === 5) {
+                $("body").css({"background-color": "#DE8E59", "background-image": "url('images/box/bg2_min.png')"});
+            }
             img.setAttribute("src", img.getAttribute("src-data"));
             let timer = setInterval(function () {
                 if (img.complete) {
@@ -99,8 +113,10 @@
                 }
                 $("#l" + index).css('display', 'none', 'important');
                 let showImg = $("#l" + (index + 1));
+                // 设置图片
                 showImg.css('display', 'block', 'important');
-                imgLoad(showImg[0], imgInit(index));
+                // 调用加载函数
+                imgLoad(showImg[0], index, imgInit);
                 return false;
             }
         });
@@ -123,7 +139,7 @@
                 $("#l" + index).css('display', 'none', 'important');
                 let showImg = $("#l" + (index - 1))
                 showImg.css('display', 'block', 'important');
-                imgLoad(showImg[0], imgInit(index - 2));
+                imgLoad(showImg[0], index - 2, imgInit);
                 return false;
             }
         });
@@ -138,23 +154,8 @@
 <img src-data="images/long/long6.jpg" id="l6" class="long" alt="">
 
 <script>
-    function imgInit(index) {
-        return function () {
-            $("#img-loading").css("display", "none");
-            if (index === 0) {
-                $("body").css({"background-color": "#fff", "background-image": "url('images/box/bg3_min.png')"});
-            } else if (index === 1) {
-                $("body").css({"background-color": "#E5BD35", "background-image": "url('images/box/bg4_min.png')"});
-            } else if (index === 2) {
-                $("body").css({"background-color": "#8F5000"});
-            } else if (index === 3) {
-                $("body").css({"background-color": "#FFE7A1", "background-image": "url('images/box/bg6_min.png')"});
-            } else if (index === 4) {
-                $("body").css({"background-color": "#FFEABF", "background-image": "url('images/box/bg1_min.png')"});
-            } else if (index === 5) {
-                $("body").css({"background-color": "#DE8E59", "background-image": "url('images/box/bg2_min.png')"});
-            }
-        }
+    function imgInit() {
+        $("#img-loading").css("display", "none");
     }
 
     // 监听回退按钮，确保触发函数
