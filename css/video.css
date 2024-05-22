@@ -178,7 +178,9 @@ nav {
     top: 65px;
     left: 10px;
     border-radius: 50px;
-    background-color: #cccac7;
+    background-image: url("../images/back_bg.png");
+    background-repeat:  no-repeat;
+    background-size: 100% 100%;
     z-index: 10;
 }
 
