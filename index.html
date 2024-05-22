@@ -254,12 +254,12 @@
 </a>
 
 <script>
-    let playDtn = document.getElementById("play-btn");
+    // let playDtn = document.getElementById("play-btn");
 
     function playClick() {
         let slide_sec1 = document.getElementById("slide-sec");
         let myIframe = document.getElementById("my-iframe");
-        myIframe.src = "long.html?id=1";
+        myIframe.src = "video.html?";
         let w = Math.ceil((document.body.offsetWidth - window.innerWidth) / 2);
         slide_sec1.style.setProperty('left', w + "px", 'important');
         slide_sec1.style.setProperty('visibility', 'visible', 'important');
