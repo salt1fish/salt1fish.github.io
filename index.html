@@ -1,470 +1,78 @@
-<!DOCTYPE html>
-<html lang="zh-CN">
+<script src="https://cdn.jsdelivr.net/gh/aframevr/aframe@1.3.0/dist/aframe-master.min.js"></script>
 
-<head>
-    <meta charset="UTF-8"/>
-    <title>webAR</title>
-    <meta name="viewport"
-          content="width=device-width, initial-scale=1, maximum-scale=1,minimum-scale=1, user-scalable=no">
-    <meta http-equiv="Permissions-Policy" content="interest-cohort=()">
-    <script src="script/aframe.min.js"></script>
-    <!-- rawgithack development URL -->
-    <script src='script/aframe-ar-nft.js'></script>
-    <script src="script/jquery.js"></script>
-    <link rel="stylesheet" href="css/swiper-bundle.min.css"/>
-    <link rel="stylesheet" href="./css/index.css">
-    <!-- 手势检测js -->
-    <script src="./script/gesture-detector.js"></script>
-    <script src="./script/gesture-handler.js"></script>
+<style>
+    .arjs-loader {
+        height: 100%;
+        width: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        background-color: rgba(0, 0, 0, 0.8);
+        z-index: 9999;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
 
-    <script>
-        AFRAME.registerComponent('rotation-reader', {
-            /**
-             * We use IIFE (immediately-invoked function expression) to only allocate one
-             * vector or euler and not re-create on every tick to save memory.
-             */
-            tick: (function () {
-                var position = new THREE.Vector3();
-                var quaternion = new THREE.Quaternion();
+    .arjs-loader div {
+        text-align: center;
+        font-size: 1.25em;
+        color: white;
+    }
+</style>
 
-                return function () {
-                    this.el.object3D.getWorldPosition(position);
-                    this.el.object3D.getWorldQuaternion(quaternion);
-                    // position and rotation now contain vector and quaternion in world space.
-                };
-            })()
-        });
-    </script>
+<!-- rawgithack development URL -->
+<!--<script src='https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js'></script>-->
+<script src='script/aframe-ar-nft.js'></script>
 
-    <script>
-        $(function () {
-            //一段正则，匹配所有_min.的图片src属性
-            let test = /_min\./
-            //遍历所有的图片节点
-            $("img").each(function (index, obj) {
-                if (test.test($(this).attr("src"))) {
-                    var reSrc = $(this).attr("src").replace(test, ".");
-                    $(this).attr("src", reSrc)
-                }
-            })
 
-            $(".arjs-loader").one("DOMNodeRemoved", myInit);
-        })
-
-        function myInit() {
-            let dis = Math.ceil((document.body.offsetWidth - window.innerWidth) / 2);
-            $("#l-img").css("left", dis + "px");
-            $("#r-img").css("right", dis + "px");
-        }
-
-    </script>
-</head>
-
-<body>
-<!-- 导航栏 -->
-<nav>
-    <div class="logo"><a href="javascript:void(0)" id="logo-btn" onclick="logoClick()"></a></div>
-    <script>
-        function logoClick() {
-            let slide_sec1 = document.getElementById("slide-sec");
-            let myIframe = document.getElementById("my-iframe");
-            myIframe.src = "long.html?id=0";
-            let w = Math.ceil((document.body.offsetWidth - window.innerWidth) / 2);
-            slide_sec1.style.setProperty('left', w + "px", 'important');
-            slide_sec1.style.setProperty('visibility', 'visible', 'important');
-        }
-    </script>
-</nav>
-
-<!-- 加载动画效果 -->
+<body style='margin : 0px; overflow: hidden;'>
+<!-- minimal loader shown until image descriptors are loaded -->
 <div class="arjs-loader">
-    <div>
-        <!--        Loading, please wait...-->
-        <span style="--i: 1">l</span>
-        <span style="--i: 2">o</span>
-        <span style="--i: 3">a</span>
-        <span style="--i: 4">d</span>
-        <span style="--i: 5">i</span>
-        <span style="--i: 6">n</span>
-        <span style="--i: 7">g</span>
-        <span style="--i: 8">.</span>
-        <span style="--i: 9">.</span>
-        <span style="--i: 10">.</span>
-    </div>
+    <div>Loading, please wait...</div>
 </div>
-
-<!-- 图像追踪 -->
 <a-scene
-        arjs='trackingMethod: best; sourceType: webcam; debugUIEnabled: false;'
-        embedded
-        renderer="logarithmicDepthBuffer: true;"
-        vr-mode-ui="enabled: false;"
-        gesture-detector
-        id="scene"
->
-    <!-- 展示图片 -->
+        vr-mode-ui='enabled: false;'
+        renderer="logarithmicDepthBuffer: true; precision: medium;"
+        embedded arjs='trackingMethod: best; sourceType: webcam; debugUIEnabled: false;'>
     <a-assets>
-        <img id="a1" src="images/animal/1.png">
+        <img id="my-image" src="images/animal/1.png">
     </a-assets>
 
     <a-assets>
-        <img id="a2" src="images/animal/2.png">
+        <img id="my-image1" src="images/animal/2.png">
     </a-assets>
 
-    <a-assets>
-        <img id="a3" src="images/animal/3.png">
-    </a-assets>
-
-    <a-assets>
-        <img id="a4" src="images/animal/4.png">
-    </a-assets>
-
-    <a-assets>
-        <img id="a5" src="images/animal/5.png">
-    </a-assets>
 
     <!-- use rawgithack to retrieve the correct url for nft marker (see 'pinball' below) -->
     <a-nft
-            type="nft"
-            url="nft-mark/nft1/nft1"
-            smooth="true"
-            smoothCount="10"
-            smoothTolerance="0.01"
-            smoothThreshold="5"
-            raycaster="objects: .clickable"
-            emitevents="true"
-            cursor="fuse: false; rayOrigin: mouse;"
-    >
+            type='nft' url='nft-mark/nft1/nft1'
+            smooth='true' smoothCount='10' smoothTolerance='0.01' smoothThreshold='5'>
         <!--        <a-entity-->
         <!--                gltf-model='https://cdn.glitch.com/06bd98b4-97ee-4c07-a546-fe39ca205034%2Fbowser.glb'-->
         <!--                scale="5 5 5"-->
-        <!--                position="50 150 0"-->
-        <!--                class="clickable"-->
-        <!--                gesture-handler="minScale: 0.25; maxScale: 10"-->
+        <!--                position="150 300 -100"-->
         <!--        >-->
         <!--        </a-entity>-->
-        <a-image
-                src="#a1"
-                height="500"
-                width="500"
-                rotation="-90 0 0"
-                class="clickable"
-                gesture-handler="minScale: 0.25; maxScale: 10">
-        </a-image>
+        <!--        <a-plane color="#CCC" height="20" width="20"></a-plane>-->
+        <!--        <a-plane src="#ground" height="100" width="100" rotation="-90 0 0"></a-plane>-->
+        <!-- Using the asset management system. -->
+        <a-image src="#my-image1" height="500" width="500" rotation="-90 0 0"></a-image>
     </a-nft>
-
-    <a-nft
-            type="nft"
-            url="nft-mark/nft2/nft2"
-            smooth="true"
-            smoothCount="10"
-            smoothTolerance="0.01"
-            smoothThreshold="5"
-            raycaster="objects: .clickable"
-            emitevents="true"
-            cursor="fuse: false; rayOrigin: mouse;"
-    >
-        <a-image
-                src="#a2"
-                height="500"
-                width="500"
-                rotation="-90 0 0"
-                class="clickable"
-                gesture-handler="minScale: 0.25; maxScale: 10">
-        </a-image>
-    </a-nft>
-
-    <a-nft
-            type="nft"
-            url="nft-mark/nft3/nft3"
-            smooth="true"
-            smoothCount="10"
-            smoothTolerance="0.01"
-            smoothThreshold="5"
-            raycaster="objects: .clickable"
-            emitevents="true"
-            cursor="fuse: false; rayOrigin: mouse;"
-    >
-        <a-image
-                src="#a3"
-                height="500"
-                width="500"
-                rotation="-90 0 0"
-                class="clickable"
-                gesture-handler="minScale: 0.25; maxScale: 10">
-        </a-image>
-    </a-nft>
-
-    <a-nft
-            type="nft"
-            url="nft-mark/nft4/nft4"
-            smooth="true"
-            smoothCount="10"
-            smoothTolerance="0.01"
-            smoothThreshold="5"
-            raycaster="objects: .clickable"
-            emitevents="true"
-            cursor="fuse: false; rayOrigin: mouse;"
-    >
-        <a-image
-                src="#a4"
-                height="500"
-                width="500"
-                rotation="-90 0 0"
-                class="clickable"
-                gesture-handler="minScale: 0.25; maxScale: 10">
-        </a-image>
-    </a-nft>
-
-    <a-nft
-            type="nft"
-            url="nft-mark/nft5/nft5"
-            smooth="true"
-            smoothCount="10"
-            smoothTolerance="0.01"
-            smoothThreshold="5"
-            raycaster="objects: .clickable"
-            emitevents="true"
-            cursor="fuse: false; rayOrigin: mouse;"
-    >
-        <a-image
-                src="#a5"
-                height="500"
-                width="500"
-                rotation="-90 0 0"
-                class="clickable"
-                gesture-handler="minScale: 0.25; maxScale: 10">
-        </a-image>
-    </a-nft>
-
-    <a-nft
-            type="nft"
-            url="nft-mark/nft6/nft6"
-            smooth="true"
-            smoothCount="10"
-            smoothTolerance="0.01"
-            smoothThreshold="5"
-            raycaster="objects: .clickable"
-            emitevents="true"
-            cursor="fuse: false; rayOrigin: mouse;"
-    >
-        <a-image
-                src="#a5"
-                height="500"
-                width="500"
-                rotation="-90 0 0"
-                class="clickable"
-                gesture-handler="minScale: 0.25; maxScale: 10">
-        </a-image>
-    </a-nft>
-
-    <a-nft
-            type="nft"
-            url="nft-mark/nft7/nft7"
-            smooth="true"
-            smoothCount="10"
-            smoothTolerance="0.01"
-            smoothThreshold="5"
-            raycaster="objects: .clickable"
-            emitevents="true"
-            cursor="fuse: false; rayOrigin: mouse;"
-    >
-        <a-image
-                src="#a4"
-                height="500"
-                width="500"
-                rotation="-90 0 0"
-                class="clickable"
-                gesture-handler="minScale: 0.25; maxScale: 10">
-        </a-image>
-    </a-nft>
-
-    <a-nft
-            type="nft"
-            url="nft-mark/nft8/nft8"
-            smooth="true"
-            smoothCount="10"
-            smoothTolerance="0.01"
-            smoothThreshold="5"
-            raycaster="objects: .clickable"
-            emitevents="true"
-            cursor="fuse: false; rayOrigin: mouse;"
-    >
-        <a-image
-                src="#a3"
-                height="500"
-                width="500"
-                rotation="-90 0 0"
-                class="clickable"
-                gesture-handler="minScale: 0.25; maxScale: 10">
-        </a-image>
-    </a-nft>
-
-    <a-nft
-            type="nft"
-            url="nft-mark/nft9/nft9"
-            smooth="true"
-            smoothCount="10"
-            smoothTolerance="0.01"
-            smoothThreshold="5"
-            raycaster="objects: .clickable"
-            emitevents="true"
-            cursor="fuse: false; rayOrigin: mouse;"
-    >
-        <a-image
-                src="#a2"
-                height="500"
-                width="500"
-                rotation="-90 0 0"
-                class="clickable"
-                gesture-handler="minScale: 0.25; maxScale: 10">
-        </a-image>
-    </a-nft>
+<!--    <a-nft-->
+<!--            type='nft' url='trex/trex-image/trex'-->
+<!--            smooth='true' smoothCount='10' smoothTolerance='0.01' smoothThreshold='5'>-->
+<!--        &lt;!&ndash;        <a-entity&ndash;&gt;-->
+<!--        &lt;!&ndash;                gltf-model='https://cdn.glitch.com/06bd98b4-97ee-4c07-a546-fe39ca205034%2Fbowser.glb'&ndash;&gt;-->
+<!--        &lt;!&ndash;                scale="5 5 5"&ndash;&gt;-->
+<!--        &lt;!&ndash;                position="150 300 -100"&ndash;&gt;-->
+<!--        &lt;!&ndash;        >&ndash;&gt;-->
+<!--        &lt;!&ndash;        </a-entity>&ndash;&gt;-->
+<!--        &lt;!&ndash;        <a-plane color="#CCC" height="20" width="20"></a-plane>&ndash;&gt;-->
+<!--        &lt;!&ndash;        <a-plane src="#ground" height="100" width="100" rotation="-90 0 0"></a-plane>&ndash;&gt;-->
+<!--        &lt;!&ndash; Using the asset management system. &ndash;&gt;-->
+<!--        <a-image src="#my-image" height="500" width="500" rotation="-90 0 0"></a-image>-->
+<!--    </a-nft>-->
     <a-entity camera></a-entity>
 </a-scene>
-
-<!-- 轮播器 -->
-<div class="my_swiper clearfix" id="my_swiper">
-    <div class="swiper">
-        <!-- Additional required wrapper -->
-        <div class="swiper-wrapper">
-            <!-- Slides -->
-            <a href="javascript:void(0)" class="swiper-slide swiper-slide-1" id="s1" onclick="myClick()"></a>
-            <a href="javascript:void(0)" class="swiper-slide swiper-slide-2" id="s2" onclick="myClick()"></a>
-            <a href="javascript:void(0)" class="swiper-slide swiper-slide-3" id="s3" onclick="myClick()"></a>
-            <a href="javascript:void(0)" class="swiper-slide swiper-slide-4" id="s4" onclick="myClick()"></a>
-            <a href="javascript:void(0)" class="swiper-slide swiper-slide-5" id="s5" onclick="myClick()"></a>
-            <a href="javascript:void(0)" class="swiper-slide swiper-slide-6" id="s6" onclick="myClick()"></a>
-        </div>
-
-        <div class="swiper-pagination"></div>
-        <div class="swiper-button-prev"></div>
-        <div class="swiper-button-next"></div>
-    </div>
-
-    <!-- 轮播器js -->
-    <script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
-    <script>
-        const swiper = new Swiper('.swiper', {
-            effect: 'coverflow',
-            loop: true,
-            grabCursor: true,
-            centeredSlides: true,
-            slidesPerView: 'auto',
-            coverflowEffect: {
-                rotate: 0,
-                stretch: 0,
-                depth: 150,
-                modifier: 1,
-                slideShadows: false,
-            },
-            pagination: {
-                el: '.swiper-pagination',
-            },
-            navigation: {
-                nextEl: '.swiper-button-next',
-                prevEl: '.swiper-button-prev',
-            },
-        });
-
-        function myClick() {
-            let obj = window.event.currentTarget;
-            let obj_id = parseInt(obj.id[1]);
-            let slide_sec1 = document.getElementById("slide-sec");
-            let myIframe = document.getElementById("my-iframe");
-            myIframe.src = myIframe.getAttribute('data-src') + "?id=" + obj_id;
-            let w = Math.ceil((document.body.offsetWidth - window.innerWidth) / 2);
-            slide_sec1.style.setProperty('left', w + "px", 'important');
-            slide_sec1.style.setProperty('visibility', 'visible', 'important');
-        }
-    </script>
-</div>
-
-<!-- 轮播卡片 -->
-<div id="slide-sec">
-    <iframe data-src="3dbox.html"
-            width="100%" height="100%" frameborder="0"
-            allowfullscreen id="my-iframe"></iframe>
-</div>
-
-<!-- 左按钮 -->
-<a href="javascript:void(0)" class="container" id="btn" onclick="lclick()">
-    <img src="images/8.png" alt="">
-</a>
-
-<script>
-    let btn = document.getElementById("btn");
-    let my_swiper = document.getElementById("my_swiper");
-    let innerw = window.innerWidth;
-
-    function lclick() {
-        if (btn.style.backgroundSize === "400%") {
-            btn.style.backgroundColor = "#fff";
-            btn.style.backgroundSize = "0";
-            my_swiper.style.display = "none";
-            <!-- 按钮选中期间其余按钮不可选中 -->
-            $("#logo-btn").css("pointer-events", "auto", "important");
-            $("#rbtn").css({"pointer-events": "auto", "background-color": "#fff"});
-            $("#play-btn").css({"pointer-events": "auto"});
-        } else {
-            btn.style.background = "linear-gradient(90deg, #fa7199, #f5ce62, #e43603, #fa7199)";
-            btn.style.backgroundSize = "400%";
-            if (innerw < 1025) {
-                let offw = document.body.offsetWidth;
-                let marginL = Math.ceil((offw - innerw) / 2);
-                my_swiper.style.setProperty("margin-left", marginL + "px", "important");
-                $("#logo-btn").css("pointer-events", "none", "important");
-                $("#rbtn").css({"pointer-events": "none", "background-color": "#3B3B3B"});
-                $("#play-btn").css({"pointer-events": "none"});
-            }
-            my_swiper.style.display = "block";
-        }
-    }
-</script>
-
-<!-- 右按钮 -->
-<a href="javascript:void(0)" class="rcontainer" id="rbtn" onclick="rclick()">
-    <img src="images/7.png" alt="">
-</a>
-
-<script>
-    let rbtn = document.getElementById("rbtn");
-
-    function rclick() {
-        rbtn.style.background = "linear-gradient(90deg, #fa7199, #f5ce62, #e43603, #fa7199)";
-        rbtn.style.backgroundSize = "400%";
-        let slide_sec1 = document.getElementById("slide-sec");
-        let myIframe = document.getElementById("my-iframe");
-        myIframe.src = "long.html?id=1";
-        let w = Math.ceil((document.body.offsetWidth - window.innerWidth) / 2);
-        slide_sec1.style.setProperty('left', w + "px", 'important');
-        slide_sec1.style.setProperty('visibility', 'visible', 'important');
-        $("#logo-btn").css("pointer-events", "none", "important");
-        $("#btn").css({"pointer-events": "none", "background-color": "#3B3B3B"});
-        $("#play-btn").css({"pointer-events": "none"});
-    }
-</script>
-
-<!-- 视频按钮 -->
-<a href="javascript:void(0)" class="play-container" id="play-btn" onclick="playClick()">
-    <img src="images/play.png" alt="">
-</a>
-
-<script>
-    // let playDtn = document.getElementById("play-btn");
-
-    function playClick() {
-        let slide_sec1 = document.getElementById("slide-sec");
-        let myIframe = document.getElementById("my-iframe");
-        myIframe.src = "video.html?";
-        let w = Math.ceil((document.body.offsetWidth - window.innerWidth) / 2);
-        slide_sec1.style.setProperty('left', w + "px", 'important');
-        slide_sec1.style.setProperty('visibility', 'visible', 'important');
-    }
-</script>
-
-<!-- 边框 -->
-<div id="l-img" class="border-img"></div>
-<div id="r-img" class="border-img"></div>
 </body>
-</html>
