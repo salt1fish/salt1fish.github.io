@@ -159,8 +159,8 @@ nav {
     text-align: center;
     margin: 0 0;
     position: fixed;
-    top: 200px;
-    left: 0;
+    top: 246px;
+    left: 15px;
     border-radius: 0 15px 15px 0;
     /* 盒子阴影 */
     box-shadow: 0 5px 15px -5px rgba(0, 0, 0, 0.1);
