@@ -5,8 +5,11 @@
     <title>details</title>
     <!-- css -->
     <link rel="stylesheet" href="./css/details.css">
+    <link rel="stylesheet" href="./css/swiper-bundle.min.css">
     <!-- script -->
     <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.7.1/jquery.js"></script>
+    <!-- Swiper JS -->
+    <script src="script/swiper-bundle.min.js"></script>
     <script>
         $(function () {
             // #####定义获取url参数的方法#####
@@ -18,42 +21,98 @@
             }
 
             // #####获取url参数#####
-            let currImg = $.getUrlParam("curr_img");
-            let currBg = $.getUrlParam("curr_bg");
-            let flag = $.getUrlParam("flag");
+            console.log($.getUrlParam("id"));
+            let curr_id = parseInt($.getUrlParam("curr_id").substring(2));
+            if (curr_id % 6 > 3) {
+                curr_id = curr_id - 1;
+            } else if (curr_id % 6 === 0) {
+                curr_id = 6
+            } else {
+                curr_id = curr_id % 6;
+            }
+            let img_id = parseInt($.getUrlParam("img_id"));
+            console.log(curr_id);
+            console.log("url('" + "images/box/bg" + img_id + "_min.png" + "')");
 
             // #####替换图片#####
-            $("body").css("background-image", "url('" + currBg + "')");
-            $("#details-img").attr("src", currImg);
-            if (flag === "true") {
-                $("#details-img").css("transform", "rotate(180deg)");
-            }
+            $(".swiper-slide").css("background-image", "url('" + "images/box/bg" + img_id + "_min.png" + "')");
 
-            // #####替换min图片#####
-            //一段正则，匹配所有_min.的图片src属性
-            let test = /_min\./;
-            //遍历所有的图片节点
-            $("img").each(function (index, obj) {
-                if (test.test($(this).attr("src"))) {
-                    let reSrc = $(this).attr("src").replace(test, ".");
-                    $(this).attr("src", reSrc);
+            $(".swiper img").each(function () {
+                let s = $(this).attr("src-bac").split(".png")[0];
+                let tem = s.substring(0, s.length - 1);
+
+                console.log($(this).attr("flag"))
+                if ($(this).attr("flag") === "over") {
+                    $(this).attr("src", tem + "f" + img_id + ".png");
+                } else {
+                    $(this).attr("src", tem + img_id + ".png");
                 }
-            })
+            });
+
+            <!-- Initialize Swiper -->
+            var swiper = new Swiper(".mySwiper", {
+                // 懒加载图片
+                lazy: {
+                    loadPrevNext: true,
+                },
+                // 初始化显示的slide
+                initialSlide: curr_id - 1,
+                // 启用无限循环
+                loop: true,
+                // 切换动画
+                effect: "cube",
+                cubeEffect: {
+                    slideShadows: true,
+                    shadow: true,
+                    shadowOffset: 100,
+                    shadowScale: 0.6
+                },
+                //开启缩放功能
+                navigation: {
+                    nextEl: ".swiper-button-next",
+                    prevEl: ".swiper-button-prev",
+                },
+            });
         })
     </script>
 </head>
 <body>
 <!-- 返回按钮 -->
-<a href="javascript:void(0)" class="back-btn" id="details-back-btn" onclick="detailsBackClick()"><img
-        src="images/back-btn.png"
-        alt=""></a>
-<!-- 详情图片 -->
-<img src="images/box/front1_min.png" alt="" id="details-img">
+<a href="javascript:void(0)" class="back-btn" id="details-back-btn" onclick="detailsBackClick()">
+    <img src="images/back-btn.png" alt="">
+</a>
 
 <script>
     function detailsBackClick() {
         window.history.go(-1);
     }
 </script>
+
+<div style="--swiper-navigation-color: #fff; --swiper-pagination-color: #fff" class="swiper mySwiper">
+    <div class="swiper-wrapper">
+        <div class="swiper-slide">
+            <img src-bac="images/box/front1.png" loading="lazy"/>
+            <div class="swiper-lazy-preloader swiper-lazy-preloader-white"></div>
+        </div>
+        <div class="swiper-slide">
+            <img src-bac="images/box/back1.png" loading="lazy"/>
+            <div class="swiper-lazy-preloader swiper-lazy-preloader-white"></div>
+        </div>
+        <div class="swiper-slide">
+            <img src-bac="images/box/over1.png" flag="over" loading="lazy"/>
+            <div class="swiper-lazy-preloader swiper-lazy-preloader-white"></div>
+        </div>
+        <div class="swiper-slide">
+            <img src-bac="images/box/left1.png" loading="lazy"/>
+            <div class="swiper-lazy-preloader swiper-lazy-preloader-white"></div>
+        </div>
+        <div class="swiper-slide">
+            <img src-bac="images/box/right1.png" loading="lazy"/>
+            <div class="swiper-lazy-preloader swiper-lazy-preloader-white"></div>
+        </div>
+    </div>
+    <div class="swiper-button-next"></div>
+    <div class="swiper-button-prev"></div>
+</div>
 </body>
 </html>

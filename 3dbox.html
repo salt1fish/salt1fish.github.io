@@ -20,7 +20,7 @@
             // #####获取url参数#####
             let currId = parseInt($.getUrlParam("id"));
             imgLoadAll(currId);
-            document.body.style.setProperty("background-image", "url('" + "images/box/bg" + currId + "_min.png" + "')")
+            document.body.style.setProperty("background-image", "url('" + "images/box/bg" + currId + "_min.png" + "')");
 
             // #####替换min图片#####
             //一段正则，匹配所有_min.的图片src属性
@@ -29,7 +29,7 @@
             $("img").each(function (index, obj) {
                 if (test.test($(this).attr("src"))) {
                     var reSrc = $(this).attr("src").replace(test, ".");
-                    $(this).attr("src", reSrc)
+                    $(this).attr("src", reSrc);
                 }
             })
 
@@ -87,7 +87,6 @@
                 for (let i = 0; i < imgLength; i++) {
                     if (arrImg[i].complete) {
                         flag++;
-                        console.log(flag, imgLength)
                         if (flag === imgLength - 2) {
                             // 所有图片加载完成
                             $("#img-loading").css("display", "none");
@@ -151,18 +150,14 @@
     function box_click() {
         clearTimeout(timer)
         let curr_obj = window.event.currentTarget;
+        // 当前展示的盒子id
+        let img_id = parseInt($.getUrlParam("id"));
+        // 触发事件的图片id
         let curr_id = curr_obj.parentNode.getAttribute("id");
         timer = setTimeout(function () {
-            let curr_img = curr_obj.src;
-            let tem = document.body.style.backgroundImage;
-            let curr_bg = tem.split('"')[1];
             let bc1 = document.getElementById("bc1");
             if (bc1.style.transform === "translateZ(171px)") {
-                if (curr_id === "bc3" || curr_id === "bc9") {
-                    window.location.href = "details.html" + "?curr_img=" + curr_img + "&curr_bg=" + curr_bg + "&flag=true";
-                } else {
-                    window.location.href = "details.html" + "?curr_img=" + curr_img + "&curr_bg=" + curr_bg + "&flag=false";
-                }
+                window.location.href = "details.html" + "?curr_id=" + curr_id + "&img_id=" + img_id;
             }
         }, 500);
     }
