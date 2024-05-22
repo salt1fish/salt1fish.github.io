@@ -6,6 +6,17 @@
     <link rel="stylesheet" href="./css/video.css">
 </head>
 <body>
+<!-- 返回按钮 -->
+<a href="javascript:void(0)" class="back-btn" id="details-back-btn" onclick="detailsBackClick()">
+    <img src="images/back-btn.png" alt="">
+</a>
+
+<script>
+    function detailsBackClick() {
+        window.history.go(-1);
+    }
+</script>
+
 <nav>
     <div class="logo"><a href="javascript:void(0)" id="logo-btn"></a></div>
 </nav>
