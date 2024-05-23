@@ -48,7 +48,14 @@
                 }
             })
 
-            $(".arjs-loader").one("DOMNodeRemoved", myInit);
+            var foo = 'bar';
+            window.addEventListener("arjs-nft-loaded", (event) => {
+                // Hide loading overlay
+                $("arjs-loader1").remove();
+            });
+
+
+            $(".arjs-loader1").one("DOMNodeRemoved", myInit);
         })
 
         function myInit() {
@@ -77,9 +84,9 @@
 </nav>
 
 <!-- 加载动画效果 -->
-<div class="arjs-loader">
+<div class="arjs-loader1">
     <div>
-        <!--        Loading, please wait...-->
+        <!-- Loading, please wait...-->
         <span style="--i: 1">l</span>
         <span style="--i: 2">o</span>
         <span style="--i: 3">a</span>
