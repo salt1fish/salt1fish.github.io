@@ -292,9 +292,12 @@
 <a-scene
         embedded
         arjs
-        gesture-detector>
+        renderer="logarithmicDepthBuffer: true;"
+        vr-mode-ui="enabled: false"
+        gesture-detector
+        id="scene">
     <a-assets>
-        <img id="a1" src="images/animal/1.png">
+        <img id="a1" src="images/animal/1.gif">
     </a-assets>
 
     <a-assets>
