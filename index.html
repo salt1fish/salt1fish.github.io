@@ -48,14 +48,14 @@
                 }
             })
 
-            var foo = 'bar';
-            window.addEventListener("arjs-nft-loaded", (event) => {
-                // Hide loading overlay
-                $("arjs-loader1").remove();
-            });
+            // var foo = 'bar';
+            // window.addEventListener("arjs-nft-loaded", (event) => {
+            //     // Hide loading overlay
+            //     $("arjs-loader1").remove();
+            // });
 
 
-            $(".arjs-loader1").one("DOMNodeRemoved", myInit);
+            $(".arjs-loader").one("DOMNodeRemoved", myInit);
         })
 
         function myInit() {
@@ -84,7 +84,7 @@
 </nav>
 
 <!-- 加载动画效果 -->
-<div class="arjs-loader1">
+<div class="arjs-loader">
     <div>
         <!-- Loading, please wait...-->
         <span style="--i: 1">l</span>
