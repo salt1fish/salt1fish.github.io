@@ -56,7 +56,7 @@
             // });
 
 
-            $(".arjs-loader").one("DOMNodeRemoved", myInit);
+            myInit();
         })
 
         function myInit() {
@@ -289,7 +289,10 @@
 <!--    <a-entity camera></a-entity>-->
 <!--</a-scene>-->
 
-<a-scene embedded arjs>
+<a-scene
+        embedded
+        arjs
+        gesture-detector>
     <a-assets>
         <img id="a1" src="images/animal/1.png">
     </a-assets>
