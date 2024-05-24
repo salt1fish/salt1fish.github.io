@@ -7,35 +7,17 @@
     <meta name="viewport"
           content="width=device-width, initial-scale=1, maximum-scale=1,minimum-scale=1, user-scalable=no">
     <meta http-equiv="Permissions-Policy" content="interest-cohort=()">
-    <script src="script/aframe.min.js"></script>
-    <!-- rawgithack development URL -->
-    <!--    <script src='script/aframe-ar-nft.js'></script>-->
-    <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
-    <script src="script/jquery.js"></script>
+    <!-- css -->
     <link rel="stylesheet" href="css/swiper-bundle.min.css"/>
     <link rel="stylesheet" href="./css/index.css">
+    <!-- script -->
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script src="script/aframe.min.js"></script>
+    <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
+    <script src="script/jquery.js"></script>
     <!-- 手势检测js -->
     <script src="./script/gesture-detector.js"></script>
     <script src="./script/gesture-handler.js"></script>
-
-    <!--    <script>-->
-    <!--        AFRAME.registerComponent('rotation-reader', {-->
-    <!--            /**-->
-    <!--             * We use IIFE (immediately-invoked function expression) to only allocate one-->
-    <!--             * vector or euler and not re-create on every tick to save memory.-->
-    <!--             */-->
-    <!--            tick: (function () {-->
-    <!--                var position = new THREE.Vector3();-->
-    <!--                var quaternion = new THREE.Quaternion();-->
-
-    <!--                return function () {-->
-    <!--                    this.el.object3D.getWorldPosition(position);-->
-    <!--                    this.el.object3D.getWorldQuaternion(quaternion);-->
-    <!--                    // position and rotation now contain vector and quaternion in world space.-->
-    <!--                };-->
-    <!--            })()-->
-    <!--        });-->
-    <!--    </script>-->
 
     <script>
         $(function () {
@@ -55,8 +37,15 @@
             //     $("arjs-loader1").remove();
             // });
 
-
             myInit();
+            if (getCookie("index_flag") == null) {
+                // 引导操作
+                swal("欢迎进入远古的中国世界，扫描辅助图形揭开中国文化的神秘面纱", {
+                    buttons: false,
+                    className: "swal-overlay",
+                });
+                setCookie("index_flag", "true", "h1");
+            }
         })
 
         function myInit() {
@@ -65,6 +54,41 @@
             $("#r-img").css("right", dis + "px");
         }
 
+        // 设置cookie
+        // 设定过期时间的使用示例：
+        // s20是代表20秒
+        // h是指小时，如12小时则是：h12
+        // d是天数，30天则：d30
+        function setCookie(name, value, time) {
+            let strsec = getsec(time);
+            let exp = new Date();
+            exp.setTime(exp.getTime() + strsec * 1);
+            document.cookie = name + "=" + escape(value) + ";expires=" + exp.toGMTString();
+        }
+
+        // 设置过期时间
+        function getsec(str) {
+            let str1 = str.substring(1, str.length) * 1;
+            let str2 = str.substring(0, 1);
+            if (str2 === "s") {
+                return str1 * 1000;
+            } else if (str2 === "h") {
+                return str1 * 60 * 60 * 1000;
+            } else if (str2 === "d") {
+                return str1 * 24 * 60 * 60 * 1000;
+            }
+        }
+
+        // 读取cookie
+        function getCookie(name) {
+            let arr, reg = new RegExp("(^| )" + name + "=([^;]*)(;|$)");
+
+            if (arr === document.cookie.match(reg)) {
+                return unescape(arr[2]);
+            } else {
+                return null;
+            }
+        }
     </script>
 </head>
 
@@ -83,211 +107,6 @@
         }
     </script>
 </nav>
-
-<!-- 加载动画效果 -->
-<!--<div class="arjs-loader">-->
-<!--    <div>-->
-<!--        &lt;!&ndash; Loading, please wait...&ndash;&gt;-->
-<!--        <span style="&#45;&#45;i: 1">l</span>-->
-<!--        <span style="&#45;&#45;i: 2">o</span>-->
-<!--        <span style="&#45;&#45;i: 3">a</span>-->
-<!--        <span style="&#45;&#45;i: 4">d</span>-->
-<!--        <span style="&#45;&#45;i: 5">i</span>-->
-<!--        <span style="&#45;&#45;i: 6">n</span>-->
-<!--        <span style="&#45;&#45;i: 7">g</span>-->
-<!--        <span style="&#45;&#45;i: 8">.</span>-->
-<!--        <span style="&#45;&#45;i: 9">.</span>-->
-<!--        <span style="&#45;&#45;i: 10">.</span>-->
-<!--    </div>-->
-<!--</div>-->
-
-<!-- 图像追踪 -->
-<!--<a-scene-->
-<!--        arjs='trackingMethod: best; sourceType: webcam; debugUIEnabled: false;'-->
-<!--        embedded-->
-<!--        renderer="logarithmicDepthBuffer: true;"-->
-<!--        vr-mode-ui="enabled: false;"-->
-<!--        gesture-detector-->
-<!--        id="scene"-->
-<!--&gt;-->
-<!--    &lt;!&ndash; 展示图片 &ndash;&gt;-->
-<!--    <a-assets>-->
-<!--        <img id="a1" src="images/animal/1.png">-->
-<!--    </a-assets>-->
-
-<!--    <a-assets>-->
-<!--        <img id="a2" src="images/animal/2.png">-->
-<!--    </a-assets>-->
-
-<!--    <a-assets>-->
-<!--        <img id="a3" src="images/animal/3.png">-->
-<!--    </a-assets>-->
-
-<!--    <a-assets>-->
-<!--        <img id="a4" src="images/animal/4.png">-->
-<!--    </a-assets>-->
-
-<!--    <a-assets>-->
-<!--        <img id="a5" src="images/animal/5.png">-->
-<!--    </a-assets>-->
-
-<!--    &lt;!&ndash; use rawgithack to retrieve the correct url for nft marker (see 'pinball' below) &ndash;&gt;-->
-<!--    <a-nft-->
-<!--            type="nft"-->
-<!--            url="nft-mark/nft1/nft1"-->
-<!--            smooth="true"-->
-<!--            smoothCount="10"-->
-<!--            smoothTolerance="0.01"-->
-<!--            smoothThreshold="5"-->
-<!--            raycaster="objects: .clickable"-->
-<!--            emitevents="true"-->
-<!--            cursor="fuse: false; rayOrigin: mouse;"-->
-<!--    >-->
-<!--        &lt;!&ndash;        <a-entity&ndash;&gt;-->
-<!--        &lt;!&ndash;                gltf-model='https://cdn.glitch.com/06bd98b4-97ee-4c07-a546-fe39ca205034%2Fbowser.glb'&ndash;&gt;-->
-<!--        &lt;!&ndash;                scale="5 5 5"&ndash;&gt;-->
-<!--        &lt;!&ndash;                position="50 150 0"&ndash;&gt;-->
-<!--        &lt;!&ndash;                class="clickable"&ndash;&gt;-->
-<!--        &lt;!&ndash;                gesture-handler="minScale: 0.25; maxScale: 10"&ndash;&gt;-->
-<!--        &lt;!&ndash;        >&ndash;&gt;-->
-<!--        &lt;!&ndash;        </a-entity>&ndash;&gt;-->
-<!--        <a-image-->
-<!--                src="#a1"-->
-<!--                height="500"-->
-<!--                width="500"-->
-<!--                rotation="-90 0 0"-->
-<!--                class="clickable"-->
-<!--                gesture-handler="minScale: 0.25; maxScale: 10">-->
-<!--        </a-image>-->
-<!--    </a-nft>-->
-
-<!--    <a-nft-->
-<!--            type="nft"-->
-<!--            url="trex/trex-image/trex"-->
-<!--            smooth="true"-->
-<!--            smoothCount="10"-->
-<!--            smoothTolerance="0.01"-->
-<!--            smoothThreshold="5"-->
-<!--            raycaster="objects: .clickable"-->
-<!--            emitevents="true"-->
-<!--            cursor="fuse: false; rayOrigin: mouse;"-->
-<!--    >-->
-<!--        <a-image-->
-<!--                src="#a2"-->
-<!--                height="500"-->
-<!--                width="500"-->
-<!--                rotation="-90 0 0"-->
-<!--                class="clickable"-->
-<!--                gesture-handler="minScale: 0.25; maxScale: 10">-->
-<!--        </a-image>-->
-<!--    </a-nft>-->
-
-<!--    <a-nft-->
-<!--            type="nft"-->
-<!--            url="nft-mark/nft2/nft2"-->
-<!--            smooth="true"-->
-<!--            smoothCount="10"-->
-<!--            smoothTolerance="0.01"-->
-<!--            smoothThreshold="5"-->
-<!--            raycaster="objects: .clickable"-->
-<!--            emitevents="true"-->
-<!--            cursor="fuse: false; rayOrigin: mouse;"-->
-<!--    >-->
-<!--        <a-image-->
-<!--                src="#a3"-->
-<!--                height="500"-->
-<!--                width="500"-->
-<!--                rotation="-90 0 0"-->
-<!--                class="clickable"-->
-<!--                gesture-handler="minScale: 0.25; maxScale: 10">-->
-<!--        </a-image>-->
-<!--    </a-nft>-->
-
-<!--    <a-nft-->
-<!--            type="nft"-->
-<!--            url="nft-mark/nft3/nft3"-->
-<!--            smooth="true"-->
-<!--            smoothCount="10"-->
-<!--            smoothTolerance="0.01"-->
-<!--            smoothThreshold="5"-->
-<!--            raycaster="objects: .clickable"-->
-<!--            emitevents="true"-->
-<!--            cursor="fuse: false; rayOrigin: mouse;"-->
-<!--    >-->
-<!--        <a-image-->
-<!--                src="#a4"-->
-<!--                height="500"-->
-<!--                width="500"-->
-<!--                rotation="-90 0 0"-->
-<!--                class="clickable"-->
-<!--                gesture-handler="minScale: 0.25; maxScale: 10">-->
-<!--        </a-image>-->
-<!--    </a-nft>-->
-
-<!--    <a-nft-->
-<!--            type="nft"-->
-<!--            url="nft-mark/nft4/nft4"-->
-<!--            smooth="true"-->
-<!--            smoothCount="10"-->
-<!--            smoothTolerance="0.01"-->
-<!--            smoothThreshold="5"-->
-<!--            raycaster="objects: .clickable"-->
-<!--            emitevents="true"-->
-<!--            cursor="fuse: false; rayOrigin: mouse;"-->
-<!--    >-->
-<!--        <a-image-->
-<!--                src="#a5"-->
-<!--                height="500"-->
-<!--                width="500"-->
-<!--                rotation="-90 0 0"-->
-<!--                class="clickable"-->
-<!--                gesture-handler="minScale: 0.25; maxScale: 10">-->
-<!--        </a-image>-->
-<!--    </a-nft>-->
-
-<!--    <a-nft-->
-<!--            type="nft"-->
-<!--            url="nft-mark/nft5/nft5"-->
-<!--            smooth="true"-->
-<!--            smoothCount="10"-->
-<!--            smoothTolerance="0.01"-->
-<!--            smoothThreshold="5"-->
-<!--            raycaster="objects: .clickable"-->
-<!--            emitevents="true"-->
-<!--            cursor="fuse: false; rayOrigin: mouse;"-->
-<!--    >-->
-<!--        <a-image-->
-<!--                src="#a5"-->
-<!--                height="500"-->
-<!--                width="500"-->
-<!--                rotation="-90 0 0"-->
-<!--                class="clickable"-->
-<!--                gesture-handler="minScale: 0.25; maxScale: 10">-->
-<!--        </a-image>-->
-<!--    </a-nft>-->
-
-<!--    <a-nft-->
-<!--            type="nft"-->
-<!--            url="nft-mark/nft6/nft6"-->
-<!--            smooth="true"-->
-<!--            smoothCount="10"-->
-<!--            smoothTolerance="0.01"-->
-<!--            smoothThreshold="5"-->
-<!--            raycaster="objects: .clickable"-->
-<!--            emitevents="true"-->
-<!--            cursor="fuse: false; rayOrigin: mouse;"-->
-<!--    >-->
-<!--        <a-image-->
-<!--                src="#a4"-->
-<!--                height="500"-->
-<!--                width="500"-->
-<!--                rotation="-90 0 0"-->
-<!--                class="clickable"-->
-<!--                gesture-handler="minScale: 0.25; maxScale: 10">-->
-<!--        </a-image>-->
-<!--    </a-nft>-->
-<!--    <a-entity camera></a-entity>-->
-<!--</a-scene>-->
 
 <a-scene
         embedded

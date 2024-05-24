@@ -5,7 +5,9 @@
     <title>show</title>
     <!-- css -->
     <link rel="stylesheet" href="css/3dbox.css">
+    <link href="https://cdn.bootcdn.net/ajax/libs/driver.js/0.9.8/driver.min.css" rel="stylesheet">
     <!-- script -->
+    <script src="https://cdn.bootcdn.net/ajax/libs/driver.js/0.9.8/driver.min.js"></script>
     <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.7.1/jquery.js"></script>
     <script>
         $(function () {
@@ -36,6 +38,23 @@
             window.addEventListener("popstate", function (e) {
                 backClick();
             })
+
+            console.log(getCookie("box_flag"));
+            if (getCookie("box_flag") == null) {
+                setCookie("box_flag", "true", "h1");
+                // 引导操作
+                const driver = new Driver({
+                    padding: 100,    // Distance of element from around the edges 高亮与高亮节点的间距大小
+                    closeBtnText: '我知道了', // Text on the close button for this step 关闭按钮的文字
+                })
+                driver.highlight({
+                    element: '#slide_sec1',
+                    popover: {
+                        title: '点击查看包装详细信息',
+                        position: 'bottom-right',
+                    }
+                });
+            }
         })
 
         // 监听图片加载完成
@@ -97,6 +116,43 @@
                 flag = 0;
             }, 500)
         }
+
+        // 设置cookie
+        // 设定过期时间的使用示例：
+        // s20是代表20秒
+        // h是指小时，如12小时则是：h12
+        // d是天数，30天则：d30
+        function setCookie(name, value, time) {
+            let strsec = getsec(time);
+            console.log(strsec)
+            let exp = new Date();
+            exp.setTime(exp.getTime() + strsec * 1);
+            document.cookie = name + "=" + escape(value) + ";expires=" + exp.toGMTString();
+        }
+
+        // 设置过期时间
+        function getsec(str) {
+            let str1 = str.substring(1, str.length) * 1;
+            let str2 = str.substring(0, 1);
+            if (str2 === "s") {
+                return str1 * 1000;
+            } else if (str2 === "h") {
+                return str1 * 60 * 60 * 1000;
+            } else if (str2 === "d") {
+                return str1 * 24 * 60 * 60 * 1000;
+            }
+        }
+
+        // 读取cookie
+        function getCookie(name) {
+            let arr, reg = new RegExp("(^| )" + name + "=([^;]*)(;|$)");
+
+            if (arr === document.cookie.match(reg)) {
+                return unescape(arr[2]);
+            } else {
+                return null;
+            }
+        }
     </script>
 
 </head>
@@ -107,7 +163,8 @@
 </div>
 
 <!-- 后退按钮 -->
-<a href="javascript:void(0)" class="back-btn" id="back-btn" onclick="backClick()"><img src="images/back1-btn.png" alt=""></a>
+<a href="javascript:void(0)" class="back-btn" id="back-btn" onclick="backClick()"><img src="images/back1-btn.png"
+                                                                                       alt=""></a>
 
 
 <script>
@@ -120,28 +177,18 @@
 </script>
 
 <section id="slide_sec1">
-    <div id="bc1"><img src-data="images/box/front1_min.png" alt="前" class="tem" ondblclick="box_dbclick()"
-                       onclick="box_click()"/></div>
-    <div id="bc2"><img src-data="images/box/back1_min.png" alt="后" class="tem" ondblclick="box_dbclick()"
-                       onclick="box_click()"/></div>
-    <div id="bc3"><img src-data="images/box/over1_min.png" alt="上" class="tem" ondblclick="box_dbclick()"
-                       onclick="box_click()"/></div>
+    <div id="bc1"><img src-data="images/box/front1_min.png" alt="前" class="tem" onclick="box_click()"/></div>
+    <div id="bc2"><img src-data="images/box/back1_min.png" alt="后" class="tem" onclick="box_click()"/></div>
+    <div id="bc3"><img src-data="images/box/over1_min.png" alt="上" class="tem" onclick="box_click()"/></div>
     <div id="bc4" class="tem"></div>
-    <div id="bc5"><img src-data="images/box/right1_min.png" alt="右" class="tem" ondblclick="box_dbclick()"
-                       onclick="box_click()"/></div>
-    <div id="bc6"><img src-data="images/box/left1_min.png" alt="左" class="tem" ondblclick="box_dbclick()"
-                       onclick="box_click()"/></div>
-    <div id="bc7"><img src-data="images/box/front1_min.png" alt="" class="tem" ondblclick="box_dbclick()"
-                       onclick="box_click()"/></div>
-    <div id="bc8"><img src-data="images/box/back1_min.png" alt="" class="tem" ondblclick="box_dbclick()"
-                       onclick="box_click()"/></div>
-    <div id="bc9"><img src-data="images/box/over1_min.png" alt="" class="tem" ondblclick="box_dbclick()"
-                       onclick="box_click()"/></div>
+    <div id="bc5"><img src-data="images/box/right1_min.png" alt="右" class="tem" onclick="box_click()"/></div>
+    <div id="bc6"><img src-data="images/box/left1_min.png" alt="左" class="tem" onclick="box_click()"/></div>
+    <div id="bc7"><img src-data="images/box/front1_min.png" alt="" class="tem" onclick="box_click()"/></div>
+    <div id="bc8"><img src-data="images/box/back1_min.png" alt="" class="tem" onclick="box_click()"/></div>
+    <div id="bc9"><img src-data="images/box/over1_min.png" alt="" class="tem" onclick="box_click()"/></div>
     <div id="bc10" class="tem"></div>
-    <div id="bc11"><img src-data="images/box/right1_min.png" alt="" class="tem" ondblclick="box_dbclick()"
-                        onclick="box_click()"/></div>
-    <div id="bc12"><img src-data="images/box/left1_min.png" alt="" class="tem" ondblclick="box_dbclick()"
-                        onclick="box_click()"/></div>
+    <div id="bc11"><img src-data="images/box/right1_min.png" alt="" class="tem" onclick="box_click()"/></div>
+    <div id="bc12"><img src-data="images/box/left1_min.png" alt="" class="tem" onclick="box_click()"/></div>
 </section>
 <!-- 点击事件 -->
 <script>
@@ -154,37 +201,7 @@
         let img_id = parseInt($.getUrlParam("id"));
         // 触发事件的图片id
         let curr_id = curr_obj.parentNode.getAttribute("id");
-        timer = setTimeout(function () {
-            let bc1 = document.getElementById("bc1");
-            if (bc1.style.transform === "translateZ(171px)") {
-                window.location.href = "details.html" + "?curr_id=" + curr_id + "&img_id=" + img_id;
-            }
-        }, 500);
-    }
-
-    function box_dbclick() {
-        clearTimeout(timer);
-        let bc1 = document.getElementById("bc1");
-        let bc2 = document.getElementById("bc2");
-        let bc3 = document.getElementById("bc3");
-        let bc4 = document.getElementById("bc4");
-        let bc5 = document.getElementById("bc5");
-        let bc6 = document.getElementById("bc6");
-        if (bc1.style.transform === "translateZ(71px)" || bc1.style.transform === "") {
-            bc1.style.transform = "translateZ(171px)";
-            bc2.style.transform = "rotateX(-180deg) translateZ(171px)";
-            bc3.style.transform = "rotateX(90deg) translateZ(171px)";
-            bc4.style.transform = "rotateX(-90deg) translateZ(257px)";
-            bc5.style.transform = "rotateY(90deg) translateZ(279px)";
-            bc6.style.transform = "rotateY(-90deg) translateZ(171px)";
-        } else {
-            bc1.style.transform = "translateZ(71px)";
-            bc2.style.transform = "rotateX(-180deg) translateZ(71px)";
-            bc3.style.transform = "rotateX(90deg) translateZ(71px)";
-            bc4.style.transform = "rotateX(-90deg) translateZ(157px)";
-            bc5.style.transform = "rotateY(90deg) translateZ(179px)";
-            bc6.style.transform = "rotateY(-90deg) translateZ(71px)";
-        }
+        window.location.href = "details.html" + "?curr_id=" + curr_id + "&img_id=" + img_id;
     }
 
     // 监听回退按钮，确保触发函数
