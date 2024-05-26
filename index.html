@@ -31,21 +31,16 @@
                 }
             })
 
-            // var foo = 'bar';
-            // window.addEventListener("arjs-nft-loaded", (event) => {
-            //     // Hide loading overlay
-            //     $("arjs-loader1").remove();
-            // });
+            window.addEventListener("camera-init", (event) => {
+                var intervalBox = setInterval(function () {
+                    if (document.body.offsetWidth > 1000) {
+                        myInit();
+                        clearInterval(intervalBox);//清除interval定时器
+                    }
+                }, 1000);
 
-            AFRAME.registerComponent('log', {
-                schema: {type: 'string'},
-
-                init: function () {
-                    var stringToLog = this.data;
-                    console.log(stringToLog);
-                    myInit();
-                }
             });
+
 
             if (getCookie("index_flag") == null) {
                 // 引导操作
@@ -128,7 +123,6 @@
         renderer="logarithmicDepthBuffer: true;"
         vr-mode-ui="enabled: false"
         gesture-detector
-        log="hello world"
         id="scene">
     <a-assets>
         <img id="a1" src="images/animal/1.png">
