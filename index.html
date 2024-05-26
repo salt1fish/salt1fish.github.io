@@ -123,6 +123,8 @@
         arjs
         renderer="logarithmicDepthBuffer: true;"
         vr-mode-ui="enabled: false"
+        cursor="rayOrigin: mouse; fuse: false"
+        raycaster="objects: .click_img"
         gesture-detector
         id="scene">
     <a-assets>
@@ -130,11 +132,11 @@
     </a-assets>
 
     <a-assets>
-        <img id="a2" src="images/animal/2.png">
+        <img id="a2" src="images/animal/3.png">
     </a-assets>
 
     <a-assets>
-        <img id="a3" src="images/animal/3.png">
+        <img id="a3" src="images/animal/2.png">
     </a-assets>
 
     <a-assets>
@@ -152,8 +154,8 @@
                 width="1.5"
                 rotation="-90 0 0"
                 class="clickable"
-                id="img1"
                 cursor-listener
+                markerhandler
                 gesture-handler="minScale: 0.25; maxScale: 10">
         </a-image>
     </a-marker>
@@ -165,6 +167,8 @@
                 width="1.5"
                 rotation="-90 0 0"
                 class="clickable"
+                cursor-listener
+                markerhandler
                 gesture-handler="minScale: 0.25; maxScale: 10">
         </a-image>
     </a-marker>
@@ -176,6 +180,8 @@
                 width="1.5"
                 rotation="-90 0 0"
                 class="clickable"
+                cursor-listener
+                markerhandler
                 gesture-handler="minScale: 0.25; maxScale: 10">
         </a-image>
     </a-marker>
@@ -187,6 +193,8 @@
                 width="1.5"
                 rotation="-90 0 0"
                 class="clickable"
+                cursor-listener
+                markerhandler
                 gesture-handler="minScale: 0.25; maxScale: 10">
         </a-image>
     </a-marker>
@@ -198,6 +206,8 @@
                 width="1.5"
                 rotation="-90 0 0"
                 class="clickable"
+                cursor-listener
+                markerhandler
                 gesture-handler="minScale: 0.25; maxScale: 10">
         </a-image>
     </a-marker>
@@ -209,6 +219,8 @@
                 width="1.5"
                 rotation="-90 0 0"
                 class="clickable"
+                cursor-listener
+                markerhandler
                 gesture-handler="minScale: 0.25; maxScale: 10">
         </a-image>
     </a-marker>
@@ -220,6 +232,8 @@
                 width="1.5"
                 rotation="-90 0 0"
                 class="clickable"
+                cursor-listener
+                markerhandler
                 gesture-handler="minScale: 0.25; maxScale: 10">
         </a-image>
     </a-marker>
@@ -231,6 +245,8 @@
                 width="1.5"
                 rotation="-90 0 0"
                 class="clickable"
+                cursor-listener
+                markerhandler
                 gesture-handler="minScale: 0.25; maxScale: 10">
         </a-image>
     </a-marker>
@@ -242,89 +258,133 @@
                 width="1.5"
                 rotation="-90 0 0"
                 class="clickable"
+                cursor-listener
+                markerhandler
                 gesture-handler="minScale: 0.25; maxScale: 10">
         </a-image>
     </a-marker>
 
     <a-marker type="pattern" url="pattern-maker/pattern-10.patt">
         <a-image
-                src="#a1"
+                src="#a2"
                 height="1.5"
                 width="1.5"
                 rotation="-90 0 0"
                 class="clickable"
+                cursor-listener
+                markerhandler
                 gesture-handler="minScale: 0.25; maxScale: 10">
         </a-image>
     </a-marker>
 
     <a-marker type="pattern" url="pattern-maker/pattern-11.patt">
         <a-image
-                src="#a2"
+                src="#a3"
                 height="1.5"
                 width="1.5"
                 rotation="-90 0 0"
                 class="clickable"
+                cursor-listener
+                markerhandler
                 gesture-handler="minScale: 0.25; maxScale: 10">
         </a-image>
     </a-marker>
 
     <a-marker type="pattern" url="pattern-maker/pattern-12.patt">
         <a-image
-                src="#a3"
+                src="#a4"
                 height="1.5"
                 width="1.5"
                 rotation="-90 0 0"
                 class="clickable"
+                cursor-listener
+                markerhandler
                 gesture-handler="minScale: 0.25; maxScale: 10">
         </a-image>
     </a-marker>
 
     <a-marker type="pattern" url="pattern-maker/pattern-13.patt">
         <a-image
-                src="#a4"
+                src="#a5"
                 height="1.5"
                 width="1.5"
                 rotation="-90 0 0"
                 class="clickable"
+                cursor-listener
+                markerhandler
                 gesture-handler="minScale: 0.25; maxScale: 10">
         </a-image>
     </a-marker>
 
     <a-marker type="pattern" url="pattern-maker/pattern-14.patt">
         <a-image
-                src="#a5"
+                src="#a4"
                 height="1.5"
                 width="1.5"
                 rotation="-90 0 0"
                 class="clickable"
+                cursor-listener
+                markerhandler
                 gesture-handler="minScale: 0.25; maxScale: 10">
         </a-image>
     </a-marker>
 
     <a-marker type="pattern" url="pattern-maker/pattern-15.patt">
         <a-image
-                src="#a4"
+                src="#a3"
                 height="1.5"
                 width="1.5"
                 rotation="-90 0 0"
                 class="clickable"
+                cursor-listener
+                markerhandler
                 gesture-handler="minScale: 0.25; maxScale: 10">
         </a-image>
     </a-marker>
 
     <a-marker type="pattern" url="pattern-maker/pattern-16.patt">
         <a-image
-                src="#a3"
+                src="#a2"
                 height="1.5"
                 width="1.5"
                 rotation="-90 0 0"
                 class="clickable"
+                cursor-listener
+                markerhandler
                 gesture-handler="minScale: 0.25; maxScale: 10">
         </a-image>
     </a-marker>
     <a-entity camera>
     </a-entity>
 </a-scene>
+
+<script>
+    // click_img clickable
+    AFRAME.registerComponent('markerhandler', {
+        init: function () {
+            this.el.sceneEl.addEventListener('markerFound', () => {
+                window.event.srcElement.firstElementChild.setAttribute("class", "clickable click_img");
+            })
+
+            this.el.sceneEl.addEventListener('markerLost', () => {
+                window.event.srcElement.firstElementChild.setAttribute("class", "clickable");
+            })
+        }
+    });
+    AFRAME.registerComponent('cursor-listener', {
+        init: function () {
+            this.el.addEventListener('click', function (evt) {
+                console.log(this.getAttribute("src")[2]);
+                let slide_sec1 = document.getElementById("slide-sec");
+                let myIframe = document.getElementById("my-iframe");
+                myIframe.src = "long.html?id=" + this.getAttribute("src")[2];
+                let w = Math.ceil((document.body.offsetWidth - window.innerWidth) / 2);
+                slide_sec1.style.setProperty('left', w + "px", 'important');
+                slide_sec1.style.setProperty('visibility', 'visible', 'important');
+            });
+        }
+    });
+</script>
 
 <!-- 轮播器 -->
 <div class="my_swiper clearfix" id="my_swiper">
