@@ -37,11 +37,13 @@
             //     $("arjs-loader1").remove();
             // });
 
-            AFRAME.registerComponent('camera-loaded', {
+            AFRAME.registerComponent('log', {
+                schema: {type: 'string'},
+
                 init: function () {
-                    this.el.sceneEl.addEventListener('arjs-video-loaded', () => {
-                         myInit();
-                    })
+                    var stringToLog = this.data;
+                    console.log(stringToLog);
+                    myInit();
                 }
             });
 
@@ -51,7 +53,7 @@
                     buttons: false,
                     className: "swal-overlay",
                 });
-                setCookie("index_flag", "true", "h1");
+                setCookie("index_flag", "true", "s300");
             }
         })
 
@@ -126,7 +128,7 @@
         renderer="logarithmicDepthBuffer: true;"
         vr-mode-ui="enabled: false"
         gesture-detector
-        camera-loaded
+        log="hello world"
         id="scene">
     <a-assets>
         <img id="a1" src="images/animal/1.png">
