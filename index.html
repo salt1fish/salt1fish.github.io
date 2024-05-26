@@ -33,8 +33,9 @@
 
             // 网页初始化
             window.addEventListener("camera-init", (event) => {
+                tem = document.body.offsetWidth;
                 var intervalBox = setInterval(function () {
-                    if (document.body.offsetWidth > 1000) {
+                    if (document.body.offsetWidth > tem) {
                         myInit();
                         clearInterval(intervalBox);//清除interval定时器
                     }
@@ -54,8 +55,6 @@
         })
 
         function myInit() {
-            alert(document.body.offsetWidth);
-            alert(window.innerWidth);
             let dis = Math.ceil((document.body.offsetWidth - window.innerWidth) / 2);
             $("#l-img").css("left", dis + "px");
             $("#r-img").css("right", dis + "px");
