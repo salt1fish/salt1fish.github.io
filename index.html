@@ -374,7 +374,6 @@
     AFRAME.registerComponent('cursor-listener', {
         init: function () {
             this.el.addEventListener('click', function (evt) {
-                console.log(this.getAttribute("src")[2]);
                 let slide_sec1 = document.getElementById("slide-sec");
                 let myIframe = document.getElementById("my-iframe");
                 myIframe.src = "long.html?id=" + this.getAttribute("src")[2];
