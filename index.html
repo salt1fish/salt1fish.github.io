@@ -33,8 +33,8 @@
 
             // 网页初始化
             window.addEventListener("camera-init", (event) => {
-                tem = document.body.offsetWidth;
-                var intervalBox = setInterval(function () {
+                let tem = document.body.offsetWidth;
+                let intervalBox = setInterval(function () {
                     if (document.body.offsetWidth > tem) {
                         myInit();
                         clearInterval(intervalBox);//清除interval定时器
@@ -152,6 +152,8 @@
                 width="1.5"
                 rotation="-90 0 0"
                 class="clickable"
+                id="img1"
+                cursor-listener
                 gesture-handler="minScale: 0.25; maxScale: 10">
         </a-image>
     </a-marker>
@@ -320,7 +322,8 @@
                 gesture-handler="minScale: 0.25; maxScale: 10">
         </a-image>
     </a-marker>
-    <a-entity camera></a-entity>
+    <a-entity camera>
+    </a-entity>
 </a-scene>
 
 <!-- 轮播器 -->

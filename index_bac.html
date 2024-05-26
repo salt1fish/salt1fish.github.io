@@ -1,45 +1,54 @@
 <!DOCTYPE html>
 <html>
-<script src="https://aframe.io/releases/1.3.0/aframe.min.js"></script>
+<script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
 <!-- we import arjs version without NFT but with marker + location based support -->
 <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
+<script>
+    window.onload = function () {
+        document
+            .querySelector(".say-hi-button")
+            .addEventListener("click", function () {
+                // here you can change also a-scene or a-entity properties, like
+                // changing your 3D model source, size, position and so on
+                // or you can just open links, trigger actions...
+                alert("Hi there!");
+            });
+    };
+</script>
+<style>
+    .buttons {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 5em;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 10;
+    }
+
+    .say-hi-button {
+        padding: 0.25em;
+        border-radius: 4px;
+        border: none;
+        background: white;
+        color: black;
+        width: 4em;
+        height: 2em;
+    }
+</style>
 <body style="margin : 0px; overflow: hidden;">
+<div class="buttons">
+    <button class="say-hi-button">SAY HI!</button>
+</div>
 <a-scene embedded arjs>
-    <a-assets>
-        <img id="a1" src="images/animal/1.png">
-    </a-assets>
-
-    <a-assets>
-        <img id="a2" src="images/animal/2.png">
-    </a-assets>
-
-    <a-assets>
-        <img id="a3" src="images/animal/3.png">
-    </a-assets>
-
-    <a-assets>
-        <img id="a4" src="images/animal/4.png">
-    </a-assets>
-
-    <a-assets>
-        <img id="a5" src="images/animal/5.png">
-    </a-assets>
-
-    <a-marker type="pattern" url="pattern-maker/pattern-5.patt">
-        <!-- we use cors proxy to avoid cross-origin problems ATTENTION! you need to set up your server -->
-        <!--            <a-entity-->
-        <!--            position="0 0 0"-->
-        <!--            scale="0.05 0.05 0.05"-->
-        <!--            gltf-model="https://raw.githack.com/AR-js-org/AR.js/master/aframe/examples/image-tracking/nft/trex/scene.gltf"-->
-        <!--            ></a-entity>-->
-        <a-image
-                src="#a1"
-                height="1.5"
-                width="1.5"
-                rotation="-90 0 0"
-                class="clickable"
-                gesture-handler="minScale: 0.25; maxScale: 10">
-        </a-image>
+    <a-marker preset="hiro">
+        <a-entity
+                position="0 0 0"
+                scale="0.05 0.05 0.05"
+                gltf-model="https://arjs-cors-proxy.herokuapp.com/https://raw.githack.com/AR-js-org/AR.js/master/aframe/examples/image-tracking/nft/trex/scene.gltf"
+        ></a-entity>
     </a-marker>
     <a-entity camera></a-entity>
 </a-scene>
