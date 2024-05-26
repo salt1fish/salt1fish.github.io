@@ -54,7 +54,8 @@
         })
 
         function myInit() {
-            alert("dd");
+            alert(document.body.offsetWidth);
+            alert(window.innerWidth);
             let dis = Math.ceil((document.body.offsetWidth - window.innerWidth) / 2);
             $("#l-img").css("left", dis + "px");
             $("#r-img").css("right", dis + "px");
