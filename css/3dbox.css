@@ -68,6 +68,13 @@ body {
 #slide_sec1 div:nth-child(4) {
     width: 250px;
     height: 142px;
+    /*flex 布局*/
+    display: flex;
+    /*实现垂直居中*/
+    align-items: center;
+    /*实现水平居中*/
+    justify-content: center;
+    text-align: center;
     transform: rotateX(-90deg) translateZ(157px);
 }
 
@@ -104,6 +111,13 @@ body {
 #slide_sec1 div:nth-child(10) {
     width: 250px;
     height: 142px;
+    /*flex 布局*/
+    display: flex;
+    /*实现垂直居中*/
+    align-items: center;
+    /*实现水平居中*/
+    justify-content: center;
+    text-align: center;
     transform: rotateX(-90deg) translateZ(157px);
 }
 
@@ -188,6 +202,18 @@ body {
     }
 }
 
+@keyframes bc4 {
+    0% {
+        transform: rotateX(-90deg) translateZ(157px);
+    }
+    50% {
+        transform: rotateX(-90deg) translateZ(257px);
+    }
+    100% {
+        transform: rotateX(-90deg) translateZ(157px);
+    }
+}
+
 @keyframes bc5 {
     0% {
         transform: rotateY(90deg) translateZ(179px);
@@ -223,7 +249,7 @@ body {
     left: 10px;
     border-radius: 50px;
     background-image: url("../images/back_bg.png");
-    background-repeat:  no-repeat;
+    background-repeat: no-repeat;
     background-size: 100% 100%;
 }
 
