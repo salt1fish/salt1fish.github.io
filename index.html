@@ -37,7 +37,14 @@
             //     $("arjs-loader1").remove();
             // });
 
-            myInit();
+            AFRAME.registerComponent('camera-loaded', {
+                init: function () {
+                    this.el.sceneEl.addEventListener('arjs-video-loaded', () => {
+                         myInit();
+                    })
+                }
+            });
+
             if (getCookie("index_flag") == null) {
                 // 引导操作
                 swal("Добро пожаловать в древний мир Китая, сканируйте вспомогательную графику, чтобы раскрыть тайны китайской культуры.", {
@@ -118,6 +125,7 @@
         renderer="logarithmicDepthBuffer: true;"
         vr-mode-ui="enabled: false"
         gesture-detector
+        camera-loaded
         id="scene">
     <a-assets>
         <img id="a1" src="images/animal/1.png">
