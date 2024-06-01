@@ -202,18 +202,6 @@ body {
     }
 }
 
-@keyframes bc4 {
-    0% {
-        transform: rotateX(-90deg) translateZ(157px);
-    }
-    50% {
-        transform: rotateX(-90deg) translateZ(257px);
-    }
-    100% {
-        transform: rotateX(-90deg) translateZ(157px);
-    }
-}
-
 @keyframes bc5 {
     0% {
         transform: rotateY(90deg) translateZ(179px);
