@@ -325,8 +325,8 @@ body {
 #prompt {
     position: fixed;
     float: left;
-    bottom: 180px;
+    bottom: 65px;
     left: auto;
     width: 70%;
-    font-size: 50px;
+    font-size: 20px;
 }
