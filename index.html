@@ -172,7 +172,7 @@
                 height="1.5"
                 width="1.5"
                 rotation="-90 0 0"
-                animation="property: rotation; to: -90 360 0; loop: true; dur: 10000"
+                animation="property: rotation; to: -90 360 0; loop: true; dur: 5000"
                 class="clickable"
                 cursor-listener
                 markerhandler
@@ -214,7 +214,7 @@
                 height="1.5"
                 width="1.5"
                 rotation="-90 0 0"
-                animation="property: rotation; to: -90 360 0; loop: true; dur: 10000"
+                animation="property: rotation; to: -90 360 0; loop: true; dur: 5000"
                 class="clickable"
                 cursor-listener
                 markerhandler
@@ -256,7 +256,7 @@
                 height="1.5"
                 width="1.5"
                 rotation="-90 0 0"
-                animation="property: rotation; to: -90 360 0; loop: true; dur: 10000"
+                animation="property: rotation; to: -90 360 0; loop: true; dur: 5000"
                 class="clickable"
                 cursor-listener
                 markerhandler
@@ -284,7 +284,7 @@
                 height="1.5"
                 width="1.5"
                 rotation="-90 0 0"
-                animation="property: rotation; to: -90 360 0; loop: true; dur: 10000"
+                animation="property: rotation; to: -90 360 0; loop: true; dur: 5000"
                 class="clickable"
                 cursor-listener
                 markerhandler
@@ -326,7 +326,7 @@
                 height="1.5"
                 width="1.5"
                 rotation="-90 0 0"
-                animation="property: rotation; to: -90 360 0; loop: true; dur: 10000"
+                animation="property: rotation; to: -90 360 0; loop: true; dur: 5000"
                 class="clickable"
                 cursor-listener
                 markerhandler
@@ -368,7 +368,7 @@
                 height="1.5"
                 width="1.5"
                 rotation="-90 0 0"
-                animation="property: rotation; to: -90 360 0; loop: true; dur: 10000"
+                animation="property: rotation; to: -90 360 0; loop: true; dur: 5000"
                 class="clickable"
                 cursor-listener
                 markerhandler
@@ -384,11 +384,26 @@
     AFRAME.registerComponent('markerhandler', {
         init: function () {
             this.el.sceneEl.addEventListener('markerFound', () => {
-                window.event.srcElement.firstElementChild.setAttribute("class", "clickable click_img");
+                let currElement = window.event.srcElement.firstElementChild;
+                let currSrc = currElement.getAttribute("src");
+                currElement.setAttribute("class", "clickable click_img");
+                if (currSrc === "#a1") {
+                    currElement.setAttribute("sound", "src: url(sound/1.mp3); autoplay: true");
+                } else if (currSrc === "#a2") {
+                    currElement.setAttribute("sound", "src: url(sound/2.mp3); autoplay: true");
+                } else if (currSrc === "#a3") {
+                    currElement.setAttribute("sound", "src: url(sound/3.mp3); autoplay: true");
+                } else if (currSrc === "#a4") {
+                    currElement.setAttribute("sound", "src: url(sound/4.mp3); autoplay: true");
+                } else if (currSrc === "#a5") {
+                    currElement.setAttribute("sound", "src: url(sound/5.mp3); autoplay: true");
+                }
             })
 
             this.el.sceneEl.addEventListener('markerLost', () => {
-                window.event.srcElement.firstElementChild.setAttribute("class", "clickable");
+                let currElement = window.event.srcElement.firstElementChild;
+                currElement.setAttribute("class", "clickable");
+                currElement.removeAttribute("sound");
             })
         }
     });
