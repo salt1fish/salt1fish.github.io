@@ -43,10 +43,19 @@
                 }
             });
 
-            window.addEventListener("popstate", function (e) {
-                backClick();
-            })
+            pushHistory();
         })
+
+        function pushHistory() {
+            $(window).on('popstate', function (event) {
+                location.reload();
+            });
+            var state = {
+                title: '',
+                url: ''
+            };
+            window.history.replaceState(state, '', '');
+        }
 
         // 图片加载函数
         function imgLoad(img, index, callback) {
@@ -80,7 +89,8 @@
     <div class="loading"></div>
 </div>
 
-<a href="javascript:void(0)" class="back-btn" id="back-btn" onclick="backClick()"><img src="images/back1-btn.png" alt=""></a>
+<a href="javascript:void(0)" class="back-btn" id="back-btn" onclick="backClick()"><img src="images/back1-btn.png"
+                                                                                       alt=""></a>
 <script>
     function backClick() {
         let slide = $("#slide-sec", window.parent.document);
@@ -157,11 +167,6 @@
     function imgInit() {
         $("#img-loading").css("display", "none");
     }
-
-    // 监听回退按钮，确保触发函数
-    window.addEventListener("popstate", function (e) {
-        backClick();
-    });
 </script>
 
 </body>

@@ -51,6 +51,17 @@
 
         })
 
+        function pushHistory() {
+            $(window).on('popstate', function (event) {
+                location.reload();
+            });
+            var state = {
+                title: '',
+                url: ''
+            };
+            window.history.replaceState(state, '', '');
+        }
+
         function sleep(ms) {
             return new Promise(resolve => setTimeout(resolve, ms));
         }
@@ -69,6 +80,7 @@
                 });
                 setCookie("index_flag", "true", "s300");
             }
+            pushHistory();
             $("#logo-btn").css("pointer-events", "auto");
             $("#btn").css({"pointer-events": "auto"});
             $("#rbtn").css({"pointer-events": "auto"});
