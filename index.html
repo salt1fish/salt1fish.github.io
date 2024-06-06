@@ -49,6 +49,18 @@
             });
 
 
+        })
+
+        function sleep(ms) {
+            return new Promise(resolve => setTimeout(resolve, ms));
+        }
+
+        function myInit() {
+            let dis = Math.ceil((document.body.offsetWidth - window.innerWidth) / 2);
+            $("#l-img").css("left", dis + "px");
+            $("#r-img").css("right", dis + "px");
+            // sleep(5000);
+            $("#sk-fa").remove();
             if (getCookie("index_flag") == null) {
                 // 引导操作
                 swal("Добро пожаловать в древний мир Китая, сканируйте вспомогательную графику, чтобы раскрыть тайны китайской культуры.", {
@@ -57,12 +69,10 @@
                 });
                 setCookie("index_flag", "true", "s300");
             }
-        })
-
-        function myInit() {
-            let dis = Math.ceil((document.body.offsetWidth - window.innerWidth) / 2);
-            $("#l-img").css("left", dis + "px");
-            $("#r-img").css("right", dis + "px");
+            $("#logo-btn").css("pointer-events", "auto");
+            $("#btn").css({"pointer-events": "auto"});
+            $("#rbtn").css({"pointer-events": "auto"});
+            $("#play-btn").css({"pointer-events": "auto"});
         }
 
         // 设置cookie
@@ -108,9 +118,20 @@
 </head>
 
 <body>
+<div id="sk-fa">
+    <div class="sk-chase">
+        <div class="sk-chase-dot"></div>
+        <div class="sk-chase-dot"></div>
+        <div class="sk-chase-dot"></div>
+        <div class="sk-chase-dot"></div>
+        <div class="sk-chase-dot"></div>
+        <div class="sk-chase-dot"></div>
+    </div>
+</div>
 <!-- 导航栏 -->
 <nav>
-    <div class="logo"><a href="javascript:void(0)" id="logo-btn" onclick="logoClick()"></a></div>
+    <div class="logo"><a href="javascript:void(0)" id="logo-btn" onclick="logoClick()"
+                         style="pointer-events: none;"></a></div>
     <script>
         function logoClick() {
             let slide_sec1 = document.getElementById("slide-sec");
@@ -486,7 +507,7 @@
 </div>
 
 <!-- 左按钮 -->
-<a href="javascript:void(0)" class="container" id="btn" onclick="lclick()">
+<a href="javascript:void(0)" class="container" id="btn" onclick="lclick()" style="pointer-events: none;">
     <img src="images/8.png" alt="">
 </a>
 
@@ -521,7 +542,7 @@
 </script>
 
 <!-- 右按钮 -->
-<a href="javascript:void(0)" class="rcontainer" id="rbtn" onclick="rclick()">
+<a href="javascript:void(0)" class="rcontainer" id="rbtn" onclick="rclick()" style="pointer-events: none;">
     <img src="images/7.png" alt="">
 </a>
 
@@ -544,7 +565,7 @@
 </script>
 
 <!-- 视频按钮 -->
-<a href="javascript:void(0)" class="play-container" id="play-btn" onclick="playClick()">
+<a href="javascript:void(0)" class="play-container" id="play-btn" onclick="playClick()" style="pointer-events: none;">
     <img src="images/play.png" alt="">
 </a>
 
