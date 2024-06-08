@@ -84,6 +84,10 @@
         <img id="a5" src="images/animal/5.png">
     </a-assets>
 
+    <a-assets>
+        <img id="a6" src="images/animal/6.png">
+    </a-assets>
+
     <a-marker type="pattern" url="pattern-maker/pattern-1.patt">
         <a-image
                 src="#a1"
@@ -156,7 +160,7 @@
 
     <a-marker type="pattern" url="pattern-maker/pattern-6.patt">
         <a-image
-                src="#a4"
+                src="#a6"
                 height="1.5"
                 width="1.5"
                 rotation="-90 0 0"
@@ -212,7 +216,7 @@
 
     <a-marker type="pattern" url="pattern-maker/pattern-10.patt">
         <a-image
-                src="#a2"
+                src="#a4"
                 height="1.5"
                 width="1.5"
                 rotation="-90 0 0"
@@ -226,7 +230,7 @@
 
     <a-marker type="pattern" url="pattern-maker/pattern-11.patt">
         <a-image
-                src="#a3"
+                src="#a5"
                 height="1.5"
                 width="1.5"
                 rotation="-90 0 0"
@@ -240,7 +244,7 @@
 
     <a-marker type="pattern" url="pattern-maker/pattern-12.patt">
         <a-image
-                src="#a4"
+                src="#a6"
                 height="1.5"
                 width="1.5"
                 rotation="-90 0 0"
@@ -254,7 +258,7 @@
 
     <a-marker type="pattern" url="pattern-maker/pattern-13.patt">
         <a-image
-                src="#a5"
+                src="#a1"
                 height="1.5"
                 width="1.5"
                 rotation="-90 0 0"
@@ -268,7 +272,7 @@
 
     <a-marker type="pattern" url="pattern-maker/pattern-14.patt">
         <a-image
-                src="#a4"
+                src="#a2"
                 height="1.5"
                 width="1.5"
                 rotation="-90 0 0"
@@ -296,7 +300,7 @@
 
     <a-marker type="pattern" url="pattern-maker/pattern-16.patt">
         <a-image
-                src="#a2"
+                src="#a4"
                 height="1.5"
                 width="1.5"
                 rotation="-90 0 0"
@@ -320,15 +324,17 @@
                 let currSrc = currElement.getAttribute("src");
                 currElement.setAttribute("class", "clickable click_img");
                 if (currSrc === "#a1") {
-                    currElement.setAttribute("sound", "src: url(sound/1.mp3); autoplay: true");
+                    currElement.setAttribute("sound", "src: url(sound/1.mp3); autoplay: true; volume: 0.6");
                 } else if (currSrc === "#a2") {
-                    currElement.setAttribute("sound", "src: url(sound/2.mp3); autoplay: true");
+                    currElement.setAttribute("sound", "src: url(sound/2.mp3); autoplay: true; volume: 0.6");
                 } else if (currSrc === "#a3") {
-                    currElement.setAttribute("sound", "src: url(sound/3.mp3); autoplay: true");
+                    currElement.setAttribute("sound", "src: url(sound/3.mp3); autoplay: true; volume: 0.6");
                 } else if (currSrc === "#a4") {
-                    currElement.setAttribute("sound", "src: url(sound/4.mp3); autoplay: true");
+                    currElement.setAttribute("sound", "src: url(sound/4.mp3); autoplay: true; volume: 0.6");
                 } else if (currSrc === "#a5") {
-                    currElement.setAttribute("sound", "src: url(sound/5.mp3); autoplay: true");
+                    currElement.setAttribute("sound", "src: url(sound/5.mp3); autoplay: true; volume: 0.6");
+                } else if (currSrc === "#a6") {
+                    currElement.setAttribute("sound", "src: url(sound/6.mp3); autoplay: true; volume: 0.6");
                 }
             })
 
