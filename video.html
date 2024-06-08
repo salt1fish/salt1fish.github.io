@@ -10,6 +10,16 @@
             rel="stylesheet"
             href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.css"
     />
+    <script src="script/back.js"></script>
+
+    <script>
+        $(function () {
+            window.AndroidBack.listen(() => {
+                console.log('back');
+                detailsBackClick();
+            });
+        })
+    </script>
 </head>
 <body>
 <!-- 返回按钮 -->

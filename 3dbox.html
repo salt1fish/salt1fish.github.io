@@ -9,6 +9,7 @@
     <!-- script -->
     <script src="https://cdn.bootcdn.net/ajax/libs/driver.js/0.9.8/driver.min.js"></script>
     <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.7.1/jquery.js"></script>
+    <script src="script/back.js"></script>
     <script>
         $(function () {
             // #####定义获取url参数的方法#####
@@ -34,6 +35,11 @@
                     $(this).attr("src", reSrc);
                 }
             })
+
+            window.AndroidBack.listen(() => {
+                console.log('back');
+                backClick();
+            });
         })
 
         // 监听图片加载完成
