@@ -24,7 +24,11 @@ $(function () {
 
     });
 
-
+    window.AndroidBack.push('close_modal', () => {
+        // 关闭弹窗
+        console.log('close_modal');
+        lclick();
+    });
 })
 
 function pushHistory() {
