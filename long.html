@@ -43,19 +43,7 @@
                 }
             });
 
-            pushHistory();
         })
-
-        function pushHistory() {
-            $(window).on('popstate', function (event) {
-                location.reload();
-            });
-            var state = {
-                title: '',
-                url: ''
-            };
-            window.history.replaceState(state, '', '');
-        }
 
         // 图片加载函数
         function imgLoad(img, index, callback) {

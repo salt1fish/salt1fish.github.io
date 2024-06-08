@@ -10,22 +10,6 @@
             rel="stylesheet"
             href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.css"
     />
-    <script>
-        $(function () {
-            pushHistory();
-        })
-
-        function pushHistory() {
-            $(window).on('popstate', function (event) {
-                location.reload();
-            });
-            var state = {
-                title: '',
-                url: ''
-            };
-            window.history.replaceState(state, '', '');
-        }
-    </script>
 </head>
 <body>
 <!-- 返回按钮 -->

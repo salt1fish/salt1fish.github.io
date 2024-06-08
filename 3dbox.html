@@ -24,7 +24,6 @@
             imgLoadAll(currId);
             document.body.style.setProperty("background-image", "url('" + "images/box/bg" + currId + "_min.png" + "')");
 
-            pushHistory();
             // #####替换min图片#####
             //一段正则，匹配所有_min.的图片src属性
             let test = /_min\./
@@ -36,17 +35,6 @@
                 }
             })
         })
-
-        function pushHistory() {
-            $(window).on('popstate', function (event) {
-                location.reload();
-            });
-            var state = {
-                title: '',
-                url: ''
-            };
-            window.history.replaceState(state, '', '');
-        }
 
         // 监听图片加载完成
         function imgLoadAll(currId) {

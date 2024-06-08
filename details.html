@@ -73,19 +73,7 @@
                     prevEl: ".swiper-button-prev",
                 },
             });
-            pushHistory();
         })
-
-        function pushHistory() {
-            $(window).on('popstate', function (event) {
-                location.reload();
-            });
-            var state = {
-                title: '',
-                url: ''
-            };
-            window.history.replaceState(state, '', '');
-        }
     </script>
 </head>
 <body>
