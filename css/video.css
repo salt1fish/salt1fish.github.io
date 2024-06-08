@@ -93,7 +93,7 @@ nav {
     /*background: #ffffff;*/
     background-color: rgba(255, 255, 255, 60%);
     overflow: hidden;
-    cursor: pointer;
+    /*cursor: pointer;*/
 }
 
 .content .userCont .item img {
@@ -165,6 +165,14 @@ nav {
 }
 
 .content .textBox .text p:last-child {
+    margin-bottom: 0;
+}
+
+.content .textBox .text img {
+    width: 200px;
+}
+
+.content .textBox .text img:last-child {
     margin-bottom: 0;
 }
 
