@@ -157,6 +157,8 @@ nav {
 .content .textBox .text {
     padding: 20px;
     width: calc(100% - 150px);
+    position: relative;
+    z-index: 2;
 }
 
 .content .textBox .text p {
